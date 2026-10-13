@@ -1,0 +1,160 @@
+{
+  "status": "HUMAN_REVIEWED",
+  "document_name": "README_agent.md",
+  "input_sha256": "a7e38a418fa2bac5527184a4702529f8449183b2497a4b51f5da319f3ab7f1d0",
+  "gold_draft_count": 20,
+  "agent_prediction_count": 7,
+  "gold_to_agent": [
+    {
+      "gold_id": "G001",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "The extractor missed the core end-to-end product capability stated in the opening description."
+    },
+    {
+      "gold_id": "G002",
+      "agent_ids": [
+        "E002"
+      ],
+      "label": "MATCH",
+      "reason": "The V1 human-review product boundary is captured."
+    },
+    {
+      "gold_id": "G003",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "The high-level service-boundary architecture was not extracted."
+    },
+    {
+      "gold_id": "G004",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "run_agent() orchestration across the full workflow was not extracted."
+    },
+    {
+      "gold_id": "G005",
+      "agent_ids": [
+        "E003"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "Built-in GmailEmailSource is captured, but compatibility/test inputs are not."
+    },
+    {
+      "gold_id": "G006",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Historical-snapshot and rerun semantics were not extracted."
+    },
+    {
+      "gold_id": "G007",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Safe resume replacement semantics were not extracted."
+    },
+    {
+      "gold_id": "G008",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Active-source / historical-evidence / durable-ID semantics were not extracted."
+    },
+    {
+      "gold_id": "G009",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Onboarding commit semantics were not extracted."
+    },
+    {
+      "gold_id": "G010",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Preference snapshot semantics were not extracted."
+    },
+    {
+      "gold_id": "G011",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "The Requirement → Support → Evidence trace contract was not extracted."
+    },
+    {
+      "gold_id": "G012",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Database migration and evidence-protection behavior were not extracted."
+    },
+    {
+      "gold_id": "G013",
+      "agent_ids": [
+        "E004"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "The 40-test result is captured, but migration-preservation testing is omitted."
+    },
+    {
+      "gold_id": "G014",
+      "agent_ids": [
+        "E007"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "Streamlit implementation is captured, but the substantive UI/service architecture and product behaviors are omitted."
+    },
+    {
+      "gold_id": "G015",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Read-only OAuth, local token privacy, and refresh/recovery behavior were not extracted."
+    },
+    {
+      "gold_id": "G016",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Safe Gmail account switching was not extracted."
+    },
+    {
+      "gold_id": "G017",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Account-scoped processed-email dedupe was not extracted."
+    },
+    {
+      "gold_id": "G018",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Metadata-first Gmail ingestion was not extracted."
+    },
+    {
+      "gold_id": "G019",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Authorization recovery / Run Agent disable behavior was not extracted."
+    },
+    {
+      "gold_id": "G020",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Provider-neutral EmailSource.account_key() contract was not extracted."
+    }
+  ],
+  "agent_only": [
+    {
+      "agent_id": "E001",
+      "label": "EXTRA_OUT_OF_SCOPE",
+      "reason": "Packaging provenance ('integrated update built from uploaded zip') is not candidate capability evidence."
+    },
+    {
+      "agent_id": "E005",
+      "label": "EXTRA_OUT_OF_SCOPE",
+      "reason": "Packaging-environment limitation about live tests is not a candidate capability."
+    },
+    {
+      "agent_id": "E006",
+      "label": "EXTRA_OUT_OF_SCOPE",
+      "reason": "Python 3.11+ runtime requirement is environment metadata, not candidate evidence."
+    }
+  ],
+  "diagnostics": {
+    "verbatim_source_count": 4,
+    "verbatim_source_rate": 0.5714285714285714,
+    "note": "The dominant issue is recall/selection, not hallucination. Final metrics should wait until Gold and partial-match scoring are human-frozen."
+  },
+  "publication_review_note": "Author confirmed human review completed; legacy draft status metadata normalized for Portfolio V1. Semantic annotations are unchanged."
+}

@@ -1,0 +1,289 @@
+{
+  "eval_name": "candidate_evidence_extraction",
+  "gold_set_status": "HUMAN_REVIEWED",
+  "gold_version": "v2_resume_only",
+  "document_name": "synthetic_new_grad_ai_product_resume.md",
+  "annotation_policy": {
+    "include": [
+      "education credentials and dates relevant to job requirements",
+      "work role and duration facts",
+      "implemented work and responsibilities",
+      "research and evaluation activities",
+      "measured outcomes and product decisions",
+      "explicit skill/tool lists that may matter for downstream matching"
+    ],
+    "exclude_by_default": [
+      "contact information",
+      "candidate location unless explicitly needed by the evidence-matching scope",
+      "synthetic/evaluation-document metadata",
+      "high-level summary claims when stronger detailed evidence exists elsewhere in the same resume"
+    ],
+    "granularity_rule": "Prefer atomic accomplishment or credential units. Keep explicitly grouped skill lists at the resume's own category level to avoid exploding one skills section into dozens of benchmark items."
+  },
+  "gold_evidence": [
+    {
+      "gold_id": "G001",
+      "claim": "Earned an M.S. in Human-Computer Interaction at Western Lakes University, Sep 2024–May 2026.",
+      "source_section": "Education — Western Lakes University",
+      "source_text": "### Western Lakes University\n**M.S. in Human-Computer Interaction**  \nSep 2024 – May 2026",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G002",
+      "claim": "Completed coursework in Machine Learning for Product Teams, Product Analytics, Human-AI Interaction, Experiment Design, and Data Visualization.",
+      "source_section": "Education — Western Lakes University",
+      "source_text": "- Coursework: Machine Learning for Product Teams, Product Analytics, Human-AI Interaction, Experiment Design, Data Visualization.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G003",
+      "claim": "Completed a graduate capstone focused on evaluating user trust and task completion in an AI-assisted workflow.",
+      "source_section": "Education — Western Lakes University",
+      "source_text": "- Graduate capstone focused on evaluating user trust and task completion in an AI-assisted workflow.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G004",
+      "claim": "Earned a B.S. in Information Science at State College of Technology, Sep 2020–May 2024, with a minor in Statistics.",
+      "source_section": "Education — State College of Technology",
+      "source_text": "### State College of Technology\n**B.S. in Information Science**  \nSep 2020 – May 2024\n\n- Minor in Statistics.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G005",
+      "claim": "Was on the Dean’s List from 2022–2024.",
+      "source_section": "Education — State College of Technology",
+      "source_text": "- Dean’s List, 2022–2024.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G006",
+      "claim": "Worked as an AI Product Intern at Meridian Product Studio from Jun 2025–Sep 2025.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "### AI Product Intern — Meridian Product Studio\n**San Francisco, CA | Jun 2025 – Sep 2025**",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G007",
+      "claim": "Worked with a product manager, designer, and three engineers on an AI-assisted customer-support workflow for a B2B software prototype.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Worked with a product manager, designer, and three engineers on an AI-assisted customer-support workflow for a B2B software prototype.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G008",
+      "claim": "Conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G009",
+      "claim": "Defined acceptance criteria for an AI-generated response-suggestion feature across relevance, factual consistency, response latency, and user editability.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Defined acceptance criteria for an AI-generated response suggestion feature, including relevance, factual consistency, response latency, and user editability.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G010",
+      "claim": "Created a 60-question evaluation set and manually labeled expected answer topics for internal testing.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Created a lightweight evaluation set of 60 support questions and manually labeled expected answer topics for internal testing.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G011",
+      "claim": "Analyzed test results in Python and spreadsheets to compare two prompt variants across answer relevance and completion rate.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Analyzed test results in Python and spreadsheets to compare two prompt variants across answer relevance and completion rate.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G012",
+      "claim": "Identified a tradeoff in which one prompt improved relevance but increased response length and latency, and recommended the shorter variant for the initial pilot.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Identified that one prompt variant improved answer relevance but increased response length and latency; recommended keeping the shorter variant for the initial pilot.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G013",
+      "claim": "Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G014",
+      "claim": "Presented weekly findings and product recommendations to the project lead.",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Presented weekly findings and product recommendations to the project lead.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G015",
+      "claim": "Worked as a Product Analytics Intern at BrightPath Learning from Jun 2024–Aug 2024.",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "### Product Analytics Intern — BrightPath Learning\n**Remote | Jun 2024 – Aug 2024**",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G016",
+      "claim": "Analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis.",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G017",
+      "claim": "Built an onboarding funnel covering account creation, first lesson start, lesson completion, and seven-day return behavior.",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Built a funnel covering account creation, first lesson start, lesson completion, and seven-day return behavior.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G018",
+      "claim": "Found a large drop-off between account creation and first lesson start and worked with the product team to define hypotheses for the decline.",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Found a large drop-off between account creation and first lesson start and worked with the product team to define hypotheses for the decline.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G019",
+      "claim": "Helped design an A/B test comparing two onboarding flows and documented the primary metric, guardrail metrics, and experiment assumptions.",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Helped design an A/B test comparing two onboarding flows and documented the primary metric, guardrail metrics, and experiment assumptions.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G020",
+      "claim": "Created a dashboard summarizing activation and retention metrics for weekly product reviews.",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Created a dashboard summarizing activation and retention metrics for weekly product reviews.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G021",
+      "claim": "Wrote product requirement notes for an onboarding checklist based on research findings and analytics.",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Wrote product requirement notes for an onboarding checklist based on research findings and analytics.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G022",
+      "claim": "Worked as a Graduate Research Assistant in the Human-AI Interaction Lab at Western Lakes University from Jan 2025–May 2026.",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "### Graduate Research Assistant — Human-AI Interaction Lab, Western Lakes University\n**Jan 2025 – May 2026**",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G023",
+      "claim": "Supported a study on how users interpret confidence and uncertainty in AI-generated recommendations.",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Supported a study on how users interpret confidence and uncertainty in AI-generated recommendations.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G024",
+      "claim": "Prepared study materials, helped run moderated usability sessions, and organized qualitative research notes.",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Prepared study materials, helped run moderated usability sessions, and organized qualitative research notes.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G025",
+      "claim": "Coded participant feedback into recurring themes related to trust, explanation quality, and willingness to verify AI output.",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Coded participant feedback into recurring themes related to trust, explanation quality, and willingness to verify AI output.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G026",
+      "claim": "Used Python to clean survey data and calculate descriptive statistics.",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Used Python to clean survey data and calculate descriptive statistics.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G027",
+      "claim": "Contributed to a research summary comparing user behavior across two explanation designs.",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Contributed to a research summary comparing user behavior across two explanation designs.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G028",
+      "claim": "Worked on an AI Feedback Triage Prototype as a course team project in 2025.",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "### AI Feedback Triage Prototype\n**Course Team Project | 2025**",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G029",
+      "claim": "Helped define a prototype that grouped free-form customer feedback into product themes for faster review.",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Helped define a prototype that grouped free-form customer feedback into product themes for faster review.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G030",
+      "claim": "Wrote user stories and acceptance criteria for feedback ingestion, theme assignment, and human correction.",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Wrote user stories and acceptance criteria for feedback ingestion, theme assignment, and human correction.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G031",
+      "claim": "Used an LLM API to test structured classification outputs on a small manually labeled dataset.",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Used an LLM API to test structured classification outputs on a small manually labeled dataset.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G032",
+      "claim": "Reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment.",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G033",
+      "claim": "Proposed a human-review step for low-confidence classifications instead of automatically accepting every model output.",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Proposed a human-review step for low-confidence classifications instead of automatically accepting every model output.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G034",
+      "claim": "Lists product skills including product requirements, user stories, prioritization, user research, usability testing, experiment design, metric definition, product analytics, and A/B testing.",
+      "source_section": "Skills — Product",
+      "source_text": "**Product:** Product requirements, user stories, prioritization, user research, usability testing, experiment design, metric definition, product analytics, A/B testing",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G035",
+      "claim": "Lists AI/data skills including LLM APIs, prompt evaluation, basic machine learning concepts, offline evaluation, error analysis, Python, SQL, and pandas.",
+      "source_section": "Skills — AI / Data",
+      "source_text": "**AI / Data:** LLM APIs, prompt evaluation, basic machine learning concepts, offline evaluation, error analysis, Python, SQL, pandas",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G036",
+      "claim": "Lists design/collaboration skills including Figma, journey mapping, wireframing, stakeholder communication, and cross-functional collaboration.",
+      "source_section": "Skills — Design / Collaboration",
+      "source_text": "**Design / Collaboration:** Figma, journey mapping, wireframing, stakeholder communication, cross-functional collaboration",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G037",
+      "claim": "Lists tools including Git, GitHub, Jupyter Notebook, Excel / Google Sheets, Tableau, and Postman.",
+      "source_section": "Skills — Tools",
+      "source_text": "**Tools:** Git, GitHub, Jupyter Notebook, Excel / Google Sheets, Tableau, Postman",
+      "evidence_type": "NOT_SCORED_V1"
+    }
+  ],
+  "summary": {
+    "document_count": 1,
+    "gold_evidence_count": 37
+  },
+  "publication_review_note": "Author confirmed human review completed; legacy draft status metadata normalized for Portfolio V1. Semantic annotations are unchanged."
+}

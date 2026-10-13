@@ -1,0 +1,1197 @@
+{
+  "eval_name": "candidate_evidence_extraction",
+  "eval_version": "v1",
+  "scope": "raw_extractor_only",
+  "model": "qwen3.6-flash",
+  "input_documents": [
+    "README._deeplearning.md",
+    "README_RAG.md",
+    "README_agent.md",
+    "synthetic_new_grad_ai_product_resume.md"
+  ],
+  "summary": {
+    "document_count": 4,
+    "prediction_count": 72,
+    "verbatim_source_count": 56,
+    "verbatim_source_rate": 0.7777777777777778,
+    "empty_claim_count": 0
+  },
+  "cases": [
+    {
+      "document_name": "README._deeplearning.md",
+      "prediction_count": 8,
+      "predictions": [
+        {
+          "evidence_id": "E001",
+          "claim": "The repository contains six graduate-level machine learning and deep learning projects.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Introduction",
+          "source_text": "This repository consolidates six graduate-level machine learning and deep learning projects into one structured portfolio for Applied AI Engineer / Machine Learning Engineer roles.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E002",
+          "claim": "The project implements neural networks from scratch, including forward propagation, loss computation, backpropagation, and parameter updates.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Project Narrative",
+          "source_text": "I began with classical regression and classification methods, then implemented neural networks from scratch to understand how forward propagation, loss computation, backpropagation, and parameter updates work.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E003",
+          "claim": "The project includes implementation of dropout, batch normalization, mini-batch training, and Adam-style optimization techniques.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Project Narrative",
+          "source_text": "I then improved model training with dropout, batch normalization, mini-batch training, and Adam-style optimization.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E004",
+          "claim": "The project implements PyTorch-based CNN, GAN, and domain-adversarial learning models.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Project Narrative",
+          "source_text": "Finally, I implemented PyTorch-based CNN, GAN, and domain-adversarial learning models, including a gradient reversal layer for source-to-target domain adaptation.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E005",
+          "claim": "In the Neural Network from Scratch module on an MNIST subset, testing accuracy was 90.80%.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Module Overview - Module 2",
+          "source_text": "MNIST subset: cost decreased from 2.303 to around 0.158; training accuracy 97.25%; testing accuracy 90.80%.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E006",
+          "claim": "In the Neural Network Optimization Techniques module on the MNIST full dataset, testing accuracy was 96.170%.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Module Overview - Module 3",
+          "source_text": "MNIST full dataset: network reached 96.748% training accuracy and 96.170% testing accuracy.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E007",
+          "claim": "The CNN Image Classification module achieved 91.000% test accuracy.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Module Overview - Module 4",
+          "source_text": "CNN achieved 94.506% train accuracy and 91.000% test accuracy.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E008",
+          "claim": "In the Domain-Adversarial Neural Network module, the DANN model improved target-domain generalization by 4.92 percentage points compared to the source-only model.",
+          "source_document": "README._deeplearning.md",
+          "source_section": "Module Overview - Module 6",
+          "source_text": "Source-only model: source test 94.11%, target test 57.17%. With DANN: source test 85.90%, target test 62.09%, improving target-domain generalization by 4.92 percentage points.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        }
+      ]
+    },
+    {
+      "document_name": "README_RAG.md",
+      "prediction_count": 21,
+      "predictions": [
+        {
+          "evidence_id": "E001",
+          "claim": "The project is an adaptive retrieval-augmented generation system designed to help users evaluate how their projects and experience match dynamically provided job postings.",
+          "source_document": "README_RAG.md",
+          "source_section": "README_RAG.md",
+          "source_text": "# AI Career Knowledge Assistant\n\nAn adaptive retrieval-augmented generation system that helps users evaluate how their projects and experience match dynamically provided job postings.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E002",
+          "claim": "The system supports questions regarding project matching, evidence of fit, gaps, resume positioning, and interview explanations based on user-provided job descriptions.",
+          "source_document": "README_RAG.md",
+          "source_section": "README_RAG.md",
+          "source_text": "Users can paste any job description, role requirements, or hiring criteria and ask questions such as:\n\n- Which of my projects best match this role?\n- What evidence supports my fit for this position?\n- What gaps should I address?\n- How should I position a project on my resume?\n- How should I explain the project in an interview?",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E003",
+          "claim": "The system combines Basic RAG, Agentic multi-query retrieval, conversation-aware question rewriting, intent classification, adaptive routing, dedicated Qwen reranking, full-candidate fallback, retrieval transparency, verification, offline validation, model-provider abstraction, and a Streamlit user interface.",
+          "source_document": "README_RAG.md",
+          "source_section": "Project Overview",
+          "source_text": "To support both cases, this project combines:\n\n- Basic RAG\n- Agentic multi-query retrieval\n- Conversation-aware question rewriting\n- Intent classification\n- Adaptive routing\n- Dedicated Qwen reranking\n- Full-candidate fallback when reranking is unavailable\n- Retrieval transparency\n- Verification and offline validation\n- Model-provider abstraction\n- A Streamlit user interface",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E004",
+          "claim": "The system uses ChromaDB for vector storage and retrieval, embedding text chunks from local knowledge base documents.",
+          "source_document": "README_RAG.md",
+          "source_section": "Key Capabilities > 1. Document Ingestion and Chunking",
+          "source_text": "These chunks are embedded and stored in ChromaDB for semantic retrieval.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E005",
+          "claim": "Basic RAG is used for direct factual retrieval and single-project explanation, following a workflow of query embedding, ChromaDB retrieval, context construction, and grounded answer generation.",
+          "source_document": "README_RAG.md",
+          "source_section": "Key Capabilities > 2. Basic RAG",
+          "source_text": "Workflow:\n\n```\ntext\nUser question\n→ Query embedding\n→ ChromaDB retrieval\n→ Context construction\n→ Grounded answer generation\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E006",
+          "claim": "Agentic RAG handles complex queries through conversation-aware question rewriting, multi-query planning, retrieval, candidate merging, chunk deduplication, Qwen global reranking, top-evidence selection, context construction, and grounded answer synthesis.",
+          "source_document": "README_RAG.md",
+          "source_section": "Key Capabilities > 3. Agentic RAG",
+          "source_text": "Workflow:\n\n```\ntext\nUser question\n→ Conversation-aware question rewriting\n→ Multi-query planning\n→ Retrieval for each query\n→ Candidate merging\n→ Chunk deduplication\n→ Qwen global reranking\n→ Top-evidence selection\n→ Context construction\n→ Grounded answer synthesis\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E007",
+          "claim": "Adaptive RAG classifies user intent to automatically select between Basic RAG for simple factual intents and Agentic RAG for complex analytical or positioning intents.",
+          "source_document": "README_RAG.md",
+          "source_section": "Key Capabilities > 4. Adaptive RAG",
+          "source_text": "The system first classifies the user's intent, then automatically selects Basic or Agentic RAG.\n\n```\ntext\nSimple factual intent\n→ Basic RAG\n\nComplex analytical or positioning intent\n→ Agentic RAG\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E008",
+          "claim": "Intent categories include factual lookup, project explanation, project comparison, job fit analysis, gap analysis, resume or interview positioning, and risk and limitations.",
+          "source_document": "README_RAG.md",
+          "source_section": "Intent Classification",
+          "source_text": "Current intent categories:\n\n```python\nQUESTION_TYPES = [\n    \"factual lookup\",\n    \"project explanation\",\n    \"project comparison\",\n    \"job fit analysis\",\n    \"gap analysis\",\n    \"resume or interview positioning\",\n    \"risk and limitations\",\n]\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E009",
+          "claim": "Conversation-aware question rewriting resolves references like 'this project' or 'the previous role' using recent messages stored in the current Streamlit session.",
+          "source_document": "README_RAG.md",
+          "source_section": "Conversation-Aware Question Rewriting",
+          "source_text": "The system stores recent messages in the current Streamlit session and uses them to resolve follow-up questions.\n...The rewriting step is designed to:\n- Resolve references such as “this project,” “it,” or “the previous role”\n- Preserve the user's original intent\n- Avoid introducing unsupported facts\n- Produce a clearer query for downstream retrieval",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E010",
+          "claim": "Agentic RAG generates up to 4 search queries, retrieving up to 3 chunks per query, resulting in up to 12 initial candidates before deduplication.",
+          "source_document": "README_RAG.md",
+          "source_section": "Multi-Query Retrieval",
+          "source_text": "With the default configuration:\n\n```\ntext\nUp to 4 search queries\n×\nUp to 3 chunks per query\n=\nUp to 12 initial candidates before deduplication\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E011",
+          "claim": "Deduplicated candidates retain metadata including every search query that retrieved them, retrieval rank, retrieval distance, number of query hits, and original candidate position.",
+          "source_document": "README_RAG.md",
+          "source_section": "Multi-Query Retrieval",
+          "source_text": "A deduplicated chunk can retain:\n- Every search query that retrieved it\n- Its retrieval rank for each query\n- Its retrieval distance for each query\n- The number of query hits\n- Its original candidate position",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E012",
+          "claim": "For Agentic RAG, a dedicated Qwen reranker (qwen3-rerank) ranks all deduplicated candidate chunks against the standalone user question to select top 8 evidence chunks.",
+          "source_document": "README_RAG.md",
+          "source_section": "Reranking and Evidence Selection",
+          "source_text": "For Agentic RAG, the complete deduplicated candidate pool is sent to a dedicated Qwen reranker.\n\n```\ntext\nStandalone user question\n+\nAll deduplicated candidate chunks\n        ↓\nqwen3-rerank\n        ↓\nGlobal relevance scores\n        ↓\nTop 8 evidence chunks\n        ↓\nFinal answer generation\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E013",
+          "claim": "If Qwen reranking is disabled or fails, the system passes the full set of deduplicated candidates to the generation model rather than truncating by first-seen order.",
+          "source_document": "README_RAG.md",
+          "source_section": "Full-Candidate Fallback",
+          "source_text": "If Qwen reranking is disabled or fails:\n\n```\ntext\nAll deduplicated candidates\n→ No blind truncation\n→ Full candidate set is passed to the generation model\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E014",
+          "claim": "The project uses Qwen as the model provider, with qwen3.7-plus for generation, text-embedding-v4 for embeddings, and qwen3-rerank for reranking.",
+          "source_document": "README_RAG.md",
+          "source_section": "Model Provider Abstraction",
+          "source_text": "Current configuration:\n\n```\ntext\nModel provider: Qwen\nGeneration model: qwen3.7-plus\nEmbedding model: text-embedding-v4\nReranker model: qwen3-rerank\nGeneration API style: OpenAI-compatible Chat Completions\nRerank API style: Dedicated rerank endpoint\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E015",
+          "claim": "The core RAG pipeline depends on a provider interface implemented in `model_provider.py` to separate business logic from model-specific API implementation.",
+          "source_document": "README_RAG.md",
+          "source_section": "Model Provider Abstraction",
+          "source_text": "Instead, `rag_core.py` depends on a small provider interface:\n\n```python\ncall_llm_text(...)\ncall_llm_json(...)\nget_embedding(...)\nrerank_documents(...)\n```\n\nThese functions are implemented in `model_provider.py`.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E016",
+          "claim": "The Streamlit interface includes advanced controls for forced selection of Basic, Agentic, or Adaptive RAG, and replaces engineering terms like `top_k` with user-friendly evidence-coverage controls (Focused, Balanced, Comprehensive).",
+          "source_document": "README_RAG.md",
+          "source_section": "Streamlit User Experience > Advanced Controls",
+          "source_text": "They allow forced selection of:\n- Auto / Adaptive RAG\n- Basic RAG\n- Agentic RAG\n\nThe UI also replaces the engineering term `top_k` with a user-friendly evidence-coverage control:\n- Focused\n- Balanced\n- Comprehensive",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E017",
+          "claim": "The evaluation framework includes an internal offline evaluation runner built around a curated nine-question test set that executes questions in Basic, Agentic, and Adaptive RAG modes.",
+          "source_document": "README_RAG.md",
+          "source_section": "Evaluation Framework",
+          "source_text": "The project includes an internal offline evaluation runner built around a curated nine-question test set.\n\nThe runner can execute each question in:\n- Basic RAG\n- Agentic RAG\n- Adaptive RAG",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E018",
+          "claim": "The evaluation framework covers verification of system execution and validation of evidence and answer usefulness, using structured rubrics for human review or future LLM-as-judge.",
+          "source_document": "README_RAG.md",
+          "source_section": "Evaluation Framework",
+          "source_text": "The evaluation framework covers two complementary dimensions:\n\n```\ntext\nVerification\n→ Did the system execute according to its intended design?\n\nValidation\n→ Did the resulting evidence and answer appear useful for the user's task?\n```",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E019",
+          "claim": "The project structure includes main files app.py, rag_core.py, model_provider.py, eval_questions.py, and eval_runner.py.",
+          "source_document": "README_RAG.md",
+          "source_section": "Project Structure",
+          "source_text": "### Main Files\n\n#### `app.py`\n\nStreamlit user interface, session memory, adaptive-mode defaults, advanced controls, evidence display, and progressive disclosure.\n\n#### `rag_core.py`\n\nDocument loading, chunking, ingestion, retrieval, question classification, routing, contextual rewriting, multi-query planning, candidate deduplication, reranking integration, fallback behavior, and answer generation.\n\n#### `model_provider.py`\n\nProvider configuration and shared interfaces for text generation, structured JSON output, embeddings, and Qwen reranking.\n\n#### `eval_questions.py`\n\nEvaluation scenarios, human-labeled expected question types, evidence expectations, and answer-quality rubrics.\n\n#### `eval_runner.py`\n\nRuns Basic, Agentic, and Adaptive workflows and saves structured verification, evidence, rerank, fallback, and answer-review results.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E020",
+          "claim": "The technology stack includes Python, Streamlit, ChromaDB, Qwen/Alibaba Model Studio, OpenAI Python SDK, HTTPX, python-dotenv, and JSON-based evaluation artifacts.",
+          "source_document": "README_RAG.md",
+          "source_section": "Technology Stack",
+          "source_text": "- Python\n- Streamlit\n- ChromaDB\n- Qwen / Alibaba Model Studio\n- OpenAI Python SDK for the OpenAI-compatible generation API\n- HTTPX for the dedicated rerank endpoint\n- python-dotenv\n- JSON-based evaluation artifacts",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E021",
+          "claim": "The project demonstrates the ability to build an end-to-end RAG application, design Basic, Agentic, and Adaptive retrieval workflows, use classification and routing, incorporate conversation context, build multi-query search and global reranking, design recall-preserving fallback, create verification and offline-validation frameworks, separate model-provider implementation, migrate from OpenAI to Qwen services, and translate engineering controls into end-user experiences.",
+          "source_document": "README_RAG.md",
+          "source_section": "What This Project Demonstrates",
+          "source_text": "This project demonstrates the ability to:\n- Build an end-to-end RAG application\n- Design Basic, Agentic, and Adaptive retrieval workflows\n- Use classification and routing to control system behavior\n- Incorporate conversation context into retrieval\n- Build multi-query search, evidence deduplication, and global reranking\n- Design a recall-preserving fallback for reranker failure\n- Create a verification and offline-validation framework instead of relying only on demos\n- Separate model-provider implementation from core application logic\n- Migrate a working system from OpenAI Responses API to Qwen generation, embedding, and reranking services\n- Translate engineering controls into a clearer end-user experience\n- Improve a technical prototype through product-oriented iteration",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        }
+      ]
+    },
+    {
+      "document_name": "README_agent.md",
+      "prediction_count": 7,
+      "predictions": [
+        {
+          "evidence_id": "E001",
+          "claim": "The package is an integrated update built from the uploaded ai_job_search_agent.zip.",
+          "source_document": "README_agent.md",
+          "source_section": "README_agent.md",
+          "source_text": "This package is an integrated update built from the uploaded `ai_job_search_agent.zip` as the source of truth.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E002",
+          "claim": "The V1 workflow stops at human review and does not include automatic resume customization or application flow.",
+          "source_document": "README_agent.md",
+          "source_section": "Product boundary",
+          "source_text": "The V1 workflow stops at human review: ... There is no automatic resume customization or application flow in this package.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E003",
+          "claim": "The local UI uses the built-in GmailEmailSource.",
+          "source_document": "README_agent.md",
+          "source_section": "Agent run",
+          "source_text": "The local UI now uses the built-in `GmailEmailSource`.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E004",
+          "claim": "The unit suite passed 40 tests at packaging time.",
+          "source_document": "README_agent.md",
+          "source_section": "Tests",
+          "source_text": "At packaging time the unit suite passed: `40 passed`",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E005",
+          "claim": "Live LLM/network tests were not executed in the packaging environment due to lack of external network access and missing openai package.",
+          "source_document": "README_agent.md",
+          "source_section": "Tests",
+          "source_text": "Live LLM/network tests were not executed in the packaging environment because it has no external network access and the `openai` package is not installed there.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E006",
+          "claim": "Python 3.11+ is required by the project.",
+          "source_document": "README_agent.md",
+          "source_section": "Local UI",
+          "source_text": "Python 3.11+ is required by the project (`StrEnum` and modern type syntax are used throughout the codebase).",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": false,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E007",
+          "claim": "The finalized local UI is implemented in app.py with Streamlit.",
+          "source_document": "README_agent.md",
+          "source_section": "Local UI",
+          "source_text": "The finalized local UI is implemented in `app.py` with Streamlit.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        }
+      ]
+    },
+    {
+      "document_name": "synthetic_new_grad_ai_product_resume.md",
+      "prediction_count": 36,
+      "predictions": [
+        {
+          "evidence_id": "E001",
+          "claim": "Alex Chen is a new grad AI product candidate located in the San Francisco Bay Area.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Header",
+          "source_text": "**New Grad AI Product Candidate**  \nSan Francisco Bay Area, CA",
+          "evidence_type": "IDENTITY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E002",
+          "claim": "The resume is a synthetic evaluation document with fictional names, organizations, dates, and achievements.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Header",
+          "source_text": "> **Synthetic evaluation resume.** All names, organizations, dates, and achievements below are fictional and created only for AI product evaluation practice.",
+          "evidence_type": "CONTEXT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E003",
+          "claim": "Alex Chen has experience supporting AI-enabled product development, user research, experimentation, and analytics.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Summary",
+          "source_text": "Early-career AI product candidate with experience supporting AI-enabled product development, user research, experimentation, and analytics.",
+          "evidence_type": "SKILL_SUMMARY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E004",
+          "claim": "Alex Chen is comfortable translating user problems into product requirements, collaborating with engineering and design, and working with Python, SQL, APIs, and basic machine learning workflows.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Summary",
+          "source_text": "Comfortable translating user problems into product requirements, collaborating with engineering and design, and working with Python, SQL, APIs, and basic machine learning workflows.",
+          "evidence_type": "SKILL_SUMMARY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E005",
+          "claim": "Alex Chen is pursuing an M.S. in Human-Computer Interaction at Western Lakes University from Sep 2024 to May 2026.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Education / Western Lakes University",
+          "source_text": "### Western Lakes University\n**M.S. in Human-Computer Interaction**  \nSep 2024 – May 2026",
+          "evidence_type": "EDUCATION",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E006",
+          "claim": "Alex Chen's graduate capstone focused on evaluating user trust and task completion in an AI-assisted workflow.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Education / Western Lakes University",
+          "source_text": "- Graduate capstone focused on evaluating user trust and task completion in an AI-assisted workflow.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E007",
+          "claim": "Alex Chen holds a B.S. in Information Science from State College of Technology from Sep 2020 to May 2024, with a Minor in Statistics.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Education / State College of Technology",
+          "source_text": "### State College of Technology\n**B.S. in Information Science**  \nSep 2020 – May 2024\n\n- Minor in Statistics.",
+          "evidence_type": "EDUCATION",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E008",
+          "claim": "Alex Chen was on Dean’s List for 2022–2024 during their undergraduate studies.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Education / State College of Technology",
+          "source_text": "- Dean’s List, 2022–2024.",
+          "evidence_type": "ACHIEVEMENT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E009",
+          "claim": "Alex Chen worked as an AI Product Intern at Meridian Product Studio in San Francisco, CA from Jun 2025 to Sep 2025.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "### AI Product Intern — Meridian Product Studio\n**San Francisco, CA | Jun 2025 – Sep 2025**",
+          "evidence_type": "EXPERIENCE",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E010",
+          "claim": "At Meridian Product Studio, Alex Chen worked with a product manager, designer, and three engineers on an AI-assisted customer-support workflow for a B2B software prototype.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Worked with a product manager, designer, and three engineers on an AI-assisted customer-support workflow for a B2B software prototype.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E011",
+          "claim": "Alex Chen conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E012",
+          "claim": "Alex Chen defined acceptance criteria for an AI-generated response suggestion feature, including relevance, factual consistency, response latency, and user editability.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Defined acceptance criteria for an AI-generated response suggestion feature, including relevance, factual consistency, response latency, and user editability.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E013",
+          "claim": "Alex Chen created a lightweight evaluation set of 60 support questions and manually labeled expected answer topics for internal testing.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Created a lightweight evaluation set of 60 support questions and manually labeled expected answer topics for internal testing.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E014",
+          "claim": "Alex Chen analyzed test results in Python and spreadsheets to compare two prompt variants across answer relevance and completion rate.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Analyzed test results in Python and spreadsheets to compare two prompt variants across answer relevance and completion rate.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E015",
+          "claim": "Alex Chen identified that one prompt variant improved answer relevance but increased response length and latency, and recommended keeping the shorter variant for the initial pilot.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Identified that one prompt variant improved answer relevance but increased response length and latency; recommended keeping the shorter variant for the initial pilot.",
+          "evidence_type": "OUTCOME",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E016",
+          "claim": "Alex Chen partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E017",
+          "claim": "Alex Chen presented weekly findings and product recommendations to the project lead at Meridian Product Studio.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / AI Product Intern — Meridian Product Studio",
+          "source_text": "- Presented weekly findings and product recommendations to the project lead.",
+          "evidence_type": "ACTIVITY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E018",
+          "claim": "Alex Chen worked as a Product Analytics Intern at BrightPath Learning remotely from Jun 2024 to Aug 2024.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Product Analytics Intern — BrightPath Learning",
+          "source_text": "### Product Analytics Intern — BrightPath Learning\n**Remote | Jun 2024 – Aug 2024**",
+          "evidence_type": "EXPERIENCE",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E019",
+          "claim": "At BrightPath Learning, Alex Chen analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Product Analytics Intern — BrightPath Learning",
+          "source_text": "- Analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E020",
+          "claim": "Alex Chen built a funnel covering account creation, first lesson start, lesson completion, and seven-day return behavior at BrightPath Learning.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Product Analytics Intern — BrightPath Learning",
+          "source_text": "- Built a funnel covering account creation, first lesson start, lesson completion, and seven-day return behavior.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E021",
+          "claim": "Alex Chen found a large drop-off between account creation and first lesson start and worked with the product team to define hypotheses for the decline.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Product Analytics Intern — BrightPath Learning",
+          "source_text": "- Found a large drop-off between account creation and first lesson start and worked with the product team to define hypotheses for the decline.",
+          "evidence_type": "OUTCOME",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E022",
+          "claim": "Alex Chen helped design an A/B test comparing two onboarding flows and documented the primary metric, guardrail metrics, and experiment assumptions.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Product Analytics Intern — BrightPath Learning",
+          "source_text": "- Helped design an A/B test comparing two onboarding flows and documented the primary metric, guardrail metrics, and experiment assumptions.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E023",
+          "claim": "Alex Chen created a dashboard summarizing activation and retention metrics for weekly product reviews at BrightPath Learning.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Product Analytics Intern — BrightPath Learning",
+          "source_text": "- Created a dashboard summarizing activation and retention metrics for weekly product reviews.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E024",
+          "claim": "Alex Chen wrote product requirement notes for an onboarding checklist based on research findings and analytics at BrightPath Learning.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Product Analytics Intern — BrightPath Learning",
+          "source_text": "- Wrote product requirement notes for an onboarding checklist based on research findings and analytics.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E025",
+          "claim": "Alex Chen worked as a Graduate Research Assistant at the Human-AI Interaction Lab, Western Lakes University from Jan 2025 to May 2026.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Graduate Research Assistant",
+          "source_text": "### Graduate Research Assistant — Human-AI Interaction Lab, Western Lakes University\n**Jan 2025 – May 2026**",
+          "evidence_type": "EXPERIENCE",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E026",
+          "claim": "At the Human-AI Interaction Lab, Alex Chen supported a study on how users interpret confidence and uncertainty in AI-generated recommendations.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Graduate Research Assistant",
+          "source_text": "- Supported a study on how users interpret confidence and uncertainty in AI-generated recommendations.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E027",
+          "claim": "Alex Chen prepared study materials, helped run moderated usability sessions, and organized qualitative research notes at the Human-AI Interaction Lab.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Graduate Research Assistant",
+          "source_text": "- Prepared study materials, helped run moderated usability sessions, and organized qualitative research notes.",
+          "evidence_type": "ACTIVITY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E028",
+          "claim": "Alex Chen coded participant feedback into recurring themes related to trust, explanation quality, and willingness to verify AI output.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Graduate Research Assistant",
+          "source_text": "- Coded participant feedback into recurring themes related to trust, explanation quality, and willingness to verify AI output.",
+          "evidence_type": "ACTIVITY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E029",
+          "claim": "Alex Chen used Python to clean survey data and calculate descriptive statistics at the Human-AI Interaction Lab.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Graduate Research Assistant",
+          "source_text": "- Used Python to clean survey data and calculate descriptive statistics.",
+          "evidence_type": "ACTIVITY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E030",
+          "claim": "Alex Chen contributed to a research summary comparing user behavior across two explanation designs.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Experience / Graduate Research Assistant",
+          "source_text": "- Contributed to a research summary comparing user behavior across two explanation designs.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E031",
+          "claim": "Alex Chen worked on an AI Feedback Triage Prototype course team project in 2025.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Selected Product Work / AI Feedback Triage Prototype",
+          "source_text": "### AI Feedback Triage Prototype\n**Course Team Project | 2025**",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E032",
+          "claim": "In the AI Feedback Triage Prototype project, Alex Chen helped define a prototype that grouped free-form customer feedback into product themes for faster review.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Selected Product Work / AI Feedback Triage Prototype",
+          "source_text": "- Helped define a prototype that grouped free-form customer feedback into product themes for faster review.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E033",
+          "claim": "Alex Chen wrote user stories and acceptance criteria for feedback ingestion, theme assignment, and human correction in the AI Feedback Triage Prototype.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Selected Product Work / AI Feedback Triage Prototype",
+          "source_text": "- Wrote user stories and acceptance criteria for feedback ingestion, theme assignment, and human correction.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E034",
+          "claim": "Alex Chen used an LLM API to test structured classification outputs on a small manually labeled dataset in the AI Feedback Triage Prototype.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Selected Product Work / AI Feedback Triage Prototype",
+          "source_text": "- Used an LLM API to test structured classification outputs on a small manually labeled dataset.",
+          "evidence_type": "PROJECT",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E035",
+          "claim": "Alex Chen reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Selected Product Work / AI Feedback Triage Prototype",
+          "source_text": "- Reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment.",
+          "evidence_type": "ACTIVITY",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        },
+        {
+          "evidence_id": "E036",
+          "claim": "Alex Chen proposed a human-review step for low-confidence classifications instead of automatically accepting every model output in the AI Feedback Triage Prototype.",
+          "source_document": "synthetic_new_grad_ai_product_resume.md",
+          "source_section": "Selected Product Work / AI Feedback Triage Prototype",
+          "source_text": "- Proposed a human-review step for low-confidence classifications instead of automatically accepting every model output.",
+          "evidence_type": "RECOMMENDATION",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "claim_nonempty": true,
+            "source_text_nonempty": true,
+            "source_text_is_verbatim": true,
+            "source_section_nonempty": true,
+            "evidence_type_nonempty": true
+          }
+        }
+      ]
+    }
+  ]
+}

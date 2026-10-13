@@ -1,0 +1,220 @@
+{
+  "eval_name": "candidate_evidence_extraction",
+  "gold_set_status": "HUMAN_REVIEWED",
+  "gold_version": "v2_rag_only",
+  "document_name": "README_RAG.md",
+  "input_sha256": "4220ed310c8143abb796b08fec64e36c9961fd7f1a374ff803fd88c15c111a74",
+  "annotation_policy": {
+    "include": [
+      "implemented technical capabilities",
+      "product and architecture decisions",
+      "evaluation design and execution",
+      "fallback/robustness mechanisms",
+      "user-facing transparency mechanisms that demonstrate product design"
+    ],
+    "exclude_by_default": [
+      "setup instructions",
+      "repository structure listings",
+      "generic technology-stack lists when stronger implementation evidence exists",
+      "future improvements",
+      "generic self-positioning such as 'this demonstrates the ability to...'"
+    ],
+    "granularity_rule": "Prefer one reusable downstream-matching capability or decision per gold unit; avoid broad summary bundles when detailed evidence exists."
+  },
+  "gold_evidence": [
+    {
+      "gold_id": "G001",
+      "claim": "Built an adaptive retrieval-augmented generation system that helps users evaluate how their projects and experience match dynamically provided job postings.",
+      "source_section": "Overview",
+      "source_line_start": 3,
+      "source_line_end": 13,
+      "source_text": "An adaptive retrieval-augmented generation system that helps users evaluate how their projects and experience match dynamically provided job postings.\n\nUsers can paste any job description, role requirements, or hiring criteria and ask questions such as:\n\n- Which of my projects best match this role?\n- What evidence supports my fit for this position?\n- What gaps should I address?\n- How should I position a project on my resume?\n- How should I explain the project in an interview?\n\nThe system does not rely on predefined job titles. Job titles, job descriptions, and hiring requirements are treated as dynamic user-provided context.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G002",
+      "claim": "Implemented document ingestion and chunking with source metadata, embeddings, and ChromaDB semantic retrieval.",
+      "source_section": "Key Capabilities — Document Ingestion and Chunking",
+      "source_line_start": 69,
+      "source_line_end": 77,
+      "source_text": "### 1. Document Ingestion and Chunking\n\nThe system loads text documents from the local knowledge base, splits them into smaller chunks, and attaches metadata such as:\n\n- Source file\n- Chunk index\n- Original text\n\nThese chunks are embedded and stored in ChromaDB for semantic retrieval.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G003",
+      "claim": "Implemented a Basic RAG workflow using query embeddings, ChromaDB retrieval, context construction, and grounded answer generation.",
+      "source_section": "Key Capabilities — Basic RAG",
+      "source_line_start": 79,
+      "source_line_end": 101,
+      "source_text": "### 2. Basic RAG\n\nBasic RAG is designed for direct factual retrieval and single-project explanation.\n\nExample questions:\n\n```text\nWhat technology stack does Project 2 use?\nWhat does Project 1 demonstrate?\nDoes Project 4 include PyTorch?\n```\n\nWorkflow:\n\n```text\nUser question\n→ Query embedding\n→ ChromaDB retrieval\n→ Context construction\n→ Grounded answer generation\n```\n\nBasic RAG does not use the intent classifier, contextual rewriting, or multi-query planning when it is manually forced for testing.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G004",
+      "claim": "Implemented an Agentic RAG workflow with conversation-aware rewriting, multi-query planning, retrieval, candidate merging, chunk deduplication, Qwen global reranking, evidence selection, and grounded synthesis.",
+      "source_section": "Key Capabilities — Agentic RAG",
+      "source_line_start": 103,
+      "source_line_end": 129,
+      "source_text": "### 3. Agentic RAG\n\nAgentic RAG is designed for questions that require broader evidence, comparison, interpretation, or positioning.\n\nExample questions:\n\n```text\nWhich of my projects best match this job posting?\nCompare Project 2 and Project 4 for this role.\nWhat is missing from my portfolio for this position?\nHow should I describe Project 2 in an interview?\n```\n\nWorkflow:\n\n```text\nUser question\n→ Conversation-aware question rewriting\n→ Multi-query planning\n→ Retrieval for each query\n→ Candidate merging\n→ Chunk deduplication\n→ Qwen global reranking\n→ Top-evidence selection\n→ Context construction\n→ Grounded answer synthesis\n```",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G005",
+      "claim": "Implemented Adaptive RAG that classifies user intent and automatically routes simple factual requests to Basic RAG and complex analytical or positioning requests to Agentic RAG.",
+      "source_section": "Key Capabilities — Adaptive RAG",
+      "source_line_start": 131,
+      "source_line_end": 145,
+      "source_text": "### 4. Adaptive RAG\n\nAdaptive RAG is the default end-user experience.\n\nThe system first classifies the user's intent, then automatically selects Basic or Agentic RAG.\n\n```text\nSimple factual intent\n→ Basic RAG\n\nComplex analytical or positioning intent\n→ Agentic RAG\n```\n\nThis removes the burden of retrieval-strategy selection from the user.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G006",
+      "claim": "Designed intent classification around the user's task rather than a fixed target job role, keeping job titles and job descriptions as dynamic input.",
+      "source_section": "Intent Classification",
+      "source_line_start": 149,
+      "source_line_end": 186,
+      "source_text": "## Intent Classification\n\nThe classifier identifies what the user is trying to accomplish. It does not classify the user into a fixed target role.\n\nCurrent intent categories:\n\n```python\nQUESTION_TYPES = [\n    \"factual lookup\",\n    \"project explanation\",\n    \"project comparison\",\n    \"job fit analysis\",\n    \"gap analysis\",\n    \"resume or interview positioning\",\n    \"risk and limitations\",\n]\n```\n\n### Routing Policy\n\n```text\nfactual lookup\nproject explanation\n        ↓\n    Basic RAG\n```\n\n```text\nproject comparison\njob fit analysis\ngap analysis\nresume or interview positioning\nrisk and limitations\n        ↓\n    Agentic RAG\n```\n\nA role name or pasted job description remains part of the user's dynamic input rather than becoming a classifier category.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G007",
+      "claim": "Implemented conversation-aware question rewriting using recent session messages to resolve follow-up references while preserving intent and avoiding unsupported facts.",
+      "source_section": "Conversation-Aware Question Rewriting",
+      "source_line_start": 190,
+      "source_line_end": 215,
+      "source_text": "## Conversation-Aware Question Rewriting\n\nThe system stores recent messages in the current Streamlit session and uses them to resolve follow-up questions.\n\nExample:\n\n```text\nUser:\nTell me about Project 2.\n\nUser:\nWhat is missing from this project for the job above?\n```\n\nThe system can rewrite the follow-up into a standalone retrieval question such as:\n\n```text\nWhat is missing from Project 2 for the previously provided job posting?\n```\n\nThe rewriting step is designed to:\n\n- Resolve references such as “this project,” “it,” or “the previous role”\n- Preserve the user's original intent\n- Avoid introducing unsupported facts\n- Produce a clearer query for downstream retrieval",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G008",
+      "claim": "Implemented multi-query retrieval with up to four search queries and three chunks per query, then merged and deduplicated candidates using source file plus chunk index.",
+      "source_section": "Multi-Query Retrieval",
+      "source_line_start": 233,
+      "source_line_end": 249,
+      "source_text": "Agentic RAG generates multiple search queries and retrieves evidence for each one.\n\nWith the default configuration:\n\n```text\nUp to 4 search queries\n×\nUp to 3 chunks per query\n=\nUp to 12 initial candidates before deduplication\n```\n\nCandidates are merged and deduplicated using:\n\n```text\nsource file + chunk index\n```",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G009",
+      "claim": "Preserved retrieval metadata on deduplicated chunks, including matched queries, rank, distance, query-hit count, and original candidate position for debugging and evaluation.",
+      "source_section": "Multi-Query Retrieval",
+      "source_line_start": 251,
+      "source_line_end": 259,
+      "source_text": "A deduplicated chunk can retain:\n\n- Every search query that retrieved it\n- Its retrieval rank for each query\n- Its retrieval distance for each query\n- The number of query hits\n- Its original candidate position\n\nThis metadata supports debugging, evaluation, and retrieval transparency.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G010",
+      "claim": "Implemented global reranking of the complete deduplicated candidate pool with qwen3-rerank against the standalone user question, selecting the top eight evidence chunks.",
+      "source_section": "Reranking and Evidence Selection",
+      "source_line_start": 263,
+      "source_line_end": 293,
+      "source_text": "## Reranking and Evidence Selection\n\nVector retrieval is optimized for recall, but the first retrieved candidates are not always the best evidence for the user's complete analytical task.\n\nFor Agentic RAG, the complete deduplicated candidate pool is sent to a dedicated Qwen reranker.\n\n```text\nStandalone user question\n+\nAll deduplicated candidate chunks\n        ↓\nqwen3-rerank\n        ↓\nGlobal relevance scores\n        ↓\nTop 8 evidence chunks\n        ↓\nFinal answer generation\n```\n\nThe reranker uses the standalone user question as the ranking query rather than ranking separately against each generated search query.\n\nThis separates two responsibilities:\n\n```text\nGenerated search queries\n→ Expand retrieval recall\n\nStandalone user question\n→ Determine final evidence relevance\n```",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G011",
+      "claim": "Designed a full-candidate fallback that sends all deduplicated candidates to generation when reranking is unavailable, avoiding first-seen truncation and preserving recall.",
+      "source_section": "Reranking and Evidence Selection — Full-Candidate Fallback",
+      "source_line_start": 306,
+      "source_line_end": 333,
+      "source_text": "### Full-Candidate Fallback\n\nReranking is useful, but the answer pipeline should not fail only because the reranker is temporarily unavailable.\n\nIf Qwen reranking is disabled or fails:\n\n```text\nAll deduplicated candidates\n→ No blind truncation\n→ Full candidate set is passed to the generation model\n```\n\nThe fallback intentionally does not return to first-seen truncation such as:\n\n```python\nunique_chunks[:8]\n```\n\nThat older approach could favor earlier search queries and drop evidence retrieved by later queries.\n\nWith the current default settings, the fallback passes at most 12 candidates before deduplication, so preserving the complete candidate set is a practical way to protect recall.\n\nFallback metadata includes:\n\n- `ranking_method = \"all_candidates_fallback\"`\n- `rerank_used = False`\n- `rerank_fallback_reason`\n- Exact final evidence count",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G012",
+      "claim": "Implemented a model-provider abstraction through shared text, JSON, embedding, and reranking interfaces so core RAG logic remains separated from provider-specific APIs.",
+      "source_section": "Model Provider Abstraction",
+      "source_line_start": 359,
+      "source_line_end": 397,
+      "source_text": "## Model Provider Abstraction\n\nThe core RAG pipeline does not directly call a model-specific SDK.\n\nInstead, `rag_core.py` depends on a small provider interface:\n\n```python\ncall_llm_text(...)\ncall_llm_json(...)\nget_embedding(...)\nrerank_documents(...)\n```\n\nThese functions are implemented in `model_provider.py`.\n\nCurrent configuration:\n\n```text\nModel provider: Qwen\nGeneration model: qwen3.7-plus\nEmbedding model: text-embedding-v4\nReranker model: qwen3-rerank\nGeneration API style: OpenAI-compatible Chat Completions\nRerank API style: Dedicated rerank endpoint\n```\n\n### Why This Abstraction Matters\n\nThe provider layer separates:\n\n```text\nRAG business logic\nfrom\nmodel-specific API implementation\n```\n\nIf the project later moves to a provider that does not support the OpenAI-compatible API format, the main changes should remain inside `model_provider.py`, while the core retrieval and routing logic can stay unchanged.\n\nThe abstraction does not eliminate all provider differences. JSON output, embeddings, reranking, tool calling, error handling, and model parameters may still require provider-specific implementations.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G013",
+      "claim": "Implemented structured model-output validation with JSON parsing, allowed-enum validation, and a rule-based fallback when intent-classifier output is invalid or the model call fails.",
+      "source_section": "Structured Model Output and Validation",
+      "source_line_start": 401,
+      "source_line_end": 416,
+      "source_text": "## Structured Model Output and Validation\n\nThe intent classifier requests JSON-formatted output.\n\nHowever, the system does not blindly trust the model response.\n\nThe process is:\n\n```text\nModel returns JSON text\n→ Python parses it with json.loads()\n→ The predicted type is validated against the allowed enum\n→ A rule-based fallback is used when the output is invalid or the model call fails\n```\n\nThis improves robustness and prevents unsupported category names from entering the routing pipeline.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G014",
+      "claim": "Designed the Streamlit experience with Adaptive RAG as the default, advanced forced-mode controls for testing, and user-friendly evidence-coverage controls instead of exposing top_k directly.",
+      "source_section": "Streamlit User Experience",
+      "source_line_start": 420,
+      "source_line_end": 453,
+      "source_text": "## Streamlit User Experience\n\nThe project includes a Streamlit interface designed for both normal users and internal testing.\n\n### Default Experience\n\nThe default experience uses Auto / Adaptive RAG.\n\nUsers do not need to understand or select:\n\n- Basic RAG\n- Agentic RAG\n- Adaptive RAG\n- `top_k`\n\nThey only need to ask a question or paste a job description.\n\n### Advanced Controls\n\nAdvanced controls are available for debugging, evaluation, and baseline comparison.\n\nThey allow forced selection of:\n\n- Auto / Adaptive RAG\n- Basic RAG\n- Agentic RAG\n\nThe UI also replaces the engineering term `top_k` with a user-friendly evidence-coverage control:\n\n- Focused\n- Balanced\n- Comprehensive\n\nThese options are internally mapped to different retrieval depths.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G015",
+      "claim": "Implemented retrieval and reranking transparency in the UI through collapsible details such as ranking method, reranker model, fallback usage, evidence counts, matched queries, and candidate/final positions.",
+      "source_section": "Streamlit User Experience — Progressive Disclosure",
+      "source_line_start": 455,
+      "source_line_end": 477,
+      "source_text": "### Progressive Disclosure\n\nThe final answer remains visible by default.\n\nTechnical and supporting information is placed in collapsible sections:\n\n- Workflow Details\n- Evidence Ranking\n- Evidence Overview\n- Source Details\n- Conversation Memory\n\nFor Agentic responses, the interface can display:\n\n- Ranking method\n- Reranker model\n- Whether fallback was used\n- Final evidence count\n- Rerank score summary\n- Matched search queries\n- Candidate and final evidence positions\n\nThis keeps the main experience simple while preserving transparency for users who want to inspect the workflow.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G016",
+      "claim": "Built an offline evaluation runner around a curated nine-question set that runs Basic, Agentic, and Adaptive modes and records answers plus internal workflow behavior.",
+      "source_section": "Evaluation Framework",
+      "source_line_start": 481,
+      "source_line_end": 503,
+      "source_text": "## Evaluation Framework\n\nThe project includes an internal offline evaluation runner built around a curated nine-question test set.\n\nThe runner can execute each question in:\n\n- Basic RAG\n- Agentic RAG\n- Adaptive RAG\n\nA full run can therefore produce up to 27 mode-level results.\n\nEach result records the final answer as well as internal workflow behavior, including:\n\n- Conversation history\n- Interpreted standalone question\n- Predicted question type\n- Selected strategy\n- Search queries\n- Retrieved chunks\n- Rerank and fallback metadata\n- Latency\n- Errors",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G017",
+      "claim": "Defined evaluation as two complementary dimensions: verification of intended system behavior and validation of whether resulting evidence and answers appear useful for the user task.",
+      "source_section": "Evaluation Framework",
+      "source_line_start": 505,
+      "source_line_end": 513,
+      "source_text": "The evaluation framework covers two complementary dimensions:\n\n```text\nVerification\n→ Did the system execute according to its intended design?\n\nValidation\n→ Did the resulting evidence and answer appear useful for the user's task?\n```",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G018",
+      "claim": "Combined automatic signals with manual semantic review for evidence quality, judging relevance, specificity, sufficiency, diversity, grounding, and support strength.",
+      "source_section": "Evaluation Framework — Retrieval and Evidence Evaluation",
+      "source_line_start": 555,
+      "source_line_end": 574,
+      "source_text": "Required-entity coverage is checked automatically with simple string matching.\n\nThis is a lightweight heuristic. It does not fully understand aliases, paraphrases, or semantic equivalents.\n\nEvidence quality therefore remains semi-objective:\n\n```text\nAutomatic signals\n+\nManual semantic review\n```\n\nManual review considers whether the evidence is:\n\n- Relevant\n- Specific\n- Sufficient\n- Diverse enough for the question\n- Properly grounded in the correct project\n- Strong enough to support the final conclusion",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G019",
+      "claim": "Evaluated reranking and fallback behavior using model/configuration state, fallback status and reason, evidence counts, represented queries/sources, and rerank-score summaries.",
+      "source_section": "Evaluation Framework — Rerank and Fallback Evaluation",
+      "source_line_start": 576,
+      "source_line_end": 593,
+      "source_text": "### 3. Rerank and Fallback Evaluation\n\nFor Agentic results, the runner records:\n\n- Reranker model\n- Whether reranking was enabled\n- Ranking method\n- Whether the reranker was actually used\n- Whether fallback was activated\n- Fallback reason\n- Final evidence count\n- Represented query count\n- Represented source count\n- Minimum, maximum, and average rerank scores\n\nWhen the all-candidate fallback is used, the returned evidence count is the exact deduplicated candidate-pool size.\n\nWhen Qwen reranking succeeds, the current `rag_core.py` returns only the selected evidence. The evaluation output therefore avoids claiming an exact pre-rerank candidate count when that value is not available.",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G020",
+      "claim": "Stored structured answer-quality rubrics for human review or future LLM-as-judge across grounding, completeness, product framing, actionability, role relevance, and risk awareness, while distinguishing offline validation from full real-world product validation.",
+      "source_section": "Evaluation Framework — Offline Validation and Answer-Quality Review",
+      "source_line_start": 595,
+      "source_line_end": 621,
+      "source_text": "### 4. Offline Validation and Answer-Quality Review\n\nFinal answer quality has no single ground-truth answer.\n\nThe runner stores structured rubrics for human review or a future LLM-as-judge.\n\nExample dimensions include:\n\n- Retrieval grounding\n- Answer completeness\n- Product framing\n- Actionability\n- Role relevance\n- Risk awareness\n\nThis provides initial offline validation: it evaluates whether the system appears useful on representative scenarios.\n\nIt does not yet constitute complete real-world product validation.\n\nStronger product validation would require target-user testing and measurable outcomes such as:\n\n- Task completion rate\n- Time saved\n- User confidence\n- Expert or recruiter ratings\n- Repeat usage\n- Improvement over a no-assistant baseline",
+      "evidence_type": "NOT_SCORED_V1"
+    },
+    {
+      "gold_id": "G021",
+      "claim": "Recorded model and run traceability including provider, generation model, embedding model, reranker model, rerank configuration, timestamp, evaluation version, elapsed time, and errors.",
+      "source_section": "Evaluation Framework — Model Run Traceability",
+      "source_line_start": 623,
+      "source_line_end": 637,
+      "source_text": "### 5. Model Run Traceability\n\nEach evaluation run records:\n\n- Model provider\n- Generation model\n- Embedding model\n- Reranker model\n- Rerank configuration\n- Timestamp\n- Evaluation version\n- Elapsed time\n- Errors\n\nThis prevents results from different model configurations from being mixed together.",
+      "evidence_type": "NOT_SCORED_V1"
+    }
+  ],
+  "summary": {
+    "document_count": 1,
+    "gold_evidence_count": 21
+  },
+  "publication_review_note": "Author confirmed human review completed; legacy draft status metadata normalized for Portfolio V1. Semantic annotations are unchanged."
+}

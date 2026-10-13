@@ -1,0 +1,1109 @@
+{
+  "eval_name": "requirement_evidence_matching",
+  "eval_version": "v2",
+  "scope": "fixed_input_matcher_only",
+  "timestamp_utc": "2026-10-07T22:34:19.519693+00:00",
+  "production_pipeline": [
+    "job_agent.agents.evidence_matcher.match_requirements_to_evidence",
+    "job_agent.agents.negative_conclusion_verifier.verify_negative_mappings",
+    "job_agent.agents.reconciler.finalize_mappings"
+  ],
+  "model": "qwen3.6-flash",
+  "input_files": {
+    "candidate_evidence": {
+      "path": "evals/matching_evaluation/fixed_inputs/01_input_fixed_candidate_evidence_v2.json",
+      "sha256": "b1845683ae34f1fd10660105fb9abb23d06338bc9d60704b1889be74c23b65ae",
+      "count": 120
+    },
+    "representative_requirements": {
+      "path": "evals/matching_evaluation/fixed_inputs/02_input_representative_requirements_v2.json",
+      "sha256": "cd0e8af74bc51ac9a02ed05b2bdfd97cf968f6f75ce50206e95117212d8f393b",
+      "count": 32
+    }
+  },
+  "gold_output_loaded_during_run": false,
+  "first_pass": {
+    "mapping_count": 32,
+    "negative_count": 8,
+    "mappings": [
+      {
+        "requirement_id": "MREQ001",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_007",
+            "relationship": "DIRECT",
+            "reason": "States the candidate worked with a product manager, designer, and engineers on an AI-assisted workflow."
+          },
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "States the candidate conducted user interviews and synthesized pain points into four product requirements."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate explicitly partnered with product managers, designers, and engineers to translate user problems (pain points from interviews) into AI product requirements during their internship at Meridian Product Studio."
+      },
+      {
+        "requirement_id": "MREQ002",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate's professional experience consists of two internships (3 months each) totaling approximately 6 months. There is no evidence of 4+ years of professional software development experience."
+      },
+      {
+        "requirement_id": "MREQ003",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_011",
+            "relationship": "DIRECT",
+            "reason": "Analyzed test results in Python."
+          },
+          {
+            "evidence_id": "E_RES_026",
+            "relationship": "DIRECT",
+            "reason": "Used Python to clean survey data."
+          },
+          {
+            "evidence_id": "E_DL_001",
+            "relationship": "TRANSFERABLE",
+            "reason": "Implemented ML pipelines from scratch using Python."
+          }
+        ],
+        "support_level": "PARTIAL",
+        "reason": "The candidate demonstrates Python skills in academic and project contexts (analyzing test results, cleaning survey data, implementing ML pipelines). However, the evidence does not demonstrate 'strong' professional-level programming skills typically expected for a senior role, nor does it show extensive production-grade Python development."
+      },
+      {
+        "requirement_id": "MREQ004",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system using LLMs."
+          },
+          {
+            "evidence_id": "E_JOB_001",
+            "relationship": "DIRECT",
+            "reason": "Built a local AI-assisted job-search product using OpenAI SDK/Qwen endpoint."
+          },
+          {
+            "evidence_id": "E_RES_031",
+            "relationship": "DIRECT",
+            "reason": "Used an LLM API to test structured classification outputs."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has extensive hands-on experience building applications with LLMs, including an Adaptive RAG Assistant, an AI Job Search Agent, and various course projects involving LLM APIs and prompt evaluation."
+      },
+      {
+        "requirement_id": "MREQ005",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_002",
+            "relationship": "DIRECT",
+            "reason": "Implemented document ingestion and chunking with embeddings and ChromaDB semantic retrieval."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate explicitly implemented ChromaDB semantic retrieval for their Adaptive RAG Assistant project."
+      },
+      {
+        "requirement_id": "MREQ006",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_016",
+            "relationship": "DIRECT",
+            "reason": "Built an offline evaluation runner that runs different RAG modes and records behavior."
+          },
+          {
+            "evidence_id": "E_RAG_017",
+            "relationship": "DIRECT",
+            "reason": "Defined evaluation dimensions for system behavior and answer usefulness."
+          },
+          {
+            "evidence_id": "E_RES_010",
+            "relationship": "DIRECT",
+            "reason": "Created an evaluation set and manually labeled expected answers for internal testing."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has significant experience with prompt evaluation and LLM evaluation frameworks, having built offline evaluation runners, defined rubrics, and conducted manual semantic reviews for their RAG and Job Search projects."
+      },
+      {
+        "requirement_id": "MREQ007",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_012",
+            "relationship": "DIRECT",
+            "reason": "Identified a tradeoff where one prompt increased response length and latency."
+          }
+        ],
+        "support_level": "WEAK",
+        "reason": "The candidate identified tradeoffs in latency during an internship pilot (E_RES_012), but the job search project explicitly states it does not claim production latency/cost monitoring. The evidence is limited to academic/internship context and lacks production-scale monitoring experience."
+      },
+      {
+        "requirement_id": "MREQ008",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_009",
+            "relationship": "DIRECT",
+            "reason": "Implemented a provider-neutral web-search interface backed by Qwen's Responses API hosted web_search tool."
+          },
+          {
+            "evidence_id": "E_JOB_010",
+            "relationship": "DIRECT",
+            "reason": "Kept hosted Web Search bounded and application-orchestrated: application code decides when search is needed."
+          },
+          {
+            "evidence_id": "E_JOB_005",
+            "relationship": "DIRECT",
+            "reason": "Integrated the Gmail API."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate designed tool-calling workflows connecting LLMs to internal APIs (Gmail API, Web Search API) and business data in their Job Search Agent project, implementing bounded, deterministic orchestration."
+      },
+      {
+        "requirement_id": "MREQ009",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate has approximately 6 months of internship experience involving AI products. This does not meet the requirement of at least 2 years of building customer-facing AI or ML applications."
+      },
+      {
+        "requirement_id": "MREQ010",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate lists Python, SQL, and tools like Git and Postman, but TypeScript is not mentioned in any skill list or project description. There is no evidence of working knowledge of TypeScript."
+      },
+      {
+        "requirement_id": "MREQ011",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_005",
+            "relationship": "DIRECT",
+            "reason": "Integrated the Gmail API using installed-app OAuth."
+          },
+          {
+            "evidence_id": "E_JOB_009",
+            "relationship": "DIRECT",
+            "reason": "Implemented a provider-neutral web-search interface."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has hands-on capability with REST APIs, evidenced by integrating the Gmail API and using provider-neutral web-search interfaces (RESTful calls) in their Job Search Agent project."
+      },
+      {
+        "requirement_id": "MREQ012",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_013",
+            "relationship": "DIRECT",
+            "reason": "Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output."
+          },
+          {
+            "evidence_id": "E_RES_032",
+            "relationship": "DIRECT",
+            "reason": "Reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment."
+          },
+          {
+            "evidence_id": "E_RAG_009",
+            "relationship": "DIRECT",
+            "reason": "Preserved retrieval metadata... for debugging and evaluation."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has demonstrated ability to debug model failures by identifying failure cases (missing context, unsupported claims) and analyzing classification errors in both their internship and personal projects."
+      },
+      {
+        "requirement_id": "MREQ013",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "Conducted 12 user interviews and synthesized recurring pain points into four product requirements."
+          },
+          {
+            "evidence_id": "E_RES_021",
+            "relationship": "DIRECT",
+            "reason": "Wrote product requirement notes for an onboarding checklist based on research findings and analytics."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate translated customer research (user interviews, analytics findings) into prioritized product requirements during their internships at Meridian Product Studio and BrightPath Learning."
+      },
+      {
+        "requirement_id": "MREQ014",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate has roughly 6 months of internship experience. There is no evidence of 4+ years of product management experience."
+      },
+      {
+        "requirement_id": "MREQ015",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_003",
+            "relationship": "ADJACENT",
+            "reason": "Completed a graduate capstone focused on evaluating user trust... in an AI-assisted workflow."
+          },
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "ADJACENT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          }
+        ],
+        "support_level": "WEAK",
+        "reason": "The candidate shipped prototypes (RAG Assistant, Job Search Agent) and completed capstone projects, but these are described as local/single-user tools or course projects rather than full commercial software products shipped from discovery through launch in a professional capacity."
+      },
+      {
+        "requirement_id": "MREQ016",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_016",
+            "relationship": "DIRECT",
+            "reason": "Analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has practical experience using SQL for analytics, specifically analyzing onboarding behavior and creating cohort analyses during their Product Analytics Internship."
+      },
+      {
+        "requirement_id": "MREQ017",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_010",
+            "relationship": "DIRECT",
+            "reason": "Created a 60-question evaluation set and manually labeled expected answer topics for internal testing."
+          },
+          {
+            "evidence_id": "E_RES_033",
+            "relationship": "DIRECT",
+            "reason": "Proposed a human-review step for low-confidence classifications instead of automatically accepting every model output."
+          },
+          {
+            "evidence_id": "E_RAG_018",
+            "relationship": "DIRECT",
+            "reason": "Combined automatic signals with manual semantic review for evidence quality."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has direct experience with evaluation datasets and human review workflows, having created evaluation sets, manually labeled data, and proposed human-review steps for low-confidence classifications."
+      },
+      {
+        "requirement_id": "MREQ018",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_004",
+            "relationship": "DIRECT",
+            "reason": "Earned a B.S. in Information Science at State College of Technology."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate holds a B.S. in Information Science, which is a related field to Computer Science/Data Science/Engineering, satisfying the education requirement."
+      },
+      {
+        "requirement_id": "MREQ019",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate's projects are described as local/single-user tools (SQLite, Streamlit) without cloud deployment. There is no evidence of deploying services on AWS, GCP, or Azure."
+      },
+      {
+        "requirement_id": "MREQ020",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_037",
+            "relationship": "DIRECT",
+            "reason": "Lists tools including Git, GitHub."
+          },
+          {
+            "evidence_id": "E_JOB_006",
+            "relationship": "DIRECT",
+            "reason": "Kept Gmail credentials and tokens local, excluded them from Git."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate lists Git and GitHub in their tools skills section and mentions keeping credentials excluded from Git in their project documentation, indicating practical usage."
+      },
+      {
+        "requirement_id": "MREQ021",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "There is no mention of Kubernetes in the candidate's skills, projects, or experience sections."
+      },
+      {
+        "requirement_id": "MREQ022",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          },
+          {
+            "evidence_id": "E_RAG_002",
+            "relationship": "DIRECT",
+            "reason": "Implemented document ingestion and chunking with embeddings and ChromaDB semantic retrieval."
+          },
+          {
+            "evidence_id": "E_RAG_016",
+            "relationship": "DIRECT",
+            "reason": "Built an offline evaluation runner... for RAG modes."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has deep familiarity with LLM evaluation, retrieval systems (RAG), and vector databases (ChromaDB) through their dedicated RAG Assistant project and internship work."
+      },
+      {
+        "requirement_id": "MREQ023",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_001",
+            "relationship": "DIRECT",
+            "reason": "Built a local AI-assisted job-search product... from email alerts to human-review queue."
+          },
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate built AI-assisted workflow features (Job Search Agent, RAG Assistant) from prototype through local production-ready implementation, handling the full lifecycle from design to evaluation."
+      },
+      {
+        "requirement_id": "MREQ024",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "Conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements."
+          },
+          {
+            "evidence_id": "E_RES_024",
+            "relationship": "DIRECT",
+            "reason": "Helped run moderated usability sessions."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate interviewed internal users (support specialists) and incorporated feedback into product iterations during their internship."
+      },
+      {
+        "requirement_id": "MREQ025",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_013",
+            "relationship": "DIRECT",
+            "reason": "Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output."
+          },
+          {
+            "evidence_id": "E_RAG_019",
+            "relationship": "DIRECT",
+            "reason": "Evaluated reranking and fallback behavior... for debugging."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate investigated production-like issues by documenting failure cases, analyzing model errors, and debugging retrieval/generation workflows in their projects."
+      },
+      {
+        "requirement_id": "MREQ026",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_009",
+            "relationship": "DIRECT",
+            "reason": "Defined acceptance criteria for an AI-generated response-suggestion feature across relevance, factual consistency, response latency, and user editability."
+          },
+          {
+            "evidence_id": "E_RES_019",
+            "relationship": "DIRECT",
+            "reason": "Helped design an A/B test... and documented the primary metric, guardrail metrics, and experiment assumptions."
+          },
+          {
+            "evidence_id": "E_RAG_017",
+            "relationship": "DIRECT",
+            "reason": "Defined evaluation as two complementary dimensions... and validation of whether resulting evidence... appear useful."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate defined success metrics and evaluation plans, including acceptance criteria, guardrail metrics, and evaluation rubrics for AI capabilities."
+      },
+      {
+        "requirement_id": "MREQ027",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_036",
+            "relationship": "DIRECT",
+            "reason": "Lists design/collaboration skills including stakeholder communication, and cross-functional collaboration."
+          },
+          {
+            "evidence_id": "E_RES_007",
+            "relationship": "DIRECT",
+            "reason": "Worked with a product manager, designer, and three engineers."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate lists stakeholder communication and cross-functional collaboration as key skills and demonstrated this by partnering with PMs, designers, and engineers throughout their internships and projects."
+      },
+      {
+        "requirement_id": "MREQ028",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate's background is in Information Science/HCI. There is no evidence of holding a Registered Nurse (RN) license."
+      },
+      {
+        "requirement_id": "MREQ029",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate's experience is in general AI products (job search, RAG, onboarding analytics). There is no specific mention of AI-assisted clinical decision-support tools."
+      },
+      {
+        "requirement_id": "MREQ030",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "Conducted 12 user interviews... and synthesized recurring pain points."
+          },
+          {
+            "evidence_id": "E_RES_018",
+            "relationship": "DIRECT",
+            "reason": "Found a large drop-off... and worked with the product team to define hypotheses for the decline."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate led technical discovery activities such as conducting user interviews, running usability sessions, and defining hypotheses for product decline, demonstrating comfort leading technical discovery sessions."
+      },
+      {
+        "requirement_id": "MREQ031",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_001",
+            "relationship": "DIRECT",
+            "reason": "Built a local AI-assisted job-search product."
+          },
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          }
+        ],
+        "support_level": "PARTIAL",
+        "reason": "The candidate built LLM applications (Job Search Agent, RAG Assistant) but explicitly states they are local/single-user tools without cloud production deployment. While they have experience *building* LLM apps, the 'deploying' aspect is limited to local environments."
+      },
+      {
+        "requirement_id": "MREQ032",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          },
+          {
+            "evidence_id": "E_RAG_016",
+            "relationship": "DIRECT",
+            "reason": "Built an offline evaluation runner... for RAG modes."
+          },
+          {
+            "evidence_id": "E_JOB_009",
+            "relationship": "DIRECT",
+            "reason": "Implemented a provider-neutral web-search interface backed by Qwen's Responses API hosted web_search tool."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has practical capability with retrieval-augmented generation (built RAG systems), evaluation frameworks (built offline evaluators), and tool-calling agents (implemented bounded tool use for web search and Gmail)."
+      }
+    ]
+  },
+  "negative_verification": {
+    "verification_count": 8,
+    "verifications": [
+      {
+        "requirement_id": "MREQ002",
+        "status": "NO_COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [],
+        "reason": "The candidate's evidence base consists primarily of academic coursework, internships (June 2024–August 2024 and June 2025–September 2025), research assistantships, and personal/capstone projects. The total duration of professional or internship experience explicitly documented is approximately 6 months (3 months + 3 months). While the candidate demonstrates strong technical skills in Python, SQL, and AI/ML implementation through these projects, there is no evidence of full-time, continuous professional software development employment that would aggregate to 4+ years. The educational timeline (B.S. completed May 2024, M.S. ongoing) further confirms a recent graduate status without significant pre-existing professional tenure. Therefore, the requirement for 4+ years of professional experience is not supported."
+      },
+      {
+        "requirement_id": "MREQ009",
+        "status": "NO_COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [],
+        "reason": "The requirement explicitly asks for 'at least 2 years' of experience building customer-facing AI/ML applications. The candidate's evidence base indicates they are a new graduate (B.S. completed May 2024, M.S. ongoing Sep 2024–May 2026). Their professional experience consists of two internships: one at Meridian Product Studio (Jun 2025–Sep 2025, approx. 3 months) and one at BrightPath Learning (Jun 2024–Aug 2024, approx. 2 months). While the Meridian role involved an AI-assisted workflow, it was a prototype/internal tool context rather than a deployed customer-facing application, and more importantly, the total duration of relevant experience is significantly less than the required 2 years. No other employment history exists to bridge this gap."
+      },
+      {
+        "requirement_id": "MREQ010",
+        "status": "NO_COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [],
+        "reason": "The candidate's evidence base explicitly lists skills in Python, SQL, LLM APIs, and various frameworks/tools (Git, Jupyter, Streamlit), but TypeScript is never mentioned. The projects described are implemented in Python (Streamlit, PyTorch, local agent scripts) or rely on external services without specifying client-side implementation languages. There is no direct, transferable, or adjacent evidence indicating working knowledge of TypeScript."
+      },
+      {
+        "requirement_id": "MREQ014",
+        "status": "NO_COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [],
+        "reason": "The candidate's evidence base consists entirely of academic coursework, internships (AI Product Intern, Product Analytics Intern), and graduate research assistant roles. The total duration of professional experience is approximately 3-4 months for the AI Product Intern role and 2-3 months for the Product Analytics Intern role, totaling less than one year of relevant experience. There is no evidence of full-time product management employment or extended project leadership that would accumulate to 4+ years. While the candidate demonstrates strong product sense and technical skills through projects and internships, the quantitative requirement of '4+ years' is not met by any direct, transferable, or adjacent evidence in the provided resume."
+      },
+      {
+        "requirement_id": "MREQ019",
+        "status": "NO_COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [],
+        "reason": "The candidate's evidence base contains no mention of AWS, GCP, Azure, or any other major cloud platform. The technical skills listed are Python, SQL, Git, and basic ML concepts. All projects described (AI Product Intern, Product Analytics Intern, Graduate Research Assistant, Deep Learning Portfolio, Adaptive RAG Assistant, and the Local AI Job Search Agent) are explicitly local, academic, or prototype-based. Specifically, E_JOB_050 states: 'The current project is a local/single-user tool and does not claim cloud production deployment.' There is no evidence of deploying services on a major cloud platform."
+      },
+      {
+        "requirement_id": "MREQ021",
+        "status": "NO_COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [],
+        "reason": "The candidate evidence base contains extensive documentation of skills in AI/LLM application development (RAG, prompt engineering, LLM APIs), product analytics (SQL, Python, A/B testing), and software engineering fundamentals (Git, Python, PyTorch). However, there is no mention of Kubernetes, containerization (Docker), orchestration platforms, or cloud infrastructure management in any of the education, work experience, project descriptions, or listed skills/tools. While the candidate has built complex local applications using Python and SQLite, these do not demonstrate practical capability with Kubernetes specifically. Therefore, the initial conclusion that this requirement is NOT_CLEARLY_SUPPORTED stands."
+      },
+      {
+        "requirement_id": "MREQ028",
+        "status": "NO_COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [],
+        "reason": "The candidate evidence base contains no mention of nursing, healthcare, medical training, or any professional license (such as an RN license). The candidate's background is exclusively in Computer Science, Human-Computer Interaction, and AI Product Management. There is no direct, transferable, or adjacent evidence supporting the possession of an active Registered Nurse license."
+      },
+      {
+        "requirement_id": "MREQ029",
+        "status": "COUNTER_EVIDENCE_FOUND",
+        "counter_evidence_matches": [
+          {
+            "evidence_id": "E_RES_007",
+            "relationship": "DIRECT",
+            "reason": "The candidate worked on an 'AI-assisted customer-support workflow'. While this is in the customer support domain rather than clinical, it demonstrates direct experience with AI tools designed to assist human workers in making decisions or performing tasks (suggesting responses), which is structurally analogous to clinical decision support."
+          },
+          {
+            "evidence_id": "E_RES_009",
+            "relationship": "DIRECT",
+            "reason": "The candidate defined acceptance criteria for an 'AI-generated response-suggestion feature', specifically evaluating 'relevance' and 'factual consistency'. This shows familiarity with the core mechanics of AI-assisted decision support: generating options/suggestions for a human to review and validating their quality before use."
+          },
+          {
+            "evidence_id": "E_RES_023",
+            "relationship": "TRANSFERABLE",
+            "reason": "The candidate supported a study on 'how users interpret confidence and uncertainty in AI-generated recommendations'. Understanding how humans interact with, trust, and interpret AI recommendations is a critical component of using and evaluating clinical decision-support tools, where transparency and uncertainty communication are vital."
+          },
+          {
+            "evidence_id": "E_RES_033",
+            "relationship": "TRANSFERABLE",
+            "reason": "The candidate proposed a 'human-review step for low-confidence classifications instead of automatically accepting every model output'. This demonstrates an understanding of the 'human-in-the-loop' paradigm essential to clinical decision support, where AI provides suggestions but final decisions often require human verification, especially when confidence is low."
+          },
+          {
+            "evidence_id": "E_JOB_002",
+            "relationship": "ADJACENT",
+            "reason": "The candidate built a 'human-in-the-loop decision-support system' for job searching. While the domain is career services, not healthcare, the explicit design of an AI tool that stops at 'Pass / Save for later / Pursue' without automating the final decision demonstrates deep familiarity with the concept, architecture, and user experience of AI-assisted decision support systems."
+          }
+        ],
+        "reason": "Although the candidate lacks specific experience in the healthcare/clinical domain, they possess strong, direct evidence of working with AI-assisted workflows that provide suggestions to humans (customer support), defining evaluation criteria for those suggestions (response-suggestion features), and designing human-in-the-loop decision support systems. The concepts of 'AI-generated recommendations,' 'confidence interpretation,' and 'human review of low-confidence outputs' are directly transferable to the domain knowledge required for AI-assisted clinical decision-support tools."
+      }
+    ]
+  },
+  "final": {
+    "mapping_count": 32,
+    "support_distribution": {
+      "STRONG": 20,
+      "PARTIAL": 3,
+      "WEAK": 2,
+      "NOT_CLEARLY_SUPPORTED": 7
+    },
+    "mappings": [
+      {
+        "requirement_id": "MREQ001",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_007",
+            "relationship": "DIRECT",
+            "reason": "States the candidate worked with a product manager, designer, and engineers on an AI-assisted workflow."
+          },
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "States the candidate conducted user interviews and synthesized pain points into four product requirements."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate explicitly partnered with product managers, designers, and engineers to translate user problems (pain points from interviews) into AI product requirements during their internship at Meridian Product Studio."
+      },
+      {
+        "requirement_id": "MREQ002",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate's professional experience consists of two internships (3 months each) totaling approximately 6 months. There is no evidence of 4+ years of professional software development experience."
+      },
+      {
+        "requirement_id": "MREQ003",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_011",
+            "relationship": "DIRECT",
+            "reason": "Analyzed test results in Python."
+          },
+          {
+            "evidence_id": "E_RES_026",
+            "relationship": "DIRECT",
+            "reason": "Used Python to clean survey data."
+          },
+          {
+            "evidence_id": "E_DL_001",
+            "relationship": "TRANSFERABLE",
+            "reason": "Implemented ML pipelines from scratch using Python."
+          }
+        ],
+        "support_level": "PARTIAL",
+        "reason": "The candidate demonstrates Python skills in academic and project contexts (analyzing test results, cleaning survey data, implementing ML pipelines). However, the evidence does not demonstrate 'strong' professional-level programming skills typically expected for a senior role, nor does it show extensive production-grade Python development."
+      },
+      {
+        "requirement_id": "MREQ004",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system using LLMs."
+          },
+          {
+            "evidence_id": "E_JOB_001",
+            "relationship": "DIRECT",
+            "reason": "Built a local AI-assisted job-search product using OpenAI SDK/Qwen endpoint."
+          },
+          {
+            "evidence_id": "E_RES_031",
+            "relationship": "DIRECT",
+            "reason": "Used an LLM API to test structured classification outputs."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has extensive hands-on experience building applications with LLMs, including an Adaptive RAG Assistant, an AI Job Search Agent, and various course projects involving LLM APIs and prompt evaluation."
+      },
+      {
+        "requirement_id": "MREQ005",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_002",
+            "relationship": "DIRECT",
+            "reason": "Implemented document ingestion and chunking with embeddings and ChromaDB semantic retrieval."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate explicitly implemented ChromaDB semantic retrieval for their Adaptive RAG Assistant project."
+      },
+      {
+        "requirement_id": "MREQ006",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_016",
+            "relationship": "DIRECT",
+            "reason": "Built an offline evaluation runner that runs different RAG modes and records behavior."
+          },
+          {
+            "evidence_id": "E_RAG_017",
+            "relationship": "DIRECT",
+            "reason": "Defined evaluation dimensions for system behavior and answer usefulness."
+          },
+          {
+            "evidence_id": "E_RES_010",
+            "relationship": "DIRECT",
+            "reason": "Created an evaluation set and manually labeled expected answers for internal testing."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has significant experience with prompt evaluation and LLM evaluation frameworks, having built offline evaluation runners, defined rubrics, and conducted manual semantic reviews for their RAG and Job Search projects."
+      },
+      {
+        "requirement_id": "MREQ007",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_012",
+            "relationship": "DIRECT",
+            "reason": "Identified a tradeoff where one prompt increased response length and latency."
+          }
+        ],
+        "support_level": "WEAK",
+        "reason": "The candidate identified tradeoffs in latency during an internship pilot (E_RES_012), but the job search project explicitly states it does not claim production latency/cost monitoring. The evidence is limited to academic/internship context and lacks production-scale monitoring experience."
+      },
+      {
+        "requirement_id": "MREQ008",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_009",
+            "relationship": "DIRECT",
+            "reason": "Implemented a provider-neutral web-search interface backed by Qwen's Responses API hosted web_search tool."
+          },
+          {
+            "evidence_id": "E_JOB_010",
+            "relationship": "DIRECT",
+            "reason": "Kept hosted Web Search bounded and application-orchestrated: application code decides when search is needed."
+          },
+          {
+            "evidence_id": "E_JOB_005",
+            "relationship": "DIRECT",
+            "reason": "Integrated the Gmail API."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate designed tool-calling workflows connecting LLMs to internal APIs (Gmail API, Web Search API) and business data in their Job Search Agent project, implementing bounded, deterministic orchestration."
+      },
+      {
+        "requirement_id": "MREQ009",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate has approximately 6 months of internship experience involving AI products. This does not meet the requirement of at least 2 years of building customer-facing AI or ML applications."
+      },
+      {
+        "requirement_id": "MREQ010",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate lists Python, SQL, and tools like Git and Postman, but TypeScript is not mentioned in any skill list or project description. There is no evidence of working knowledge of TypeScript."
+      },
+      {
+        "requirement_id": "MREQ011",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_005",
+            "relationship": "DIRECT",
+            "reason": "Integrated the Gmail API using installed-app OAuth."
+          },
+          {
+            "evidence_id": "E_JOB_009",
+            "relationship": "DIRECT",
+            "reason": "Implemented a provider-neutral web-search interface."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has hands-on capability with REST APIs, evidenced by integrating the Gmail API and using provider-neutral web-search interfaces (RESTful calls) in their Job Search Agent project."
+      },
+      {
+        "requirement_id": "MREQ012",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_013",
+            "relationship": "DIRECT",
+            "reason": "Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output."
+          },
+          {
+            "evidence_id": "E_RES_032",
+            "relationship": "DIRECT",
+            "reason": "Reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment."
+          },
+          {
+            "evidence_id": "E_RAG_009",
+            "relationship": "DIRECT",
+            "reason": "Preserved retrieval metadata... for debugging and evaluation."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has demonstrated ability to debug model failures by identifying failure cases (missing context, unsupported claims) and analyzing classification errors in both their internship and personal projects."
+      },
+      {
+        "requirement_id": "MREQ013",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "Conducted 12 user interviews and synthesized recurring pain points into four product requirements."
+          },
+          {
+            "evidence_id": "E_RES_021",
+            "relationship": "DIRECT",
+            "reason": "Wrote product requirement notes for an onboarding checklist based on research findings and analytics."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate translated customer research (user interviews, analytics findings) into prioritized product requirements during their internships at Meridian Product Studio and BrightPath Learning."
+      },
+      {
+        "requirement_id": "MREQ014",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate has roughly 6 months of internship experience. There is no evidence of 4+ years of product management experience."
+      },
+      {
+        "requirement_id": "MREQ015",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_003",
+            "relationship": "ADJACENT",
+            "reason": "Completed a graduate capstone focused on evaluating user trust... in an AI-assisted workflow."
+          },
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "ADJACENT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          }
+        ],
+        "support_level": "WEAK",
+        "reason": "The candidate shipped prototypes (RAG Assistant, Job Search Agent) and completed capstone projects, but these are described as local/single-user tools or course projects rather than full commercial software products shipped from discovery through launch in a professional capacity."
+      },
+      {
+        "requirement_id": "MREQ016",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_016",
+            "relationship": "DIRECT",
+            "reason": "Analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has practical experience using SQL for analytics, specifically analyzing onboarding behavior and creating cohort analyses during their Product Analytics Internship."
+      },
+      {
+        "requirement_id": "MREQ017",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_010",
+            "relationship": "DIRECT",
+            "reason": "Created a 60-question evaluation set and manually labeled expected answer topics for internal testing."
+          },
+          {
+            "evidence_id": "E_RES_033",
+            "relationship": "DIRECT",
+            "reason": "Proposed a human-review step for low-confidence classifications instead of automatically accepting every model output."
+          },
+          {
+            "evidence_id": "E_RAG_018",
+            "relationship": "DIRECT",
+            "reason": "Combined automatic signals with manual semantic review for evidence quality."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has direct experience with evaluation datasets and human review workflows, having created evaluation sets, manually labeled data, and proposed human-review steps for low-confidence classifications."
+      },
+      {
+        "requirement_id": "MREQ018",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_004",
+            "relationship": "DIRECT",
+            "reason": "Earned a B.S. in Information Science at State College of Technology."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate holds a B.S. in Information Science, which is a related field to Computer Science/Data Science/Engineering, satisfying the education requirement."
+      },
+      {
+        "requirement_id": "MREQ019",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate's projects are described as local/single-user tools (SQLite, Streamlit) without cloud deployment. There is no evidence of deploying services on AWS, GCP, or Azure."
+      },
+      {
+        "requirement_id": "MREQ020",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_037",
+            "relationship": "DIRECT",
+            "reason": "Lists tools including Git, GitHub."
+          },
+          {
+            "evidence_id": "E_JOB_006",
+            "relationship": "DIRECT",
+            "reason": "Kept Gmail credentials and tokens local, excluded them from Git."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate lists Git and GitHub in their tools skills section and mentions keeping credentials excluded from Git in their project documentation, indicating practical usage."
+      },
+      {
+        "requirement_id": "MREQ021",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "There is no mention of Kubernetes in the candidate's skills, projects, or experience sections."
+      },
+      {
+        "requirement_id": "MREQ022",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          },
+          {
+            "evidence_id": "E_RAG_002",
+            "relationship": "DIRECT",
+            "reason": "Implemented document ingestion and chunking with embeddings and ChromaDB semantic retrieval."
+          },
+          {
+            "evidence_id": "E_RAG_016",
+            "relationship": "DIRECT",
+            "reason": "Built an offline evaluation runner... for RAG modes."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has deep familiarity with LLM evaluation, retrieval systems (RAG), and vector databases (ChromaDB) through their dedicated RAG Assistant project and internship work."
+      },
+      {
+        "requirement_id": "MREQ023",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_001",
+            "relationship": "DIRECT",
+            "reason": "Built a local AI-assisted job-search product... from email alerts to human-review queue."
+          },
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate built AI-assisted workflow features (Job Search Agent, RAG Assistant) from prototype through local production-ready implementation, handling the full lifecycle from design to evaluation."
+      },
+      {
+        "requirement_id": "MREQ024",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "Conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements."
+          },
+          {
+            "evidence_id": "E_RES_024",
+            "relationship": "DIRECT",
+            "reason": "Helped run moderated usability sessions."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate interviewed internal users (support specialists) and incorporated feedback into product iterations during their internship."
+      },
+      {
+        "requirement_id": "MREQ025",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_013",
+            "relationship": "DIRECT",
+            "reason": "Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output."
+          },
+          {
+            "evidence_id": "E_RAG_019",
+            "relationship": "DIRECT",
+            "reason": "Evaluated reranking and fallback behavior... for debugging."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate investigated production-like issues by documenting failure cases, analyzing model errors, and debugging retrieval/generation workflows in their projects."
+      },
+      {
+        "requirement_id": "MREQ026",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_009",
+            "relationship": "DIRECT",
+            "reason": "Defined acceptance criteria for an AI-generated response-suggestion feature across relevance, factual consistency, response latency, and user editability."
+          },
+          {
+            "evidence_id": "E_RES_019",
+            "relationship": "DIRECT",
+            "reason": "Helped design an A/B test... and documented the primary metric, guardrail metrics, and experiment assumptions."
+          },
+          {
+            "evidence_id": "E_RAG_017",
+            "relationship": "DIRECT",
+            "reason": "Defined evaluation as two complementary dimensions... and validation of whether resulting evidence... appear useful."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate defined success metrics and evaluation plans, including acceptance criteria, guardrail metrics, and evaluation rubrics for AI capabilities."
+      },
+      {
+        "requirement_id": "MREQ027",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_036",
+            "relationship": "DIRECT",
+            "reason": "Lists design/collaboration skills including stakeholder communication, and cross-functional collaboration."
+          },
+          {
+            "evidence_id": "E_RES_007",
+            "relationship": "DIRECT",
+            "reason": "Worked with a product manager, designer, and three engineers."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate lists stakeholder communication and cross-functional collaboration as key skills and demonstrated this by partnering with PMs, designers, and engineers throughout their internships and projects."
+      },
+      {
+        "requirement_id": "MREQ028",
+        "evidence_matches": [],
+        "support_level": "NOT_CLEARLY_SUPPORTED",
+        "reason": "The candidate's background is in Information Science/HCI. There is no evidence of holding a Registered Nurse (RN) license."
+      },
+      {
+        "requirement_id": "MREQ029",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_007",
+            "relationship": "DIRECT",
+            "reason": "The candidate worked on an 'AI-assisted customer-support workflow'. While this is in the customer support domain rather than clinical, it demonstrates direct experience with AI tools designed to assist human workers in making decisions or performing tasks (suggesting responses), which is structurally analogous to clinical decision support."
+          },
+          {
+            "evidence_id": "E_RES_009",
+            "relationship": "DIRECT",
+            "reason": "The candidate defined acceptance criteria for an 'AI-generated response-suggestion feature', specifically evaluating 'relevance' and 'factual consistency'. This shows familiarity with the core mechanics of AI-assisted decision support: generating options/suggestions for a human to review and validating their quality before use."
+          },
+          {
+            "evidence_id": "E_RES_023",
+            "relationship": "TRANSFERABLE",
+            "reason": "The candidate supported a study on 'how users interpret confidence and uncertainty in AI-generated recommendations'. Understanding how humans interact with, trust, and interpret AI recommendations is a critical component of using and evaluating clinical decision-support tools, where transparency and uncertainty communication are vital."
+          },
+          {
+            "evidence_id": "E_RES_033",
+            "relationship": "TRANSFERABLE",
+            "reason": "The candidate proposed a 'human-review step for low-confidence classifications instead of automatically accepting every model output'. This demonstrates an understanding of the 'human-in-the-loop' paradigm essential to clinical decision support, where AI provides suggestions but final decisions often require human verification, especially when confidence is low."
+          },
+          {
+            "evidence_id": "E_JOB_002",
+            "relationship": "ADJACENT",
+            "reason": "The candidate built a 'human-in-the-loop decision-support system' for job searching. While the domain is career services, not healthcare, the explicit design of an AI tool that stops at 'Pass / Save for later / Pursue' without automating the final decision demonstrates deep familiarity with the concept, architecture, and user experience of AI-assisted decision support systems."
+          }
+        ],
+        "support_level": "PARTIAL",
+        "reason": "The recovered evidence demonstrates strong familiarity with the mechanics, architecture, and user experience of AI-assisted decision support systems, particularly through 'human-in-the-loop' designs and the evaluation of AI suggestions (E_RES_007, E_RES_009, E_JOB_002). However, all provided evidence is situated in non-clinical domains such as customer support, job searching, and general recommendation systems. The requirement specifically asks for familiarity with 'clinical' decision-support tools. While the candidate possesses transferable skills regarding how humans interact with AI recommendations (E_RES_023) and handling uncertainty (E_RES_033), there is no direct evidence of experience within the healthcare or clinical context. Therefore, the evidence meaningfully supports the functional aspects of the requirement but lacks the specific domain context required for STRONG support."
+      },
+      {
+        "requirement_id": "MREQ030",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RES_008",
+            "relationship": "DIRECT",
+            "reason": "Conducted 12 user interviews... and synthesized recurring pain points."
+          },
+          {
+            "evidence_id": "E_RES_018",
+            "relationship": "DIRECT",
+            "reason": "Found a large drop-off... and worked with the product team to define hypotheses for the decline."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate led technical discovery activities such as conducting user interviews, running usability sessions, and defining hypotheses for product decline, demonstrating comfort leading technical discovery sessions."
+      },
+      {
+        "requirement_id": "MREQ031",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_JOB_001",
+            "relationship": "DIRECT",
+            "reason": "Built a local AI-assisted job-search product."
+          },
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          }
+        ],
+        "support_level": "PARTIAL",
+        "reason": "The candidate built LLM applications (Job Search Agent, RAG Assistant) but explicitly states they are local/single-user tools without cloud production deployment. While they have experience *building* LLM apps, the 'deploying' aspect is limited to local environments."
+      },
+      {
+        "requirement_id": "MREQ032",
+        "evidence_matches": [
+          {
+            "evidence_id": "E_RAG_001",
+            "relationship": "DIRECT",
+            "reason": "Built an adaptive retrieval-augmented generation system."
+          },
+          {
+            "evidence_id": "E_RAG_016",
+            "relationship": "DIRECT",
+            "reason": "Built an offline evaluation runner... for RAG modes."
+          },
+          {
+            "evidence_id": "E_JOB_009",
+            "relationship": "DIRECT",
+            "reason": "Implemented a provider-neutral web-search interface backed by Qwen's Responses API hosted web_search tool."
+          }
+        ],
+        "support_level": "STRONG",
+        "reason": "The candidate has practical capability with retrieval-augmented generation (built RAG systems), evaluation frameworks (built offline evaluators), and tool-calling agents (implemented bounded tool use for web search and Gmail)."
+      }
+    ]
+  }
+}

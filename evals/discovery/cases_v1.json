@@ -1,0 +1,205 @@
+{
+  "version": "v1",
+  "scope": "Discovery layer only: email metadata -> classifier -> email body -> 0..N JobCandidates",
+  "dataset_type": "sanitized real-world Gmail-derived cases",
+  "case_count": 8,
+  "notes": [
+    "This is a small expanded baseline, not a production-scale benchmark.",
+    "Positive cases preserve real job-alert structure but redact personal data and ephemeral tracking tokens.",
+    "Negative cases are job-adjacent emails that contain career/employer language but no concrete job opening.",
+    "Location is reviewed manually for semantic groundedness and is not exact-string scored."
+  ],
+  "cases": [
+    {
+      "case_id": "LI-01",
+      "eval_bucket": "positive_multi_job_digest",
+      "source": "LINKEDIN",
+      "message_id": "eval-li-01",
+      "sender": "LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>",
+      "subject": "Intermediate Architectural Designer (Residential/High-rise) at The Crowd: up to $95K/year",
+      "snippet": "$75K-$95K / year salary",
+      "expected_job_related": true,
+      "body": "Your job alert for architectural designer\n\nNew jobs in United States match your preferences.\n\n[The Crowd](https://www.linkedin.com/comm/jobs/view/4465068515/)\n[Intermediate Architectural Designer (Residential/High-rise)\nThe Crowd · New York, United States (On-site)\n$75K-$95K / year\nActively recruiting Easy Apply\nEasy Apply](https://www.linkedin.com/comm/jobs/view/4465068515/)\n\n[Perkins Eastman](https://www.linkedin.com/comm/jobs/view/4449879475/)\n[Designer I\nPerkins Eastman · Dallas, TX (On-site)\nCornell University\n21 school alumni](https://www.linkedin.com/comm/jobs/view/4449879475/)\n\n[Workshop/APD](https://www.linkedin.com/comm/jobs/view/4464994455/)\n[Intermediate Architectural Designer\nWorkshop/APD · New York, NY (On-site)\nCornell University\n2 school alumni](https://www.linkedin.com/comm/jobs/view/4464994455/)\n\n[Roth Sheppard Architects, LLP](https://www.linkedin.com/comm/jobs/view/4464123697/)\n[Architectural Staff - Level II\nRoth Sheppard Architects, LLP · Denver, CO (Hybrid)\nCornell University\n1 school alum\nEasy Apply](https://www.linkedin.com/comm/jobs/view/4464123697/)\n\n[WSP in the U.S.](https://www.linkedin.com/comm/jobs/view/4454908596/)\n[Architect/ Architectural Designer\nWSP in the U.S. · Atlanta, GA (Hybrid)\nActively recruiting](https://www.linkedin.com/comm/jobs/view/4454908596/)\n\n[CRB](https://www.linkedin.com/comm/jobs/view/4465077634/)\n[Architectural Designer II\nCRB · Rockville, MD (Hybrid)\n$70K-$95K / year\nCornell University\n4 school alumni\nEasy Apply](https://www.linkedin.com/comm/jobs/view/4465077634/)\n\n[See all jobs](https://www.linkedin.com/comm/jobs/search-results/)\n",
+      "expected_jobs": [
+        {
+          "title": "Intermediate Architectural Designer (Residential/High-rise)",
+          "company": "The Crowd",
+          "location_reference": "New York, United States (On-site)",
+          "source_item_id": "4465068515"
+        },
+        {
+          "title": "Designer I",
+          "company": "Perkins Eastman",
+          "location_reference": "Dallas, TX (On-site)",
+          "source_item_id": "4449879475"
+        },
+        {
+          "title": "Intermediate Architectural Designer",
+          "company": "Workshop/APD",
+          "location_reference": "New York, NY (On-site)",
+          "source_item_id": "4464994455"
+        },
+        {
+          "title": "Architectural Staff - Level II",
+          "company": "Roth Sheppard Architects, LLP",
+          "location_reference": "Denver, CO (Hybrid)",
+          "source_item_id": "4464123697"
+        },
+        {
+          "title": "Architect/ Architectural Designer",
+          "company": "WSP in the U.S.",
+          "location_reference": "Atlanta, GA (Hybrid)",
+          "source_item_id": "4454908596"
+        },
+        {
+          "title": "Architectural Designer II",
+          "company": "CRB",
+          "location_reference": "Rockville, MD (Hybrid)",
+          "source_item_id": "4465077634"
+        }
+      ]
+    },
+    {
+      "case_id": "LI-02",
+      "eval_bucket": "positive_second_linkedin_digest",
+      "source": "LINKEDIN",
+      "message_id": "eval-li-02",
+      "sender": "LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>",
+      "subject": "Sr. Designer, Store Design - Architecture(Remote Or Hybrid) at Target",
+      "snippet": "Target Sr. Designer, Store Design - Architecture(Remote Or Hybrid): The pay range is $73000.00 - $132000.00",
+      "expected_job_related": true,
+      "body": "Your job alert for architect\n\nNew jobs match your alert.\n\n[Target](https://www.linkedin.com/comm/jobs/view/4457502611/)\n[Sr. Designer, Store Design - Architecture(Remote Or Hybrid)\nTarget · Minneapolis, MN\nActively recruiting](https://www.linkedin.com/comm/jobs/view/4457502611/)\n\n[HOK](https://www.linkedin.com/comm/jobs/view/4418063176/)\n[Architecture - Design Professional - Transportation\nHOK · Boston, MA (Hybrid)\nCornell University\n24 school alumni](https://www.linkedin.com/comm/jobs/view/4418063176/)\n\n[10 Design](https://www.linkedin.com/comm/jobs/view/4459685646/)\n[Architectural Designer II\n10 Design · Coral Gables, FL (On-site)\nCornell University\n2 school alumni\nEasy Apply](https://www.linkedin.com/comm/jobs/view/4459685646/)\n\n[HOK](https://www.linkedin.com/comm/jobs/view/4418058207/)\n[Architecture - Architect - Transportation\nHOK · Boston, MA (Hybrid)\nCornell University\n24 school alumni](https://www.linkedin.com/comm/jobs/view/4418058207/)\n\n[Skidmore, Owings & Merrill (SOM)](https://www.linkedin.com/comm/jobs/view/4352991594/)\n[Intermediate Designer - Architecture\nSkidmore, Owings & Merrill (SOM) · Chicago, IL\nCornell University\n39 school alumni](https://www.linkedin.com/comm/jobs/view/4352991594/)\n\n[10 Design](https://www.linkedin.com/comm/jobs/view/4459690483/)\n[Architect\n10 Design · Coral Gables, FL (On-site)\nCornell University\n2 school alumni\nEasy Apply](https://www.linkedin.com/comm/jobs/view/4459690483/)\n\n[See all jobs](https://www.linkedin.com/comm/jobs/search-results/)\n",
+      "expected_jobs": [
+        {
+          "title": "Sr. Designer, Store Design - Architecture(Remote Or Hybrid)",
+          "company": "Target",
+          "location_reference": "Minneapolis, MN",
+          "source_item_id": "4457502611"
+        },
+        {
+          "title": "Architecture - Design Professional - Transportation",
+          "company": "HOK",
+          "location_reference": "Boston, MA (Hybrid)",
+          "source_item_id": "4418063176"
+        },
+        {
+          "title": "Architectural Designer II",
+          "company": "10 Design",
+          "location_reference": "Coral Gables, FL (On-site)",
+          "source_item_id": "4459685646"
+        },
+        {
+          "title": "Architecture - Architect - Transportation",
+          "company": "HOK",
+          "location_reference": "Boston, MA (Hybrid)",
+          "source_item_id": "4418058207"
+        },
+        {
+          "title": "Intermediate Designer - Architecture",
+          "company": "Skidmore, Owings & Merrill (SOM)",
+          "location_reference": "Chicago, IL",
+          "source_item_id": "4352991594"
+        },
+        {
+          "title": "Architect",
+          "company": "10 Design",
+          "location_reference": "Coral Gables, FL (On-site)",
+          "source_item_id": "4459690483"
+        }
+      ]
+    },
+    {
+      "case_id": "IN-01",
+      "eval_bucket": "positive_single_rich_preview",
+      "source": "INDEED",
+      "message_id": "eval-in-01",
+      "sender": "Indeed <donotreply@match.indeed.com>",
+      "subject": "Architectural Job Captain @ BDE Architecture",
+      "snippet": "$90,000 - $125,000 a year. Your background as a Project Designer and BIM Specialist could be a strong match.",
+      "expected_job_related": true,
+      "body": "Architectural Job Captain @ BDE Architecture\n\nYour background as a Project Designer and BIM Specialist could be a strong\nmatch for this Architectural Job Captain role.\n\n[View job](https://cts.indeed.com/v3/REDACTED_BDE)\n\n[Architectural Job Captain](https://cts.indeed.com/v3/REDACTED_BDE)\n\nBDE Architecture\nSan Francisco, CA 94103\nHiring multiple candidates\n\nSalary\n$90,000 - $125,000 a year\n\nJob type\nFull-time\n\nWork setting\nHybrid work\n\nJob criteria missing from your profile\n- Revit: 3 years (Required)\n\nJob description preview\n\nThe BDE definition of a Job Captain is someone who has the technical and\nleadership abilities to plan, organize, and manage the efforts of a production\nteam to produce quality construction documents within an allotted timeframe.\n\n[Learn more](https://cts.indeed.com/v3/REDACTED_BDE)\n",
+      "expected_jobs": [
+        {
+          "title": "Architectural Job Captain",
+          "company": "BDE Architecture",
+          "location_reference": "San Francisco, CA 94103",
+          "source_item_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "IN-02",
+      "eval_bucket": "positive_ai_role_rich_preview",
+      "source": "INDEED",
+      "message_id": "eval-in-02",
+      "sender": "Indeed <donotreply@match.indeed.com>",
+      "subject": "Mechanical Design Engineer - AI Trainer @ DataAnnotation",
+      "snippet": "From $60 an hour. It looks like your background could be a match for this Mechanical Design Engineer - AI Trainer role.",
+      "expected_job_related": true,
+      "body": "Mechanical Design Engineer - AI Trainer @ DataAnnotation\n\nIt looks like your background could be a match for this Mechanical Design\nEngineer - AI Trainer role.\n\n[View job](https://cts.indeed.com/v3/REDACTED_DATAANNOTATION)\n\n[Mechanical Design Engineer - AI Trainer](https://cts.indeed.com/v3/REDACTED_DATAANNOTATION)\n\nDataAnnotation\n\nSanta Clara, CA\n\nSalary\nFrom $60 an hour\n\nJob types\nContract\nFull-time\nPart-time\n\nSchedule\nOn demand\n\nWork setting\nRemote\n\nJob description preview\n\nWe're expanding into an exciting new area focused on helping AI assistant\nmodels become more effective tools for engineering and technical professionals.\nWe are seeking an experienced Mechanical Design Engineer - AI Trainer with\nhands-on industry experience to help train and evaluate advanced AI systems.\n\n[Learn more](https://cts.indeed.com/v3/REDACTED_DATAANNOTATION)\n",
+      "expected_jobs": [
+        {
+          "title": "Mechanical Design Engineer - AI Trainer",
+          "company": "DataAnnotation",
+          "location_reference": "Santa Clara, CA",
+          "source_item_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "IN-03",
+      "eval_bucket": "positive_academic_rich_preview",
+      "source": "INDEED",
+      "message_id": "eval-in-03",
+      "sender": "Indeed <donotreply@match.indeed.com>",
+      "subject": "Creedon Design Fellow Early Career Fellow - Dept. of Architecture @ University of California Berkeley",
+      "snippet": "$67,900 - $79,887 a year. Your background in architectural design and BIM could be a strong match for this Creedon Design Fellow position at UC Berkeley.",
+      "expected_job_related": true,
+      "body": "Creedon Design Fellow Early Career Fellow - Dept. of Architecture @ University of California Berkeley\n\nYour background in architectural design and BIM could be a strong match for\nthis Creedon Design Fellow position at UC Berkeley.\n\n[View job](https://cts.indeed.com/v3/REDACTED_BERKELEY)\n\n[Creedon Design Fellow Early Career Fellow - Dept. of Architecture](https://cts.indeed.com/v3/REDACTED_BERKELEY)\n\nUniversity of California Berkeley\n\nBerkeley, CA 94720\n\nSalary\n$67,900 - $79,887 a year\n\nJob type\nNon-tenure\n\nWork settings\nOffice\nUniversity\n\nJob description preview\n\nCreedon Design Fellow Early Career Fellow - Dept. of Architecture.\nPosition overview. Position title: Creedon Design Fellow.\n\n[Learn more](https://cts.indeed.com/v3/REDACTED_BERKELEY)\n",
+      "expected_jobs": [
+        {
+          "title": "Creedon Design Fellow Early Career Fellow - Dept. of Architecture",
+          "company": "University of California Berkeley",
+          "location_reference": "Berkeley, CA 94720",
+          "source_item_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "NEG-01",
+      "eval_bucket": "negative_career_insights",
+      "source": "LINKEDIN",
+      "message_id": "eval-neg-01",
+      "sender": "LinkedIn <messages-noreply@linkedin.com>",
+      "subject": "Career trends from your network",
+      "snippet": "See more career trends in your network",
+      "expected_job_related": false,
+      "body": "Career trends in your network this past week\n\n3 people open to hiring in your network this week.\n\nOffering professional services.\n\nPrincipal Architect\n\nSee what people in your network are offering.\n\nThere is no concrete job opening in this email.\n",
+      "expected_jobs": []
+    },
+    {
+      "case_id": "NEG-02",
+      "eval_bucket": "negative_profile_search_notification",
+      "source": "LINKEDIN",
+      "message_id": "eval-neg-02",
+      "sender": "LinkedIn <notifications-noreply@linkedin.com>",
+      "subject": "You appeared in 7 searches",
+      "snippet": "Someone from an architecture company found your profile",
+      "expected_job_related": false,
+      "body": "You appeared in 7 searches this week.\n\nYou were found by people from these companies.\n\nSee profile appearances.\n\nThis is a profile-search notification, not a concrete job opening.\n",
+      "expected_jobs": []
+    },
+    {
+      "case_id": "NEG-03",
+      "eval_bucket": "negative_job_search_advice",
+      "source": "INDEED",
+      "message_id": "eval-neg-03",
+      "sender": "Indeed Job Search Academy <no-reply@indeed.com>",
+      "subject": "Sharpen your edge: Human skills, job discovery + early career advice",
+      "snippet": "Register for our free September webinars",
+      "expected_job_related": false,
+      "body": "September is a great time to sharpen the skills and strategies that help\nyou stand out.\n\nThe Human Advantage: Sharpen and Showcase the Skills AI Can't Replace\n\nIndeed Bootcamp: Job Discovery\n\nAsk a Career Strategist: Smart Strategies for Your Early Career Job Hunt\n\nRegistration is free. These are job-search webinars and career advice,\nnot concrete job openings.\n",
+      "expected_jobs": []
+    }
+  ]
+}

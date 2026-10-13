@@ -1,0 +1,1820 @@
+{
+  "eval_name": "job_requirement_extraction",
+  "eval_version": "v1",
+  "scope": "raw_extractor_only",
+  "production_function": "job_agent.agents.requirement_analyzer.extract_requirements_from_jd",
+  "timestamp_utc": "2026-10-02T18:42:02.449865+00:00",
+  "case_count": 8,
+  "error_case_count": 0,
+  "prediction_count": 102,
+  "verbatim_source_count": 102,
+  "verbatim_source_rate": 1.0,
+  "cases": [
+    {
+      "case_id": "REQ001",
+      "filename": "REQ001_clean_ai_product_engineer.md",
+      "status": "SUCCESS",
+      "prediction_count": 13,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Build and improve production applications powered by large language models.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Build and improve production applications powered by large language models.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Design retrieval-augmented generation workflows for grounded question answering.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Design retrieval-augmented generation workflows for grounded question answering.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Partner with product and design to translate user problems into AI product requirements.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Partner with product and design to translate user problems into AI product requirements.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Develop offline evaluations for answer quality, grounding, and task completion.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Develop offline evaluations for answer quality, grounding, and task completion.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "Instrument AI features with latency, failure-rate, and usage metrics.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Instrument AI features with latency, failure-rate, and usage metrics.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Have 4+ years of professional software development experience.",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "4+ years of professional software development experience.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Have strong Python programming skills.",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Strong Python programming skills.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R008",
+          "requirement": "Have experience building applications with large language models or other generative AI systems.",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience building applications with large language models or other generative AI systems.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R009",
+          "requirement": "Have experience designing or consuming production APIs.",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience designing or consuming production APIs.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R010",
+          "requirement": "Have a Bachelor's degree in Computer Science, Engineering, or a related technical field, or equivalent practical experience.",
+          "category": "EDUCATION",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Bachelor's degree in Computer Science, Engineering, or a related technical field, or equivalent practical experience.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R011",
+          "requirement": "Have experience with vector databases.",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with vector databases.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R012",
+          "requirement": "Have experience with prompt evaluation or LLM evaluation frameworks.",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with prompt evaluation or LLM evaluation frameworks.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R013",
+          "requirement": "Have experience building internal tools for knowledge workers.",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience building internal tools for knowledge workers.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "REQ002",
+      "filename": "REQ002_compound_atomicity.md",
+      "status": "SUCCESS",
+      "prediction_count": 17,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Build Python backend services and TypeScript user interfaces for AI-assisted workflows",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Build Python backend services and TypeScript user interfaces for AI-assisted workflows.",
+          "jd_section": "What You Will Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Own the evaluation pipeline for LLM outputs and monitor latency and cost in production",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Own the evaluation pipeline for LLM outputs and monitor latency and cost in production.",
+          "jd_section": "What You Will Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Design tool-calling workflows that connect language models to internal APIs, search systems, and business data",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Design tool-calling workflows that connect language models to internal APIs, search systems, and business data.",
+          "jd_section": "What You Will Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Work with product managers and designers to prototype features, run user tests, and convert findings into implementation changes",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Work with product managers and designers to prototype features, run user tests, and convert findings into implementation changes.",
+          "jd_section": "What You Will Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "Have 5+ years of software engineering experience",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "5+ years of software engineering experience, including at least 2 years building customer-facing AI or machine-learning applications.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Have at least 2 years building customer-facing AI or machine-learning applications",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "5+ years of software engineering experience, including at least 2 years building customer-facing AI or machine-learning applications.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Demonstrate strong proficiency in Python",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Strong proficiency in Python and working knowledge of TypeScript.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R008",
+          "requirement": "Demonstrate working knowledge of TypeScript",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Strong proficiency in Python and working knowledge of TypeScript.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R009",
+          "requirement": "Have hands-on experience with REST APIs",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Hands-on experience with REST APIs, structured JSON outputs, and asynchronous processing.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R010",
+          "requirement": "Have hands-on experience with structured JSON outputs",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Hands-on experience with REST APIs, structured JSON outputs, and asynchronous processing.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R011",
+          "requirement": "Have hands-on experience with asynchronous processing",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Hands-on experience with REST APIs, structured JSON outputs, and asynchronous processing.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R012",
+          "requirement": "Ability to debug model failures",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Ability to debug model, retrieval, and application-layer failures.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R013",
+          "requirement": "Ability to debug retrieval failures",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Ability to debug model, retrieval, and application-layer failures.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R014",
+          "requirement": "Ability to debug application-layer failures",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Ability to debug model, retrieval, and application-layer failures.",
+          "jd_section": "What We Need",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R015",
+          "requirement": "Experience with agent orchestration frameworks",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with agent orchestration frameworks is a plus.",
+          "jd_section": "Nice to Have",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R016",
+          "requirement": "Familiarity with vector search",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Familiarity with vector search and reranking is preferred.",
+          "jd_section": "Nice to Have",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R017",
+          "requirement": "Familiarity with reranking",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Familiarity with vector search and reranking is preferred.",
+          "jd_section": "Nice to Have",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "REQ003",
+      "filename": "REQ003_strength_language.md",
+      "status": "SUCCESS",
+      "prediction_count": 12,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Own a product area focused on AI-assisted decision support for enterprise users",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "You will own a product area focused on AI-assisted decision support for enterprise users.",
+          "jd_section": "The Opportunity",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Define product strategy and roadmaps for generative-AI features",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Define product strategy and roadmaps for generative-AI features.",
+          "jd_section": "What You'll Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Translate customer research into prioritized product requirements",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Translate customer research into prioritized product requirements.",
+          "jd_section": "What You'll Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Partner with engineering to define evaluation criteria before launch",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Partner with engineering to define evaluation criteria before launch.",
+          "jd_section": "What You'll Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "Review qualitative and quantitative product signals after release and decide what to improve",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Review qualitative and quantitative product signals after release and decide what to improve.",
+          "jd_section": "What You'll Do",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Have 4+ years of product management experience",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "You must have 4+ years of product management experience.",
+          "jd_section": "Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Demonstrate experience shipping at least one software product from discovery through launch",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Demonstrated experience shipping at least one software product from discovery through launch.",
+          "jd_section": "Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R008",
+          "requirement": "Communicate tradeoffs with engineering, design, and business stakeholders",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Strong ability to communicate tradeoffs with engineering, design, and business stakeholders.",
+          "jd_section": "Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R009",
+          "requirement": "Use SQL or another analytics tool to investigate product behavior",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "You should be comfortable using SQL or another analytics tool to investigate product behavior.",
+          "jd_section": "Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R010",
+          "requirement": "Have experience with LLM-powered products",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with LLM-powered products is preferred.",
+          "jd_section": "Additional Experience",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R011",
+          "requirement": "Have experience with enterprise SaaS",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with enterprise SaaS would be helpful.",
+          "jd_section": "Additional Experience",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R012",
+          "requirement": "Have prior work with evaluation datasets or human review workflows",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Prior work with evaluation datasets or human review workflows is a plus.",
+          "jd_section": "Additional Experience",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "REQ004",
+      "filename": "REQ004_alternatives_equivalency.md",
+      "status": "SUCCESS",
+      "prediction_count": 10,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Build and operate services that use large language models for document analysis",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Build and operate services that use large language models for document analysis.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Create evaluation datasets and regression tests for AI behavior",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Create evaluation datasets and regression tests for AI behavior.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Collaborate with platform engineers to deploy and observe model-backed services",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Collaborate with platform engineers to deploy and observe model-backed services.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Bachelor's degree in Computer Science, Data Science, Engineering, or a related field, OR equivalent practical experience",
+          "category": "EDUCATION",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Bachelor's degree in Computer Science, Data Science, Engineering, or a related field, OR equivalent practical experience.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "3+ years of professional programming experience in Python or Go",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "3+ years of professional programming experience in Python or Go.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Experience deploying services on at least one major cloud platform: AWS, GCP, or Azure",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience deploying services on at least one major cloud platform: AWS, GCP, or Azure.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Experience with SQL and relational databases",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience with SQL and relational databases.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R008",
+          "requirement": "Experience using Git in a collaborative development environment",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience using Git in a collaborative development environment.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R009",
+          "requirement": "Experience with Kubernetes is preferred",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with Kubernetes is preferred.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R010",
+          "requirement": "Familiarity with LLM evaluation, retrieval systems, or vector databases is a plus",
+          "category": "DOMAIN_KNOWLEDGE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Familiarity with LLM evaluation, retrieval systems, or vector databases is a plus.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "REQ005",
+      "filename": "REQ005_noise_and_negation.md",
+      "status": "SUCCESS",
+      "prediction_count": 7,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Build AI-assisted workflow features from prototype through production",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Build AI-assisted workflow features from prototype through production.",
+          "jd_section": "Your Work",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Interview internal users and incorporate feedback into product iterations",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Interview internal users and incorporate feedback into product iterations.",
+          "jd_section": "Your Work",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Create lightweight quality checks for AI-generated outputs",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Create lightweight quality checks for AI-generated outputs.",
+          "jd_section": "Your Work",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Investigate production issues across application code and model behavior",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Investigate production issues across application code and model behavior.",
+          "jd_section": "Your Work",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "3+ years of software product development experience",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "3+ years of software product development experience.",
+          "jd_section": "Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Proficiency in Python",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Proficiency in Python.",
+          "jd_section": "Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Experience working directly with users or product partners",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience working directly with users or product partners.",
+          "jd_section": "Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "REQ006",
+      "filename": "REQ006_repetition_dedup.md",
+      "status": "SUCCESS",
+      "prediction_count": 13,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Define requirements for AI platform capabilities with engineering and design.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Define requirements for AI platform capabilities with engineering and design.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Use product analytics and customer feedback to prioritize roadmap decisions.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Use product analytics and customer feedback to prioritize roadmap decisions.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Communicate product tradeoffs with engineering, design, sales, and customer-success teams.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Communicate product tradeoffs with engineering, design, sales, and customer-success teams.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Define success metrics and evaluation plans for new AI capabilities.",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Define success metrics and evaluation plans for new AI capabilities.",
+          "jd_section": "Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "Have 5+ years of product management experience.",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "5+ years of product management experience.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Have experience defining product requirements for technical products.",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience defining product requirements for technical products.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Have strong cross-functional communication skills.",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Strong cross-functional communication skills.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R008",
+          "requirement": "Have experience using SQL or product analytics tools.",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience using SQL or product analytics tools.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R009",
+          "requirement": "Have experience defining metrics for product launches.",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience defining metrics for product launches.",
+          "jd_section": "Minimum Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R010",
+          "requirement": "Have experience with generative AI products.",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with generative AI products is preferred.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R011",
+          "requirement": "Have experience with model evaluation or experimentation.",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with model evaluation or experimentation is preferred.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R012",
+          "requirement": "Have strong cross-functional communication.",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Strong cross-functional communication is a plus.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R013",
+          "requirement": "Have experience using analytics to prioritize product decisions.",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience using analytics to prioritize product decisions is preferred.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "REQ007",
+      "filename": "REQ007_license_certification_domain.md",
+      "status": "SUCCESS",
+      "prediction_count": 13,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Lead implementation of AI-assisted clinical workflow tools at hospital sites",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Lead implementation of AI-assisted clinical workflow tools at hospital sites.",
+          "jd_section": "Role Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Train clinical users and gather feedback on workflow usability",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Train clinical users and gather feedback on workflow usability.",
+          "jd_section": "Role Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Partner with engineering and clinical operations to investigate safety or workflow issues",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Partner with engineering and clinical operations to investigate safety or workflow issues.",
+          "jd_section": "Role Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Document implementation risks and communicate escalation needs",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "Document implementation risks and communicate escalation needs.",
+          "jd_section": "Role Responsibilities",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "Hold an active, unrestricted Registered Nurse (RN) license in at least one U.S. state",
+          "category": "LICENSE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Active, unrestricted Registered Nurse (RN) license in at least one U.S. state.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Have 3+ years of direct clinical experience in an acute-care hospital environment",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "3+ years of direct clinical experience in an acute-care hospital environment.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Have experience working with electronic health record workflows",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience working with electronic health record workflows.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R008",
+          "requirement": "Be able to travel up to 30% to customer hospital sites",
+          "category": "OTHER",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Ability to travel up to 30% to customer hospital sites.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R009",
+          "requirement": "Hold a Bachelor's degree in Nursing or a related clinical field",
+          "category": "EDUCATION",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Bachelor's degree in Nursing or a related clinical field.",
+          "jd_section": "Required Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R010",
+          "requirement": "Hold Epic certification",
+          "category": "CERTIFICATION",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Epic certification is preferred.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R011",
+          "requirement": "Hold PMP certification",
+          "category": "CERTIFICATION",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "PMP certification is a plus.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R012",
+          "requirement": "Have experience implementing clinical software",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience implementing clinical software is preferred.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R013",
+          "requirement": "Have familiarity with AI-assisted clinical decision-support tools",
+          "category": "DOMAIN_KNOWLEDGE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Familiarity with AI-assisted clinical decision-support tools is preferred.",
+          "jd_section": "Preferred Qualifications",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "case_id": "REQ008",
+      "filename": "REQ008_long_prose_fde.md",
+      "status": "SUCCESS",
+      "prediction_count": 17,
+      "predictions": [
+        {
+          "requirement_id": "R001",
+          "requirement": "Work directly with customer teams to understand ambiguous operational problems and identify available data and systems",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "You will work directly with customer teams to understand the problem, identify what data and systems are available, and turn that context into working AI-enabled solutions.",
+          "jd_section": "About the Role",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R002",
+          "requirement": "Prototype quickly, validate approaches with real users, and harden workflows with platform engineering",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "A typical engagement may involve prototyping quickly, validating the approach with real users, then hardening the workflow with the platform engineering team.",
+          "jd_section": "About the Role",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R003",
+          "requirement": "Explain technical tradeoffs clearly",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "You will be expected to explain technical tradeoffs clearly, write production-quality code when needed, and determine when an LLM-based approach is appropriate versus when a simpler deterministic solution is better.",
+          "jd_section": "About the Role",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R004",
+          "requirement": "Write production-quality code when needed",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "You will be expected to explain technical tradeoffs clearly, write production-quality code when needed, and determine when an LLM-based approach is appropriate versus when a simpler deterministic solution is better.",
+          "jd_section": "About the Role",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R005",
+          "requirement": "Determine when an LLM-based approach is appropriate versus when a simpler deterministic solution is better",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "CORE",
+          "jd_source_text": "You will be expected to explain technical tradeoffs clearly, write production-quality code when needed, and determine when an LLM-based approach is appropriate versus when a simpler deterministic solution is better.",
+          "jd_section": "About the Role",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R006",
+          "requirement": "Have at least 3 years of professional software engineering or applied machine-learning experience",
+          "category": "EXPERIENCE",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "We require at least 3 years of professional software engineering or applied machine-learning experience.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R007",
+          "requirement": "Program effectively in Python",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "You must be able to program effectively in Python and work with SQL-based data systems.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R008",
+          "requirement": "Work with SQL-based data systems",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "You must be able to program effectively in Python and work with SQL-based data systems.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R009",
+          "requirement": "Integrate third-party or internal APIs",
+          "category": "SKILL",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Experience integrating third-party or internal APIs is required.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R010",
+          "requirement": "Lead technical discovery sessions",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Because this role is customer-facing, you must be comfortable leading technical discovery sessions and presenting technical recommendations to mixed technical and non-technical audiences.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R011",
+          "requirement": "Present technical recommendations to mixed technical and non-technical audiences",
+          "category": "RESPONSIBILITY",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "Because this role is customer-facing, you must be comfortable leading technical discovery sessions and presenting technical recommendations to mixed technical and non-technical audiences.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R012",
+          "requirement": "Travel to customer sites up to 25%",
+          "category": "OTHER",
+          "requirement_level": "REQUIRED",
+          "jd_source_text": "The role requires travel to customer sites up to 25%.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R013",
+          "requirement": "Deploy LLM applications",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience deploying LLM applications is preferred.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R014",
+          "requirement": "Use retrieval-augmented generation",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with retrieval-augmented generation, evaluation frameworks, or tool-calling agents would be a plus.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R015",
+          "requirement": "Use evaluation frameworks",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with retrieval-augmented generation, evaluation frameworks, or tool-calling agents would be a plus.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R016",
+          "requirement": "Use tool-calling agents",
+          "category": "SKILL",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Experience with retrieval-augmented generation, evaluation frameworks, or tool-calling agents would be a plus.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        },
+        {
+          "requirement_id": "R017",
+          "requirement": "Have prior consulting experience",
+          "category": "EXPERIENCE",
+          "requirement_level": "PREFERRED",
+          "jd_source_text": "Prior consulting experience is helpful but not required.",
+          "jd_section": "Background We Are Looking For",
+          "grounding_status": "UNVALIDATED",
+          "checks": {
+            "requirement_nonempty": true,
+            "category_allowed": true,
+            "requirement_level_allowed": true,
+            "jd_source_text_nonempty": true,
+            "jd_source_text_is_verbatim": true,
+            "jd_section_nonempty": true
+          }
+        }
+      ],
+      "error": null
+    }
+  ]
+}

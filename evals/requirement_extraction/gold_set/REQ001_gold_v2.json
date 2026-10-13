@@ -1,0 +1,137 @@
+{
+  "eval_name": "job_requirement_extraction",
+  "eval_version": "v1",
+  "gold_policy_version": "v2",
+  "case_id": "REQ001",
+  "filename": "REQ001_clean_ai_product_engineer.md",
+  "status": "HUMAN_ADJUDICATED_GOLD_V2",
+  "gold_requirement_count": 14,
+  "gold_requirements": [
+    {
+      "gold_id": "G001",
+      "requirement": "Build AI-powered product experiences for operations teams to research, summarize, and act on complex information.",
+      "category": "RESPONSIBILITY",
+      "requirement_level": "CORE",
+      "jd_source_text": "You will build AI-powered product experiences used by operations teams to research, summarize, and act on complex information.",
+      "jd_section": "About the Role",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G002",
+      "requirement": "Build and improve production applications powered by large language models.",
+      "category": "RESPONSIBILITY",
+      "requirement_level": "CORE",
+      "jd_source_text": "Build and improve production applications powered by large language models.",
+      "jd_section": "Responsibilities",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G003",
+      "requirement": "Design retrieval-augmented generation workflows for grounded question answering.",
+      "category": "RESPONSIBILITY",
+      "requirement_level": "CORE",
+      "jd_source_text": "Design retrieval-augmented generation workflows for grounded question answering.",
+      "jd_section": "Responsibilities",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G004",
+      "requirement": "Partner with product and design to translate user problems into AI product requirements.",
+      "category": "RESPONSIBILITY",
+      "requirement_level": "CORE",
+      "jd_source_text": "Partner with product and design to translate user problems into AI product requirements.",
+      "jd_section": "Responsibilities",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G005",
+      "requirement": "Develop offline evaluations for answer quality, grounding, and task completion.",
+      "category": "RESPONSIBILITY",
+      "requirement_level": "CORE",
+      "jd_source_text": "Develop offline evaluations for answer quality, grounding, and task completion.",
+      "jd_section": "Responsibilities",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G006",
+      "requirement": "Instrument AI features with latency, failure-rate, and usage metrics.",
+      "category": "RESPONSIBILITY",
+      "requirement_level": "CORE",
+      "jd_source_text": "Instrument AI features with latency, failure-rate, and usage metrics.",
+      "jd_section": "Responsibilities",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G007",
+      "requirement": "Have 4+ years of professional software development experience.",
+      "category": "EXPERIENCE",
+      "requirement_level": "REQUIRED",
+      "jd_source_text": "4+ years of professional software development experience.",
+      "jd_section": "Minimum Qualifications",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G008",
+      "requirement": "Have strong Python programming skills.",
+      "category": "SKILL",
+      "requirement_level": "REQUIRED",
+      "jd_source_text": "Strong Python programming skills.",
+      "jd_section": "Minimum Qualifications",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G009",
+      "requirement": "Have experience building applications with large language models or other generative AI systems.",
+      "category": "EXPERIENCE",
+      "requirement_level": "REQUIRED",
+      "jd_source_text": "Experience building applications with large language models or other generative AI systems.",
+      "jd_section": "Minimum Qualifications",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G010",
+      "requirement": "Have experience designing or consuming production APIs.",
+      "category": "EXPERIENCE",
+      "requirement_level": "REQUIRED",
+      "jd_source_text": "Experience designing or consuming production APIs.",
+      "jd_section": "Minimum Qualifications",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G011",
+      "requirement": "Have a Bachelor's degree in Computer Science, Engineering, or a related technical field, or equivalent practical experience.",
+      "category": "EDUCATION",
+      "requirement_level": "REQUIRED",
+      "jd_source_text": "Bachelor's degree in Computer Science, Engineering, or a related technical field, or equivalent practical experience.",
+      "jd_section": "Minimum Qualifications",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G012",
+      "requirement": "Have experience with vector databases.",
+      "category": "SKILL",
+      "requirement_level": "PREFERRED",
+      "jd_source_text": "Experience with vector databases.",
+      "jd_section": "Preferred Qualifications",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G013",
+      "requirement": "Have experience with prompt evaluation or LLM evaluation frameworks.",
+      "category": "SKILL",
+      "requirement_level": "PREFERRED",
+      "jd_source_text": "Experience with prompt evaluation or LLM evaluation frameworks.",
+      "jd_section": "Preferred Qualifications",
+      "adjudication_status": "KEEP"
+    },
+    {
+      "gold_id": "G014",
+      "requirement": "Have experience building internal tools for knowledge workers.",
+      "category": "EXPERIENCE",
+      "requirement_level": "PREFERRED",
+      "jd_source_text": "Experience building internal tools for knowledge workers.",
+      "jd_section": "Preferred Qualifications",
+      "adjudication_status": "KEEP"
+    }
+  ]
+}

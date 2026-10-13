@@ -1,0 +1,1168 @@
+{
+  "benchmark_component": "requirement_evidence_matching",
+  "input_name": "fixed_candidate_evidence",
+  "version": "v2",
+  "status": "FROZEN_INPUT",
+  "purpose": "Complete fixed candidate evidence base used as one of the two inputs to Requirement–Evidence Matching evaluation.",
+  "important_scope_note": "The synthetic resume is a deliberately constructed realistic benchmark candidate profile. Its contents are treated as trusted benchmark facts for this controlled evaluation and are not claims about the project author's real biography.",
+  "composition": {
+    "synthetic_resume": 37,
+    "deep_learning_project": 12,
+    "rag_assistant_project": 21,
+    "job_search_agent_project": 50,
+    "total": 120
+  },
+  "evaluation_rule": "Matcher component evaluation consumes these fixed evidence units directly. The evidence extractor is not rerun during matcher evaluation.",
+  "evidence_units": [
+    {
+      "evidence_id": "E_RES_001",
+      "claim": "Earned an M.S. in Human-Computer Interaction at Western Lakes University, Sep 2024–May 2026.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Education — Western Lakes University",
+      "source_text": "### Western Lakes University\n**M.S. in Human-Computer Interaction**  \nSep 2024 – May 2026",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G001"
+    },
+    {
+      "evidence_id": "E_RES_002",
+      "claim": "Completed coursework in Machine Learning for Product Teams, Product Analytics, Human-AI Interaction, Experiment Design, and Data Visualization.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Education — Western Lakes University",
+      "source_text": "- Coursework: Machine Learning for Product Teams, Product Analytics, Human-AI Interaction, Experiment Design, Data Visualization.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G002"
+    },
+    {
+      "evidence_id": "E_RES_003",
+      "claim": "Completed a graduate capstone focused on evaluating user trust and task completion in an AI-assisted workflow.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Education — Western Lakes University",
+      "source_text": "- Graduate capstone focused on evaluating user trust and task completion in an AI-assisted workflow.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G003"
+    },
+    {
+      "evidence_id": "E_RES_004",
+      "claim": "Earned a B.S. in Information Science at State College of Technology, Sep 2020–May 2024, with a minor in Statistics.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Education — State College of Technology",
+      "source_text": "### State College of Technology\n**B.S. in Information Science**  \nSep 2020 – May 2024\n\n- Minor in Statistics.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G004"
+    },
+    {
+      "evidence_id": "E_RES_005",
+      "claim": "Was on the Dean’s List from 2022–2024.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Education — State College of Technology",
+      "source_text": "- Dean’s List, 2022–2024.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G005"
+    },
+    {
+      "evidence_id": "E_RES_006",
+      "claim": "Worked as an AI Product Intern at Meridian Product Studio from Jun 2025–Sep 2025.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "### AI Product Intern — Meridian Product Studio\n**San Francisco, CA | Jun 2025 – Sep 2025**",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G006"
+    },
+    {
+      "evidence_id": "E_RES_007",
+      "claim": "Worked with a product manager, designer, and three engineers on an AI-assisted customer-support workflow for a B2B software prototype.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Worked with a product manager, designer, and three engineers on an AI-assisted customer-support workflow for a B2B software prototype.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G007"
+    },
+    {
+      "evidence_id": "E_RES_008",
+      "claim": "Conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Conducted 12 user interviews with support specialists and synthesized recurring pain points into four product requirements.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G008"
+    },
+    {
+      "evidence_id": "E_RES_009",
+      "claim": "Defined acceptance criteria for an AI-generated response-suggestion feature across relevance, factual consistency, response latency, and user editability.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Defined acceptance criteria for an AI-generated response suggestion feature, including relevance, factual consistency, response latency, and user editability.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G009"
+    },
+    {
+      "evidence_id": "E_RES_010",
+      "claim": "Created a 60-question evaluation set and manually labeled expected answer topics for internal testing.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Created a lightweight evaluation set of 60 support questions and manually labeled expected answer topics for internal testing.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G010"
+    },
+    {
+      "evidence_id": "E_RES_011",
+      "claim": "Analyzed test results in Python and spreadsheets to compare two prompt variants across answer relevance and completion rate.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Analyzed test results in Python and spreadsheets to compare two prompt variants across answer relevance and completion rate.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G011"
+    },
+    {
+      "evidence_id": "E_RES_012",
+      "claim": "Identified a tradeoff in which one prompt improved relevance but increased response length and latency, and recommended the shorter variant for the initial pilot.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Identified that one prompt variant improved answer relevance but increased response length and latency; recommended keeping the shorter variant for the initial pilot.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G012"
+    },
+    {
+      "evidence_id": "E_RES_013",
+      "claim": "Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Partnered with engineering to document failure cases involving missing context, unsupported claims, and malformed structured output.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G013"
+    },
+    {
+      "evidence_id": "E_RES_014",
+      "claim": "Presented weekly findings and product recommendations to the project lead.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — AI Product Intern, Meridian Product Studio",
+      "source_text": "- Presented weekly findings and product recommendations to the project lead.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G014"
+    },
+    {
+      "evidence_id": "E_RES_015",
+      "claim": "Worked as a Product Analytics Intern at BrightPath Learning from Jun 2024–Aug 2024.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "### Product Analytics Intern — BrightPath Learning\n**Remote | Jun 2024 – Aug 2024**",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G015"
+    },
+    {
+      "evidence_id": "E_RES_016",
+      "claim": "Analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Analyzed onboarding behavior for a web-based learning product using SQL and spreadsheet-based cohort analysis.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G016"
+    },
+    {
+      "evidence_id": "E_RES_017",
+      "claim": "Built an onboarding funnel covering account creation, first lesson start, lesson completion, and seven-day return behavior.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Built a funnel covering account creation, first lesson start, lesson completion, and seven-day return behavior.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G017"
+    },
+    {
+      "evidence_id": "E_RES_018",
+      "claim": "Found a large drop-off between account creation and first lesson start and worked with the product team to define hypotheses for the decline.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Found a large drop-off between account creation and first lesson start and worked with the product team to define hypotheses for the decline.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G018"
+    },
+    {
+      "evidence_id": "E_RES_019",
+      "claim": "Helped design an A/B test comparing two onboarding flows and documented the primary metric, guardrail metrics, and experiment assumptions.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Helped design an A/B test comparing two onboarding flows and documented the primary metric, guardrail metrics, and experiment assumptions.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G019"
+    },
+    {
+      "evidence_id": "E_RES_020",
+      "claim": "Created a dashboard summarizing activation and retention metrics for weekly product reviews.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Created a dashboard summarizing activation and retention metrics for weekly product reviews.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G020"
+    },
+    {
+      "evidence_id": "E_RES_021",
+      "claim": "Wrote product requirement notes for an onboarding checklist based on research findings and analytics.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Product Analytics Intern, BrightPath Learning",
+      "source_text": "- Wrote product requirement notes for an onboarding checklist based on research findings and analytics.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G021"
+    },
+    {
+      "evidence_id": "E_RES_022",
+      "claim": "Worked as a Graduate Research Assistant in the Human-AI Interaction Lab at Western Lakes University from Jan 2025–May 2026.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "### Graduate Research Assistant — Human-AI Interaction Lab, Western Lakes University\n**Jan 2025 – May 2026**",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G022"
+    },
+    {
+      "evidence_id": "E_RES_023",
+      "claim": "Supported a study on how users interpret confidence and uncertainty in AI-generated recommendations.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Supported a study on how users interpret confidence and uncertainty in AI-generated recommendations.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G023"
+    },
+    {
+      "evidence_id": "E_RES_024",
+      "claim": "Prepared study materials, helped run moderated usability sessions, and organized qualitative research notes.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Prepared study materials, helped run moderated usability sessions, and organized qualitative research notes.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G024"
+    },
+    {
+      "evidence_id": "E_RES_025",
+      "claim": "Coded participant feedback into recurring themes related to trust, explanation quality, and willingness to verify AI output.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Coded participant feedback into recurring themes related to trust, explanation quality, and willingness to verify AI output.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G025"
+    },
+    {
+      "evidence_id": "E_RES_026",
+      "claim": "Used Python to clean survey data and calculate descriptive statistics.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Used Python to clean survey data and calculate descriptive statistics.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G026"
+    },
+    {
+      "evidence_id": "E_RES_027",
+      "claim": "Contributed to a research summary comparing user behavior across two explanation designs.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Experience — Graduate Research Assistant, Human-AI Interaction Lab",
+      "source_text": "- Contributed to a research summary comparing user behavior across two explanation designs.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G027"
+    },
+    {
+      "evidence_id": "E_RES_028",
+      "claim": "Worked on an AI Feedback Triage Prototype as a course team project in 2025.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "### AI Feedback Triage Prototype\n**Course Team Project | 2025**",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G028"
+    },
+    {
+      "evidence_id": "E_RES_029",
+      "claim": "Helped define a prototype that grouped free-form customer feedback into product themes for faster review.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Helped define a prototype that grouped free-form customer feedback into product themes for faster review.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G029"
+    },
+    {
+      "evidence_id": "E_RES_030",
+      "claim": "Wrote user stories and acceptance criteria for feedback ingestion, theme assignment, and human correction.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Wrote user stories and acceptance criteria for feedback ingestion, theme assignment, and human correction.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G030"
+    },
+    {
+      "evidence_id": "E_RES_031",
+      "claim": "Used an LLM API to test structured classification outputs on a small manually labeled dataset.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Used an LLM API to test structured classification outputs on a small manually labeled dataset.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G031"
+    },
+    {
+      "evidence_id": "E_RES_032",
+      "claim": "Reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Reviewed classification errors and grouped them into ambiguous feedback, multi-topic feedback, and unsupported category assignment.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G032"
+    },
+    {
+      "evidence_id": "E_RES_033",
+      "claim": "Proposed a human-review step for low-confidence classifications instead of automatically accepting every model output.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Selected Product Work — AI Feedback Triage Prototype",
+      "source_text": "- Proposed a human-review step for low-confidence classifications instead of automatically accepting every model output.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G033"
+    },
+    {
+      "evidence_id": "E_RES_034",
+      "claim": "Lists product skills including product requirements, user stories, prioritization, user research, usability testing, experiment design, metric definition, product analytics, and A/B testing.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Skills — Product",
+      "source_text": "**Product:** Product requirements, user stories, prioritization, user research, usability testing, experiment design, metric definition, product analytics, A/B testing",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G034"
+    },
+    {
+      "evidence_id": "E_RES_035",
+      "claim": "Lists AI/data skills including LLM APIs, prompt evaluation, basic machine learning concepts, offline evaluation, error analysis, Python, SQL, and pandas.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Skills — AI / Data",
+      "source_text": "**AI / Data:** LLM APIs, prompt evaluation, basic machine learning concepts, offline evaluation, error analysis, Python, SQL, pandas",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G035"
+    },
+    {
+      "evidence_id": "E_RES_036",
+      "claim": "Lists design/collaboration skills including Figma, journey mapping, wireframing, stakeholder communication, and cross-functional collaboration.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Skills — Design / Collaboration",
+      "source_text": "**Design / Collaboration:** Figma, journey mapping, wireframing, stakeholder communication, cross-functional collaboration",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G036"
+    },
+    {
+      "evidence_id": "E_RES_037",
+      "claim": "Lists tools including Git, GitHub, Jupyter Notebook, Excel / Google Sheets, Tableau, and Postman.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Synthetic New Grad AI Product Resume",
+      "source_section": "Skills — Tools",
+      "source_text": "**Tools:** Git, GitHub, Jupyter Notebook, Excel / Google Sheets, Tableau, Postman",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G037"
+    },
+    {
+      "evidence_id": "E_DL_001",
+      "claim": "Implemented a classical regression and classification pipeline from scratch, including polynomial regression, ridge regression, cross-validation, logistic regression, and gradient descent.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — Classical ML Foundations",
+      "source_text": "| 1. [Classical ML Foundations](notebooks/01-classical-ml-foundations/README.md) | Polynomial linear regression, ridge regression, k-fold cross-validation, logistic regression, gradient descent | poly_transform, lin_reg_obj, lin_reg_fit, get_rmse, ridge_reg_fit... | Regression and classification pipeline implemented from scratch; note: the uploaded notebook still contains one stale error output and should be rerun before public release. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G001"
+    },
+    {
+      "evidence_id": "E_DL_002",
+      "claim": "Implemented a neural network from scratch with ReLU, softmax cross-entropy, forward propagation, backpropagation, and parameter updates.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — Neural Network from Scratch",
+      "source_text": "| 2. [Neural Network from Scratch](notebooks/02-neural-network-from-scratch/README.md) | ReLU, softmax cross-entropy, forward propagation, backpropagation, parameter updates, MNIST classification | relu, relu_der, linear, linear_der, softmax_cross_entropy_loss... | MNIST subset: cost decreased from 2.303 to around 0.158; training accuracy 97.25%; testing accuracy 90.80%. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G002"
+    },
+    {
+      "evidence_id": "E_DL_003",
+      "claim": "Achieved 97.25% training accuracy and 90.80% testing accuracy on an MNIST subset with the neural-network-from-scratch implementation.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — Neural Network from Scratch",
+      "source_text": "| 2. [Neural Network from Scratch](notebooks/02-neural-network-from-scratch/README.md) | ReLU, softmax cross-entropy, forward propagation, backpropagation, parameter updates, MNIST classification | relu, relu_der, linear, linear_der, softmax_cross_entropy_loss... | MNIST subset: cost decreased from 2.303 to around 0.158; training accuracy 97.25%; testing accuracy 90.80%. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G003"
+    },
+    {
+      "evidence_id": "E_DL_004",
+      "claim": "Implemented neural-network optimization techniques including dropout, batch normalization, mini-batch training, momentum/Adam-style optimization, and learning-rate decay.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — Neural Network Optimization Techniques",
+      "source_text": "| 3. [Neural Network Optimization Techniques](notebooks/03-neural-network-optimization/README.md) | Dropout, batch normalization, mini-batch training, momentum/Adam-style optimization, learning-rate decay | dropout, dropout_der, batchnorm, batchnorm_der, initialize_velocity... | MNIST full dataset: network reached 96.748% training accuracy and 96.170% testing accuracy. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G004"
+    },
+    {
+      "evidence_id": "E_DL_005",
+      "claim": "Reached 96.748% training accuracy and 96.170% testing accuracy on the full MNIST dataset after applying the optimization techniques.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — Neural Network Optimization Techniques",
+      "source_text": "| 3. [Neural Network Optimization Techniques](notebooks/03-neural-network-optimization/README.md) | Dropout, batch normalization, mini-batch training, momentum/Adam-style optimization, learning-rate decay | dropout, dropout_der, batchnorm, batchnorm_der, initialize_velocity... | MNIST full dataset: network reached 96.748% training accuracy and 96.170% testing accuracy. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G005"
+    },
+    {
+      "evidence_id": "E_DL_006",
+      "claim": "Built a PyTorch CNN image-classification pipeline using convolutional layers, batch normalization, ReLU, pooling, fully connected layers, and training/evaluation loops.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — CNN Image Classification",
+      "source_text": "| 4. [CNN Image Classification](notebooks/04-cnn-image-classification/README.md) | Convolutional layers, batch normalization, ReLU, pooling, fully connected layers, PyTorch training/evaluation loops | Model, train_model, evaluate_model | CNN achieved 94.506% train accuracy and 91.000% test accuracy. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G006"
+    },
+    {
+      "evidence_id": "E_DL_007",
+      "claim": "Achieved 94.506% training accuracy and 91.000% test accuracy with the CNN image-classification model.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — CNN Image Classification",
+      "source_text": "| 4. [CNN Image Classification](notebooks/04-cnn-image-classification/README.md) | Convolutional layers, batch normalization, ReLU, pooling, fully connected layers, PyTorch training/evaluation loops | Model, train_model, evaluate_model | CNN achieved 94.506% train accuracy and 91.000% test accuracy. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G007"
+    },
+    {
+      "evidence_id": "E_DL_008",
+      "claim": "Implemented and trained a GAN with generator and discriminator architectures, binary cross-entropy loss, and adversarial training.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — GAN Image Generation",
+      "source_text": "| 5. [GAN Image Generation](notebooks/05-gan-image-generation/README.md) | Generator, discriminator, binary cross-entropy loss, adversarial training, qualitative image generation | noise, Generator, Discriminator, DLoss, GLoss | Trained a GAN with adversarial generator/discriminator losses; generated samples were tracked qualitatively across epochs. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G008"
+    },
+    {
+      "evidence_id": "E_DL_009",
+      "claim": "Tracked generated GAN samples qualitatively across training epochs.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — GAN Image Generation",
+      "source_text": "| 5. [GAN Image Generation](notebooks/05-gan-image-generation/README.md) | Generator, discriminator, binary cross-entropy loss, adversarial training, qualitative image generation | noise, Generator, Discriminator, DLoss, GLoss | Trained a GAN with adversarial generator/discriminator losses; generated samples were tracked qualitatively across epochs. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G009"
+    },
+    {
+      "evidence_id": "E_DL_010",
+      "claim": "Implemented a domain-adversarial neural network using a feature extractor, label classifier, domain classifier, and gradient reversal for source-to-target domain adaptation.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — Domain-Adversarial Neural Network",
+      "source_text": "| 6. [Domain-Adversarial Neural Network](notebooks/06-domain-adversarial-learning/README.md) | Feature extractor, label classifier, domain classifier, gradient reversal, source-to-target transfer | FeatureExtractor, LabelClassifier, GradReverse, DomainClassifier, calc_clf_logits... | Source-only model: source test 94.11%, target test 57.17%. With DANN: source test 85.90%, target test 62.09%, improving target-domain generalization by 4.92 percentage points. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G010"
+    },
+    {
+      "evidence_id": "E_DL_011",
+      "claim": "Improved target-domain test performance from 57.17% with the source-only model to 62.09% with DANN, a 4.92 percentage-point improvement.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Module Overview — Domain-Adversarial Neural Network",
+      "source_text": "| 6. [Domain-Adversarial Neural Network](notebooks/06-domain-adversarial-learning/README.md) | Feature extractor, label classifier, domain classifier, gradient reversal, source-to-target transfer | FeatureExtractor, LabelClassifier, GradReverse, DomainClassifier, calc_clf_logits... | Source-only model: source test 94.11%, target test 57.17%. With DANN: source test 85.90%, target test 62.09%, improving target-domain generalization by 4.92 percentage points. |",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G011"
+    },
+    {
+      "evidence_id": "E_DL_012",
+      "claim": "Used an engineering workflow involving reproducible notebooks, modular source extraction, model evaluation, and experiment documentation.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Deep Learning Portfolio Project",
+      "source_section": "Key Technical Skills Demonstrated",
+      "source_text": "- Engineering workflow: reproducible notebooks, modular source extraction, model evaluation, experiment documentation",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G012"
+    },
+    {
+      "evidence_id": "E_RAG_001",
+      "claim": "Built an adaptive retrieval-augmented generation system that helps users evaluate how their projects and experience match dynamically provided job postings.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Overview",
+      "source_text": "An adaptive retrieval-augmented generation system that helps users evaluate how their projects and experience match dynamically provided job postings.\n\nUsers can paste any job description, role requirements, or hiring criteria and ask questions such as:\n\n- Which of my projects best match this role?\n- What evidence supports my fit for this position?\n- What gaps should I address?\n- How should I position a project on my resume?\n- How should I explain the project in an interview?\n\nThe system does not rely on predefined job titles. Job titles, job descriptions, and hiring requirements are treated as dynamic user-provided context.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G001"
+    },
+    {
+      "evidence_id": "E_RAG_002",
+      "claim": "Implemented document ingestion and chunking with source metadata, embeddings, and ChromaDB semantic retrieval.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Key Capabilities — Document Ingestion and Chunking",
+      "source_text": "### 1. Document Ingestion and Chunking\n\nThe system loads text documents from the local knowledge base, splits them into smaller chunks, and attaches metadata such as:\n\n- Source file\n- Chunk index\n- Original text\n\nThese chunks are embedded and stored in ChromaDB for semantic retrieval.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G002"
+    },
+    {
+      "evidence_id": "E_RAG_003",
+      "claim": "Implemented a Basic RAG workflow using query embeddings, ChromaDB retrieval, context construction, and grounded answer generation.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Key Capabilities — Basic RAG",
+      "source_text": "### 2. Basic RAG\n\nBasic RAG is designed for direct factual retrieval and single-project explanation.\n\nExample questions:\n\n```text\nWhat technology stack does Project 2 use?\nWhat does Project 1 demonstrate?\nDoes Project 4 include PyTorch?\n```\n\nWorkflow:\n\n```text\nUser question\n→ Query embedding\n→ ChromaDB retrieval\n→ Context construction\n→ Grounded answer generation\n```\n\nBasic RAG does not use the intent classifier, contextual rewriting, or multi-query planning when it is manually forced for testing.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G003"
+    },
+    {
+      "evidence_id": "E_RAG_004",
+      "claim": "Implemented an Agentic RAG workflow with conversation-aware rewriting, multi-query planning, retrieval, candidate merging, chunk deduplication, Qwen global reranking, evidence selection, and grounded synthesis.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Key Capabilities — Agentic RAG",
+      "source_text": "### 3. Agentic RAG\n\nAgentic RAG is designed for questions that require broader evidence, comparison, interpretation, or positioning.\n\nExample questions:\n\n```text\nWhich of my projects best match this job posting?\nCompare Project 2 and Project 4 for this role.\nWhat is missing from my portfolio for this position?\nHow should I describe Project 2 in an interview?\n```\n\nWorkflow:\n\n```text\nUser question\n→ Conversation-aware question rewriting\n→ Multi-query planning\n→ Retrieval for each query\n→ Candidate merging\n→ Chunk deduplication\n→ Qwen global reranking\n→ Top-evidence selection\n→ Context construction\n→ Grounded answer synthesis\n```",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G004"
+    },
+    {
+      "evidence_id": "E_RAG_005",
+      "claim": "Implemented Adaptive RAG that classifies user intent and automatically routes simple factual requests to Basic RAG and complex analytical or positioning requests to Agentic RAG.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Key Capabilities — Adaptive RAG",
+      "source_text": "### 4. Adaptive RAG\n\nAdaptive RAG is the default end-user experience.\n\nThe system first classifies the user's intent, then automatically selects Basic or Agentic RAG.\n\n```text\nSimple factual intent\n→ Basic RAG\n\nComplex analytical or positioning intent\n→ Agentic RAG\n```\n\nThis removes the burden of retrieval-strategy selection from the user.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G005"
+    },
+    {
+      "evidence_id": "E_RAG_006",
+      "claim": "Designed intent classification around the user's task rather than a fixed target job role, keeping job titles and job descriptions as dynamic input.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Intent Classification",
+      "source_text": "## Intent Classification\n\nThe classifier identifies what the user is trying to accomplish. It does not classify the user into a fixed target role.\n\nCurrent intent categories:\n\n```python\nQUESTION_TYPES = [\n    \"factual lookup\",\n    \"project explanation\",\n    \"project comparison\",\n    \"job fit analysis\",\n    \"gap analysis\",\n    \"resume or interview positioning\",\n    \"risk and limitations\",\n]\n```\n\n### Routing Policy\n\n```text\nfactual lookup\nproject explanation\n        ↓\n    Basic RAG\n```\n\n```text\nproject comparison\njob fit analysis\ngap analysis\nresume or interview positioning\nrisk and limitations\n        ↓\n    Agentic RAG\n```\n\nA role name or pasted job description remains part of the user's dynamic input rather than becoming a classifier category.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G006"
+    },
+    {
+      "evidence_id": "E_RAG_007",
+      "claim": "Implemented conversation-aware question rewriting using recent session messages to resolve follow-up references while preserving intent and avoiding unsupported facts.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Conversation-Aware Question Rewriting",
+      "source_text": "## Conversation-Aware Question Rewriting\n\nThe system stores recent messages in the current Streamlit session and uses them to resolve follow-up questions.\n\nExample:\n\n```text\nUser:\nTell me about Project 2.\n\nUser:\nWhat is missing from this project for the job above?\n```\n\nThe system can rewrite the follow-up into a standalone retrieval question such as:\n\n```text\nWhat is missing from Project 2 for the previously provided job posting?\n```\n\nThe rewriting step is designed to:\n\n- Resolve references such as “this project,” “it,” or “the previous role”\n- Preserve the user's original intent\n- Avoid introducing unsupported facts\n- Produce a clearer query for downstream retrieval",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G007"
+    },
+    {
+      "evidence_id": "E_RAG_008",
+      "claim": "Implemented multi-query retrieval with up to four search queries and three chunks per query, then merged and deduplicated candidates using source file plus chunk index.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Multi-Query Retrieval",
+      "source_text": "Agentic RAG generates multiple search queries and retrieves evidence for each one.\n\nWith the default configuration:\n\n```text\nUp to 4 search queries\n×\nUp to 3 chunks per query\n=\nUp to 12 initial candidates before deduplication\n```\n\nCandidates are merged and deduplicated using:\n\n```text\nsource file + chunk index\n```",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G008"
+    },
+    {
+      "evidence_id": "E_RAG_009",
+      "claim": "Preserved retrieval metadata on deduplicated chunks, including matched queries, rank, distance, query-hit count, and original candidate position for debugging and evaluation.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Multi-Query Retrieval",
+      "source_text": "A deduplicated chunk can retain:\n\n- Every search query that retrieved it\n- Its retrieval rank for each query\n- Its retrieval distance for each query\n- The number of query hits\n- Its original candidate position\n\nThis metadata supports debugging, evaluation, and retrieval transparency.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G009"
+    },
+    {
+      "evidence_id": "E_RAG_010",
+      "claim": "Implemented global reranking of the complete deduplicated candidate pool with qwen3-rerank against the standalone user question, selecting the top eight evidence chunks.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Reranking and Evidence Selection",
+      "source_text": "## Reranking and Evidence Selection\n\nVector retrieval is optimized for recall, but the first retrieved candidates are not always the best evidence for the user's complete analytical task.\n\nFor Agentic RAG, the complete deduplicated candidate pool is sent to a dedicated Qwen reranker.\n\n```text\nStandalone user question\n+\nAll deduplicated candidate chunks\n        ↓\nqwen3-rerank\n        ↓\nGlobal relevance scores\n        ↓\nTop 8 evidence chunks\n        ↓\nFinal answer generation\n```\n\nThe reranker uses the standalone user question as the ranking query rather than ranking separately against each generated search query.\n\nThis separates two responsibilities:\n\n```text\nGenerated search queries\n→ Expand retrieval recall\n\nStandalone user question\n→ Determine final evidence relevance\n```",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G010"
+    },
+    {
+      "evidence_id": "E_RAG_011",
+      "claim": "Designed a full-candidate fallback that sends all deduplicated candidates to generation when reranking is unavailable, avoiding first-seen truncation and preserving recall.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Reranking and Evidence Selection — Full-Candidate Fallback",
+      "source_text": "### Full-Candidate Fallback\n\nReranking is useful, but the answer pipeline should not fail only because the reranker is temporarily unavailable.\n\nIf Qwen reranking is disabled or fails:\n\n```text\nAll deduplicated candidates\n→ No blind truncation\n→ Full candidate set is passed to the generation model\n```\n\nThe fallback intentionally does not return to first-seen truncation such as:\n\n```python\nunique_chunks[:8]\n```\n\nThat older approach could favor earlier search queries and drop evidence retrieved by later queries.\n\nWith the current default settings, the fallback passes at most 12 candidates before deduplication, so preserving the complete candidate set is a practical way to protect recall.\n\nFallback metadata includes:\n\n- `ranking_method = \"all_candidates_fallback\"`\n- `rerank_used = False`\n- `rerank_fallback_reason`\n- Exact final evidence count",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G011"
+    },
+    {
+      "evidence_id": "E_RAG_012",
+      "claim": "Implemented a model-provider abstraction through shared text, JSON, embedding, and reranking interfaces so core RAG logic remains separated from provider-specific APIs.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Model Provider Abstraction",
+      "source_text": "## Model Provider Abstraction\n\nThe core RAG pipeline does not directly call a model-specific SDK.\n\nInstead, `rag_core.py` depends on a small provider interface:\n\n```python\ncall_llm_text(...)\ncall_llm_json(...)\nget_embedding(...)\nrerank_documents(...)\n```\n\nThese functions are implemented in `model_provider.py`.\n\nCurrent configuration:\n\n```text\nModel provider: Qwen\nGeneration model: qwen3.7-plus\nEmbedding model: text-embedding-v4\nReranker model: qwen3-rerank\nGeneration API style: OpenAI-compatible Chat Completions\nRerank API style: Dedicated rerank endpoint\n```\n\n### Why This Abstraction Matters\n\nThe provider layer separates:\n\n```text\nRAG business logic\nfrom\nmodel-specific API implementation\n```\n\nIf the project later moves to a provider that does not support the OpenAI-compatible API format, the main changes should remain inside `model_provider.py`, while the core retrieval and routing logic can stay unchanged.\n\nThe abstraction does not eliminate all provider differences. JSON output, embeddings, reranking, tool calling, error handling, and model parameters may still require provider-specific implementations.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G012"
+    },
+    {
+      "evidence_id": "E_RAG_013",
+      "claim": "Implemented structured model-output validation with JSON parsing, allowed-enum validation, and a rule-based fallback when intent-classifier output is invalid or the model call fails.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Structured Model Output and Validation",
+      "source_text": "## Structured Model Output and Validation\n\nThe intent classifier requests JSON-formatted output.\n\nHowever, the system does not blindly trust the model response.\n\nThe process is:\n\n```text\nModel returns JSON text\n→ Python parses it with json.loads()\n→ The predicted type is validated against the allowed enum\n→ A rule-based fallback is used when the output is invalid or the model call fails\n```\n\nThis improves robustness and prevents unsupported category names from entering the routing pipeline.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G013"
+    },
+    {
+      "evidence_id": "E_RAG_014",
+      "claim": "Designed the Streamlit experience with Adaptive RAG as the default, advanced forced-mode controls for testing, and user-friendly evidence-coverage controls instead of exposing top_k directly.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Streamlit User Experience",
+      "source_text": "## Streamlit User Experience\n\nThe project includes a Streamlit interface designed for both normal users and internal testing.\n\n### Default Experience\n\nThe default experience uses Auto / Adaptive RAG.\n\nUsers do not need to understand or select:\n\n- Basic RAG\n- Agentic RAG\n- Adaptive RAG\n- `top_k`\n\nThey only need to ask a question or paste a job description.\n\n### Advanced Controls\n\nAdvanced controls are available for debugging, evaluation, and baseline comparison.\n\nThey allow forced selection of:\n\n- Auto / Adaptive RAG\n- Basic RAG\n- Agentic RAG\n\nThe UI also replaces the engineering term `top_k` with a user-friendly evidence-coverage control:\n\n- Focused\n- Balanced\n- Comprehensive\n\nThese options are internally mapped to different retrieval depths.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G014"
+    },
+    {
+      "evidence_id": "E_RAG_015",
+      "claim": "Implemented retrieval and reranking transparency in the UI through collapsible details such as ranking method, reranker model, fallback usage, evidence counts, matched queries, and candidate/final positions.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Streamlit User Experience — Progressive Disclosure",
+      "source_text": "### Progressive Disclosure\n\nThe final answer remains visible by default.\n\nTechnical and supporting information is placed in collapsible sections:\n\n- Workflow Details\n- Evidence Ranking\n- Evidence Overview\n- Source Details\n- Conversation Memory\n\nFor Agentic responses, the interface can display:\n\n- Ranking method\n- Reranker model\n- Whether fallback was used\n- Final evidence count\n- Rerank score summary\n- Matched search queries\n- Candidate and final evidence positions\n\nThis keeps the main experience simple while preserving transparency for users who want to inspect the workflow.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G015"
+    },
+    {
+      "evidence_id": "E_RAG_016",
+      "claim": "Built an offline evaluation runner around a curated nine-question set that runs Basic, Agentic, and Adaptive modes and records answers plus internal workflow behavior.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Evaluation Framework",
+      "source_text": "## Evaluation Framework\n\nThe project includes an internal offline evaluation runner built around a curated nine-question test set.\n\nThe runner can execute each question in:\n\n- Basic RAG\n- Agentic RAG\n- Adaptive RAG\n\nA full run can therefore produce up to 27 mode-level results.\n\nEach result records the final answer as well as internal workflow behavior, including:\n\n- Conversation history\n- Interpreted standalone question\n- Predicted question type\n- Selected strategy\n- Search queries\n- Retrieved chunks\n- Rerank and fallback metadata\n- Latency\n- Errors",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G016"
+    },
+    {
+      "evidence_id": "E_RAG_017",
+      "claim": "Defined evaluation as two complementary dimensions: verification of intended system behavior and validation of whether resulting evidence and answers appear useful for the user task.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Evaluation Framework",
+      "source_text": "The evaluation framework covers two complementary dimensions:\n\n```text\nVerification\n→ Did the system execute according to its intended design?\n\nValidation\n→ Did the resulting evidence and answer appear useful for the user's task?\n```",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G017"
+    },
+    {
+      "evidence_id": "E_RAG_018",
+      "claim": "Combined automatic signals with manual semantic review for evidence quality, judging relevance, specificity, sufficiency, diversity, grounding, and support strength.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Evaluation Framework — Retrieval and Evidence Evaluation",
+      "source_text": "Required-entity coverage is checked automatically with simple string matching.\n\nThis is a lightweight heuristic. It does not fully understand aliases, paraphrases, or semantic equivalents.\n\nEvidence quality therefore remains semi-objective:\n\n```text\nAutomatic signals\n+\nManual semantic review\n```\n\nManual review considers whether the evidence is:\n\n- Relevant\n- Specific\n- Sufficient\n- Diverse enough for the question\n- Properly grounded in the correct project\n- Strong enough to support the final conclusion",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G018"
+    },
+    {
+      "evidence_id": "E_RAG_019",
+      "claim": "Evaluated reranking and fallback behavior using model/configuration state, fallback status and reason, evidence counts, represented queries/sources, and rerank-score summaries.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Evaluation Framework — Rerank and Fallback Evaluation",
+      "source_text": "### 3. Rerank and Fallback Evaluation\n\nFor Agentic results, the runner records:\n\n- Reranker model\n- Whether reranking was enabled\n- Ranking method\n- Whether the reranker was actually used\n- Whether fallback was activated\n- Fallback reason\n- Final evidence count\n- Represented query count\n- Represented source count\n- Minimum, maximum, and average rerank scores\n\nWhen the all-candidate fallback is used, the returned evidence count is the exact deduplicated candidate-pool size.\n\nWhen Qwen reranking succeeds, the current `rag_core.py` returns only the selected evidence. The evaluation output therefore avoids claiming an exact pre-rerank candidate count when that value is not available.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G019"
+    },
+    {
+      "evidence_id": "E_RAG_020",
+      "claim": "Stored structured answer-quality rubrics for human review or future LLM-as-judge across grounding, completeness, product framing, actionability, role relevance, and risk awareness, while distinguishing offline validation from full real-world product validation.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Evaluation Framework — Offline Validation and Answer-Quality Review",
+      "source_text": "### 4. Offline Validation and Answer-Quality Review\n\nFinal answer quality has no single ground-truth answer.\n\nThe runner stores structured rubrics for human review or a future LLM-as-judge.\n\nExample dimensions include:\n\n- Retrieval grounding\n- Answer completeness\n- Product framing\n- Actionability\n- Role relevance\n- Risk awareness\n\nThis provides initial offline validation: it evaluates whether the system appears useful on representative scenarios.\n\nIt does not yet constitute complete real-world product validation.\n\nStronger product validation would require target-user testing and measurable outcomes such as:\n\n- Task completion rate\n- Time saved\n- User confidence\n- Expert or recruiter ratings\n- Repeat usage\n- Improvement over a no-assistant baseline",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G020"
+    },
+    {
+      "evidence_id": "E_RAG_021",
+      "claim": "Recorded model and run traceability including provider, generation model, embedding model, reranker model, rerank configuration, timestamp, evaluation version, elapsed time, and errors.",
+      "evidence_type": "NOT_SCORED_V1",
+      "source_document": "Adaptive RAG Assistant Project",
+      "source_section": "Evaluation Framework — Model Run Traceability",
+      "source_text": "### 5. Model Run Traceability\n\nEach evaluation run records:\n\n- Model provider\n- Generation model\n- Embedding model\n- Reranker model\n- Rerank configuration\n- Timestamp\n- Evaluation version\n- Elapsed time\n- Errors\n\nThis prevents results from different model configurations from being mixed together.",
+      "grounding_status": "VALIDATED",
+      "source_gold_id": "G021"
+    },
+    {
+      "evidence_id": "E_JOB_001",
+      "claim": "Built a local AI-assisted job-search product that turns job-alert emails into a durable, evidence-grounded human-review queue.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Project overview",
+      "source_text": "A local AI-assisted job-search product that turns noisy job-alert emails into a durable, evidence-grounded review queue.\n\nThe system connects to Gmail, identifies job-related messages, extracts one or more job leads, resolves each lead to a usable public job description, deduplicates already-seen postings, extracts structured job requirements, compares every requirement against a grounded candidate evidence base, calculates a deterministic fit signal, applies bounded preference logic, persists completed analyses, and lets the user decide whether to **Pass**, **Save for later**, or **Pursue**.\n\nThe product is intentionally designed as a **human-in-the-loop decision-support system**, not an autonomous application bot.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_002",
+      "claim": "Designed V1 as a human-in-the-loop decision-support system that stops at Pass / Save for later / Pursue and does not automatically tailor resumes, submit applications, contact recruiters, or make final career decisions.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Product Goal and Boundary",
+      "source_text": "V1 stops at human review:\n\n```text\njob-alert emails\n    -> job-lead extraction\n    -> verified public posting\n    -> exact posting-URL dedupe\n    -> grounded candidate/job analysis\n    -> persistence\n    -> human decision: Pass / Save for later / Pursue\n```\n\nV1 does **not** automatically customize resumes, submit applications, contact recruiters, or make final career decisions for the user.\n\nThe project is a working local portfolio/personal tool connected to real external services. It should not be described as a cloud production deployment.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_003",
+      "claim": "Implemented the local product in Python 3.11+ with Streamlit for the UI and SQLite for durable local state.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Technology Stack",
+      "source_text": "- **Python 3.11+**\n- **Streamlit** for the local product UI\n- **SQLite** for durable local product state",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_004",
+      "claim": "Used the OpenAI Python SDK against an OpenAI-compatible Qwen endpoint and kept the application on direct SDK/application code without LangChain or LangGraph.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Technology Stack",
+      "source_text": "- **OpenAI Python SDK** against an OpenAI-compatible Qwen / Alibaba Model Studio endpoint\n- **Qwen generation models** for structured semantic tasks\n- **Qwen Responses API Web Search tool** for bounded public web search\n- **Gmail API** with installed-app OAuth and read-only scope\n- **pytest** for deterministic unit/integration-style tests\n- direct SDK / application code; no LangChain or LangGraph dependency",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_005",
+      "claim": "Integrated the Gmail API using installed-app OAuth with a read-only Gmail scope.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Gmail Integration / OAuth and privacy boundary",
+      "source_text": "### OAuth and privacy boundary\n\nThe local UI uses Google's installed-app OAuth flow with the read-only scope:\n\n```text\nhttps://www.googleapis.com/auth/gmail.readonly\n```",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_006",
+      "claim": "Kept Gmail credentials and tokens local, excluded them from Git and the application database, and did not send them to the LLM.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Gmail Integration / OAuth and privacy boundary",
+      "source_text": "Default local files:\n\n```text\ndata/private/google_credentials.json\ndata/private/gmail_token.json\n```\n\nThe credentials and token remain local, are excluded from Git, are not stored in the application database, and are not sent to the LLM.\n\nThe product does send the minimum application content required for semantic steps—such as email metadata for classification and relevant full email content for JobCandidate extraction—to the configured model service.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_007",
+      "claim": "Designed metadata-first Gmail ingestion so the system classifies message metadata before fetching full bodies and only sends relevant messages to JobCandidate extraction.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Gmail Integration / Metadata-first ingestion",
+      "source_text": "### Metadata-first ingestion\n\nThe ingestion boundary deliberately avoids fetching every full email:\n\n```text\nGmail messages.list\n-> messages.get(format=metadata)\n-> Qwen job-related classification\n-> messages.get(format=full) only for related messages\n-> body + extracted HTML links\n-> Qwen JobCandidate extraction\n```\n\nThis reduces unnecessary Gmail payloads and unnecessary model work.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_008",
+      "claim": "Built email relevance classification and JobCandidate extraction that can return zero, one, or multiple leads from one job-related email, while keeping an email-derived lead distinct from a verified job posting.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Email Classification and JobCandidate Extraction",
+      "source_text": "Each recent, unprocessed email first receives a lightweight relevance judgment from sender, subject, and snippet.\n\nIf the message is not job-related, it is marked processed without fetching the full body.\n\nIf it is job-related, the full message is fetched and the extractor can return **zero, one, or multiple `JobCandidate` objects**. A candidate represents an email-derived lead rather than a verified job posting.\n\nA `JobCandidate` can contain fields such as:\n\n```text\nsource\nsource message ID\ncompany\ntitle\nlocation\nsource URL / extracted link metadata\n```\n\nThe product intentionally separates:\n\n```text\nemail says this job may exist\n```\n\nfrom:\n\n```text\nwe have verified a sufficiently complete public JD that is safe to analyze\n```\n\nThat separation is the purpose of JD Resolution.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_009",
+      "claim": "Implemented a provider-neutral web-search interface backed by Qwen's Responses API hosted `web_search` tool with required tool use.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "LLM and Search Provider Configuration",
+      "source_text": "Web search uses a provider-neutral application interface:\n\n```python\nsearch_web(query)\n```\n\nThe current provider route is Qwen:\n\n```bash\nWEB_SEARCH_PROVIDER=qwen\nSEARCH_MODEL=...\n```\n\nThe Qwen search adapter uses the Responses API with the provider-hosted Web Search tool:\n\n```python\ntools=[{\"type\": \"web_search\"}]\ntool_choice=\"required\"\n```\n\nThis is a real tool-enabled LLM workflow. However, the overall application remains **bounded and application-orchestrated**: the program decides when JD resolution needs a search, invokes one search operation, then deterministically processes returned URLs. It is not an open-ended autonomous ReAct loop.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_010",
+      "claim": "Kept hosted Web Search bounded and application-orchestrated: application code decides when search is needed, invokes one search operation, and deterministically processes returned URLs instead of running an open-ended autonomous ReAct loop.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "LLM and Search Provider Configuration",
+      "source_text": "The Qwen search adapter uses the Responses API with the provider-hosted Web Search tool:\n\n```python\ntools=[{\"type\": \"web_search\"}]\ntool_choice=\"required\"\n```\n\nThis is a real tool-enabled LLM workflow. However, the overall application remains **bounded and application-orchestrated**: the program decides when JD resolution needs a search, invokes one search operation, then deterministically processes returned URLs. It is not an open-ended autonomous ReAct loop.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_011",
+      "claim": "Designed source-aware JD-resolution routing: LinkedIn/Indeed leads go directly to bounded Web Search, while other sources try the source URL once before falling back to the same search pipeline.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Source-aware routing",
+      "source_text": "### Source-aware routing\n\nCurrent V1 routing is intentionally bounded:\n\n```text\nLinkedIn / Indeed lead\n-> skip the email/provider URL\n-> go directly to bounded Web Search\n\nOther source\n-> try source_url once\n-> if it does not yield an analysis-ready verified page\n-> fall back to the same bounded Web Search pipeline\n```",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_012",
+      "claim": "Built one deterministic search query from company, full title, and optional location, then calls the provider-neutral `search_web()` interface once for that search stage.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Search query",
+      "source_text": "### Search query\n\nThe application creates one deterministic query from the strongest available lead fields, primarily:\n\n```text\ncompany + full title + optional location\n```\n\nThe application then calls the provider-neutral `search_web()` interface exactly once for that search stage.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_013",
+      "claim": "Added explicit search cost/reliability bounds: up to 30 ranked results, at most 15 page fetch attempts in batches of 5, structural validation, one semantic-verification call per usable batch, and early stopping on the first sufficiently matching and complete JD.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Bounded result processing",
+      "source_text": "### Bounded result processing\n\nV1 applies explicit cost and reliability bounds:\n\n```text\nup to 30 ranked search results considered\n-> conservative URL cleanup / dedupe\n-> preserve provider ranking\n-> at most 15 page fetch attempts\n-> fetch in batches of 5\n-> structural page validation\n-> one semantic-verification call per usable batch\n-> early stop on first sufficiently matching + sufficiently complete JD\n```",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_014",
+      "claim": "Separated deterministic URL filtering from semantic judgment: Python removes obvious generic/index/non-posting URLs and duplicates without performing title/company/location semantic matching.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Bounded result processing",
+      "source_text": "The deterministic URL filter removes obvious generic/index/non-posting URLs and duplicates. It deliberately avoids doing title/company/location semantic matching in Python.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_015",
+      "claim": "Implemented page-level fault isolation so individual stale, malformed, blocked, or unfetchable search results can be skipped, while a failure of the search operation itself remains a retryable workflow-level technical failure.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Page retrieval",
+      "source_text": "### Page retrieval\n\nPages are fetched with deterministic HTTP logic. Individual stale, malformed, blocked, or otherwise unfetchable search candidates can be skipped without discarding the entire search result set.\n\nA failure of the search operation itself is different: it is treated as a workflow-level technical failure and remains retryable.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_016",
+      "claim": "Designed LLM semantic verification to judge both consistency with the email-derived job lead and completeness for downstream requirement extraction, while tolerating reasonable title/company/location wording variants.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Semantic verification boundary",
+      "source_text": "### Semantic verification boundary\n\nThe semantic verifier asks two questions for each fetched page:\n\n1. Is this page sufficiently consistent with the email-derived job lead?\n2. Is the page sufficiently complete for downstream requirement extraction and fit analysis?\n\nThe verifier can tolerate reasonable company/title/location wording variants. It does not require exact string equality, the same provider job ID, or proof of exact cross-site identity.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_017",
+      "claim": "Allowed a third-party specific job page to pass verification when it is semantically consistent and sufficiently complete instead of requiring an employer-official domain.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Semantic verification boundary",
+      "source_text": "A third-party specific job page can pass if it is a sufficiently consistent and complete public posting. The search-provider prompt may prefer employer/ATS pages, but the downstream acceptance boundary is **semantic consistency + sufficient JD completeness**, not “official domain or fail.”",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_018",
+      "claim": "Modeled JD-resolution terminal outcomes separately as VERIFIED, UNVERIFIED, and TECHNICAL_FAILURE, treating UNVERIFIED as a normal business outcome and technical failures as retryable.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "JD Resolution / Terminal outcomes",
+      "source_text": "### Terminal outcomes\n\nA lead can end as:\n\n```text\nVERIFIED\nUNVERIFIED\nTECHNICAL_FAILURE\n```\n\n`UNVERIFIED` is a normal business outcome: the agent simply does not analyze that lead further.\n\nA technical failure is not silently converted into “no match.” It remains retryable.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_019",
+      "claim": "Implemented exact resolved-posting-URL deduplication with deterministic internal opportunity IDs so retries do not duplicate already persisted opportunities.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Exact Posting-URL Deduplication",
+      "source_text": "## 9. Exact Posting-URL Deduplication\n\nAfter a posting is verified, the product checks the resolved posting URL against persisted opportunities.\n\n```text\nverified posting URL\n-> existing JobOpportunity?\n   -> yes: DUPLICATE\n   -> no: NEW -> Opportunity Analysis\n```\n\nV1 intentionally uses exact posting URL as its durable dedupe key rather than claiming to solve global semantic job identity across different URLs and providers.\n\nOpportunity IDs are deterministic internal IDs derived from the posting URL.\n\nThis rule is especially important during retries: an email that failed halfway through a multi-candidate run can be retried without duplicating opportunities that were already successfully persisted.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_020",
+      "claim": "Designed candidate background around one active Resume plus append-only Supporting Materials, with replacement evidence extracted and validated before the active Resume is switched.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Candidate Background and Evidence Pipeline / Managed sources",
+      "source_text": "### Managed sources\n\nCandidate background is made from:\n\n- one active **Resume**\n- zero or more append-only **Supporting Materials**\n\nResume replacement is deliberately safe:\n\n```text\nupload replacement\n-> extract evidence\n-> validate evidence\n-> only then switch active Resume\n```\n\nA failed replacement leaves the previous active Resume intact.\n\nSupporting Materials remain append-only and active in V1.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_021",
+      "claim": "Preserved historical evidence from inactive resumes through durable evidence IDs that are never reused while future matching uses only active managed sources.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Candidate Background and Evidence Pipeline / Managed sources",
+      "source_text": "Supporting Materials remain append-only and active in V1.\n\nFuture matching uses active managed sources. Historical Job Detail pages can still hydrate evidence that came from an older inactive resume because evidence IDs remain durable and are never reused.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_022",
+      "claim": "Built candidate evidence extraction into structured EvidenceUnit records containing a claim, source document/section/text, evidence type, ID, and grounding status.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Candidate Background and Evidence Pipeline / Candidate evidence extraction",
+      "source_text": "### Candidate evidence extraction\n\nThe extractor converts candidate documents into structured `EvidenceUnit` records:\n\n```text\nEvidenceUnit\n- evidence_id\n- claim\n- source_document\n- source_section\n- source_text\n- evidence_type\n- grounding_status\n```",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_023",
+      "claim": "Designed the candidate-evidence extraction prompt to use only explicit facts, avoid unsupported inference or exaggerated ownership/impact/complexity, and preserve source provenance.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Candidate Background and Evidence Pipeline / Candidate evidence extraction",
+      "source_text": "The extraction prompt is intentionally conservative:\n\n- use only explicit facts from the document\n- do not infer missing facts\n- do not exaggerate ownership, responsibility, impact, or technical complexity\n- preserve source provenance",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_024",
+      "claim": "Implemented candidate-evidence validation with deterministic provenance validation plus semantic grounding validation, allowing only validated evidence into CandidateEvidenceBase.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Candidate Background and Evidence Pipeline / Evidence validation",
+      "source_text": "### Evidence validation\n\nEvidence validation has two conceptual gates:\n\n```text\n1. deterministic provenance validation\n2. semantic grounding validation\n```\n\nOnly validated evidence enters `CandidateEvidenceBase` for future matching.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_025",
+      "claim": "Built atomic, grounded JobRequirement extraction from verified full job descriptions with structured IDs, category, requirement level, exact JD source text/section, and grounding status.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Job Requirement Extraction",
+      "source_text": "## 11. Job Requirement Extraction\n\nThe requirement extractor transforms a verified full JD into atomic, grounded `JobRequirement` objects.\n\nEach requirement contains:\n\n```text\nrequirement_id\nrequirement\ncategory\nrequirement_level\njd_source_text\njd_section\ngrounding_status\n```",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_026",
+      "claim": "Designed a requirement taxonomy covering responsibility, experience, skill, domain knowledge, education, license, certification, and other; normalized common category aliases and safely fell back unknown non-critical categories to OTHER.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Job Requirement Extraction / Categories",
+      "source_text": "### Categories\n\nThe current category taxonomy supports:\n\n```text\nRESPONSIBILITY\nEXPERIENCE\nSKILL\nDOMAIN_KNOWLEDGE\nEDUCATION\nLICENSE\nCERTIFICATION\nOTHER\n```\n\nCommon variants such as `LICENSURE`, `CERTIFICATE`, `CREDENTIAL`, etc. are normalized. An unfamiliar non-critical category can fall back to `OTHER` rather than aborting the entire Agent Run.\n\nCategory is descriptive metadata; it is **not** the numeric scoring weight.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_027",
+      "claim": "Defined EXPERIENCE semantically as prior demonstrated activity and SKILL as practical capability, rather than categorizing requirements solely from surface wording such as 'experience with X'.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Job Requirement Extraction / Categories",
+      "source_text": "A useful semantic distinction used during evaluation is:\n\n```text\nEXPERIENCE\n= what has the candidate previously done / demonstrated in prior activity?\n\nSKILL\n= what can the candidate use or do as a practical capability?\n```\n\nSurface wording such as “experience with X” is not enough by itself to determine the category.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_028",
+      "claim": "Used CORE, REQUIRED, and PREFERRED requirement levels and kept them strict because they affect downstream weighting.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Job Requirement Extraction / Requirement levels",
+      "source_text": "### Requirement levels\n\n```text\nCORE\nREQUIRED\nPREFERRED\n```\n\nRequirement level is kept strict because it affects downstream weighting.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_029",
+      "claim": "Designed requirement extraction to use only explicit JD content, avoid outside knowledge and strengthened wording, preserve DO-vs-HAVE semantics, avoid unrelated bundling, and attach exact source provenance.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Job Requirement Extraction / Extraction rules",
+      "source_text": "### Extraction rules\n\nThe extractor is instructed to:\n\n- use only explicit JD content\n- avoid outside knowledge\n- avoid strengthening the employer's wording\n- preserve “what the person will DO” vs “what the person must HAVE”\n- avoid combining unrelated requirements\n- attach exact source text and section provenance",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_030",
+      "claim": "Validated extracted requirements for structure, provenance, and semantic grounding before allowing them into matching and scoring.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Job Requirement Extraction / Requirement validation",
+      "source_text": "### Requirement validation\n\nExtracted requirements are checked for valid structure, source provenance, and semantic grounding before matching.\n\nOnly validated requirements participate in matching and scoring.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_031",
+      "claim": "Designed requirement-level semantic matching where each validated requirement is evaluated against the complete validated CandidateEvidenceBase to produce one RequirementEvidenceMapping, without embedding Top-K prefiltering.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Requirement-Evidence Matching / Evaluation unit",
+      "source_text": "## 12. Requirement-Evidence Matching\n\n### Evaluation unit\n\nThe semantic matcher works at the **requirement level**, not as a single opaque job-level similarity score.\n\nFor every validated job requirement, it evaluates the **complete validated Candidate Evidence Base** and returns one finalized mapping.\n\n```text\none JobRequirement\n+\ncomplete CandidateEvidenceBase\n-> one RequirementEvidenceMapping\n```\n\nThe matching architecture intentionally avoids embedding Top-K filtering at this stage. The matcher sees the complete evidence base so complementary evidence is not silently discarded by a retrieval step.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_032",
+      "claim": "Defined four requirement support levels—STRONG, PARTIAL, WEAK, and NOT_CLEARLY_SUPPORTED—with explicit semantics that distinguish full support, incomplete direct support, adjacent support, and insufficient evidence.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Requirement-Evidence Matching / Support levels",
+      "source_text": "### Support levels\n\nEach requirement receives exactly one support level:\n\n```text\nSTRONG\nPARTIAL\nWEAK\nNOT_CLEARLY_SUPPORTED\n```\n\nInterpretation:\n\n- **STRONG** — evidence directly and substantially supports the material requirement.\n- **PARTIAL** — real, substantive support exists, but an important condition, threshold, scope, or lifecycle element is missing.\n- **WEAK** — only indirect or adjacent evidence exists; it is relevant but does not substantively establish the requirement.\n- **NOT_CLEARLY_SUPPORTED** — the current validated evidence base does not clearly support the requirement.\n\n`NOT_CLEARLY_SUPPORTED` means **absence of sufficient evidence in the current evidence base**, not proof that the candidate lacks the capability in reality.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_033",
+      "claim": "Modeled evidence relationships as DIRECT or ADJACENT and allowed DIRECT evidence to contribute to an overall PARTIAL result when another material condition is missing; NOT_CLEARLY_SUPPORTED carries no evidence matches.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Requirement-Evidence Matching / Evidence relationships",
+      "source_text": "### Evidence relationships\n\nThe current product/evaluation contract uses requirement-linked evidence relationships such as:\n\n```text\nDIRECT\nADJACENT\n```\n\nA `DIRECT` evidence item can still support an overall `PARTIAL` mapping when another material condition is missing—for example a numeric years-of-experience threshold or a production-deployment requirement.\n\nFor `NOT_CLEARLY_SUPPORTED`, the evidence-match list is empty.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_034",
+      "claim": "Allowed multiple atomic evidence units to jointly support one requirement while preventing unrelated projects from being combined to fabricate an end-to-end lifecycle that the evidence does not establish.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Requirement-Evidence Matching / Complementary evidence",
+      "source_text": "### Complementary evidence\n\nMultiple atomic evidence units may jointly support one requirement when they establish complementary parts of the required capability.\n\nThe matcher must not, however, combine unrelated projects to pretend that one specific end-to-end lifecycle occurred when the evidence does not establish that lifecycle.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_035",
+      "claim": "Added deterministic validation of matcher output, including exactly one mapping per requirement, known requirement/evidence IDs, valid labels, no duplicates, required reasons, and evidence/support consistency.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Requirement-Evidence Matching / Structured output validation",
+      "source_text": "### Structured output validation\n\nThe application validates matcher output deterministically:\n\n- exactly one mapping per validated requirement\n- no unknown requirement IDs\n- no duplicate requirement mappings\n- valid support labels only\n- valid evidence IDs only\n- no duplicate evidence within one mapping\n- required reason text\n- evidence/support consistency\n\nThe model is not allowed to silently omit difficult requirements.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_036",
+      "claim": "Added a second semantic verification pass for negative or insufficient-support conclusions to search the complete evidence base for missed counter-evidence before finalizing requirement mappings.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Negative-Conclusion Verification and Reconciliation",
+      "source_text": "## 13. Negative-Conclusion Verification and Reconciliation\n\nA first-pass negative judgment has asymmetric product risk: if the matcher misses existing evidence, the product may tell the user they have a gap that is not real.\n\nTherefore the workflow adds a second semantic step for negative conclusions:\n\n```text\nfirst-pass mapping\n-> identify negative / insufficient-support conclusions\n-> search the complete evidence base again for counter-evidence\n-> reconcile\n-> finalized mapping\n```\n\nThis is a deliberate reliability layer rather than a second independent job-fit score.\n\nThe final `RequirementEvidenceMapping` remains the source of truth for downstream scoring and UI explanation.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_037",
+      "claim": "Separated semantic matching from deterministic Requirement Fit scoring: code combines support scores with CORE/REQUIRED/PREFERRED weights and computes a normalized 0–100 fit score.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Deterministic Requirement Fit",
+      "source_text": "## 14. Deterministic Requirement Fit\n\nAfter semantic matching is finalized, Requirement Fit is calculated in deterministic code.\n\nIt is **not** an LLM-generated probability and must not be interpreted as the probability of getting an interview, receiving an offer, or objectively liking the job.\n\n### Support scores\n\n```text\nSTRONG                  = 1.00\nPARTIAL                 = 0.65\nWEAK                    = 0.30\nNOT_CLEARLY_SUPPORTED   = 0.00\n```\n\n### Requirement-level weights\n\n```text\nCORE        = 1.30\nREQUIRED    = 1.10\nPREFERRED   = 0.70\n```\n\n### Formula\n\n```text\nweighted contribution\n= support score * requirement-level weight\n\nRequirement Fit\n= sum(weighted contributions)\n  / sum(requirement-level weights)\n  * 100\n```\n\nThe score is rounded to one decimal place.\n\nEvery validated requirement must have exactly one finalized mapping before scoring is allowed.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_038",
+      "claim": "Kept user preferences separate from Requirement Fit and used them only as a bounded Pursuit Priority modifier, where mismatches can downgrade priority by at most one tier without changing the fit score.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Preferences and Pursuit Priority",
+      "source_text": "## 15. Preferences and Pursuit Priority\n\nPreferences are deliberately separated from semantic candidate/job fit.\n\nV1 persists five optional preference categories:\n\n```text\nLocation\nWork Mode\nIndustry\nCompany Size\nEmployment Type\n```\n\nCompensation is intentionally excluded from the current V1 UI/persistence contract.\n\nA preference check can produce:\n\n```text\nMATCH\nUNKNOWN\nMISMATCH\n```\n\nPreference does **not** modify Requirement Fit.\n\n### Base priority thresholds\n\nPrototype thresholds:\n\n```text\nRequirement Fit >= 85   -> TOP_PRIORITY\nRequirement Fit >= 70   -> STRONG_OPPORTUNITY\nRequirement Fit >= 55   -> WORTH_CONSIDERING\notherwise               -> DEPRIORITIZE\n```\n\nThese are product hypotheses, not scientific constants.\n\n### Bounded preference modifier\n\n- `MATCH` is neutral.\n- `UNKNOWN` is neutral.\n- one or more `MISMATCH` results can downgrade priority by **at most one tier**.\n- multiple mismatches do not stack into repeated automatic downgrades.\n- Requirement Fit itself never changes.\n\nThis keeps “candidate capability fit” and “personal preference fit” conceptually separate.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_039",
+      "claim": "Derived job-level Strong Matches and Main Gaps deterministically from finalized requirement mappings rather than adding a second semantic LLM judgment.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Strong Matches and Main Gaps",
+      "source_text": "## 16. Strong Matches and Main Gaps\n\nJob-level summary fields do not introduce another semantic LLM judgment.\n\nThey are deterministic projections of finalized requirement-level mappings:\n\n```text\nSTRONG\n-> Strong Matches\n\nWEAK or NOT_CLEARLY_SUPPORTED\n-> Main Gaps\n\nPARTIAL\n-> remains visible in detailed requirement analysis\n   but is not promoted to either summary bucket\n```\n\nThe detailed requirement mapping remains the underlying reasoning source.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_040",
+      "claim": "Designed Agent Run orchestration to process JobCandidates sequentially, persist each completed new opportunity immediately, and mark the parent email processed only after all of its candidates reach terminal outcomes.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Agent Run Orchestration and Failure Semantics",
+      "source_text": "## 17. Agent Run Orchestration and Failure Semantics\n\n`run_agent()` owns the user-facing execution sequence.\n\nCurrent high-level behavior:\n\n```text\nload active candidate evidence + preferences\n-> list recent Gmail metadata\n-> skip already-processed messages\n-> classify metadata\n-> fetch full body only for job-related messages\n-> extract 0..N JobCandidates\n-> process candidates sequentially\n-> persist each completed new opportunity immediately\n-> mark the parent email processed only after all its candidates reach terminal outcomes\n```",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_041",
+      "claim": "Designed partial-progress durability and fault isolation so earlier completed opportunities survive later candidate failures, retries leave the email unprocessed, exact URL dedupe prevents duplicate saves, individual page failures can be skipped, and workflow-level failures remain visible/retryable.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Agent Run Orchestration and Failure Semantics",
+      "source_text": "### Why email processing is committed late\n\nIf one email contains multiple opportunities and a technical failure occurs on a later candidate:\n\n- earlier completed opportunities remain persisted\n- the email remains unprocessed\n- a later Agent Run retries the email\n- exact posting-URL dedupe protects already-saved opportunities from duplication\n\nThis gives the workflow useful partial-progress durability without incorrectly claiming that the whole email completed.\n\n### Fault isolation\n\nThe system distinguishes among:\n\n```text\nnormal business miss\nindividual candidate/page failure\nworkflow-level technical failure\n```\n\nExamples:\n\n- no trustworthy/complete posting found -> normal `UNVERIFIED`\n- one search URL cannot be fetched -> skip that URL and continue\n- hosted Web Search API itself fails -> technical failure, retry later\n- semantic verification fails structurally/technically -> technical failure\n- downstream analysis raises unexpectedly -> do not mark email processed\n\nUnexpected failures are deliberately visible during development rather than silently converted into misleading business results.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_042",
+      "claim": "Persisted completed opportunity state atomically in SQLite as historical snapshots, including JobOpportunity, JobRequirements, RequirementEvidenceMappings, and EvidenceMatches, while preserving referenced historical candidate evidence.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Persistence and Durable Product State",
+      "source_text": "## 18. Persistence and Durable Product State\n\nSQLite is used as durable local product state.\n\nA completed opportunity analysis is treated as a historical snapshot. Rerunning the agent analyzes only new exact-posting-URL opportunities. Later user decisions do not rewrite the historical analysis fields.\n\n### Atomic completed-opportunity persistence\n\nA completed opportunity persists the related product state together, including:\n\n```text\nJobOpportunity\nJobRequirements\nRequirementEvidenceMappings\nEvidenceMatches\n```\n\nThe intent is that persistence represents a completed product state, not a misleading half-complete analysis.\n\n### Historical evidence integrity\n\nThe schema protects historical evidence references. Referenced candidate evidence cannot simply disappear when a resume is replaced.\n\nDurable evidence IDs are never reused.\n\n### Database migration\n\nThe current README-era migration adds or maintains structures including:\n\n```text\ncandidate_sources\ncandidate_evidence.source_id\napp_state\ncandidate_preferences\njob_opportunities.job_attributes_json\njob_opportunities.created_at\njob_resolution_attempts\n```\n\nThe `evidence_matches -> candidate_evidence` foreign-key behavior protects referenced historical evidence with `ON DELETE RESTRICT`.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_043",
+      "claim": "Built an inspectable Streamlit review experience with Needs Review/Reviewed queues, requirement-level explanations, grounded evidence with original source text, and human Pass / Save for later / Pursue decisions.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Local Streamlit UI and Job Detail Evidence Contract",
+      "source_text": "## 20. Local Streamlit UI\n\nThe local product includes:\n\n- first-time onboarding: **Background -> Preferences -> Ready**\n- Resume upload/replacement\n- Supporting Materials management\n- Preferences configuration\n- persistent navigation across **Opportunities / Background & Evidence / Preferences**\n- **Needs Review** and **Reviewed** queues\n- Job Detail with **Overview** and **Requirement Analysis** tabs\n- Pass / Save for later / Pursue decisions in Job Detail\n- requirement-level support explanations\n- expandable grounded evidence with original source text\n- safe Gmail connection/recovery states\n- safe Resume replacement behavior\n- append-only Supporting Materials\n\n### User-facing Agent Run progress\n\nThe latest simplified progress experience intentionally exposes only three understandable stages:\n\n```text\n1. Checking recent emails — Found N emails\n2. Processing opportunity X / Y\n3. Complete\n```\n\nInternal verification, analysis, and save phases still happen, but the UI does not pretend to know a meaningful percentage for semantic work.\n\n---\n\n## 21. Job Detail Evidence Contract\n\nThe user-facing trace is:\n\n```text\nRequirement\n-> Support Level\n-> Match Reason\n-> Evidence Claim\n-> Source Document\n-> Original Source Text\n```\n\nInternal implementation metadata such as evidence relationship labels can remain hidden when the same distinction is communicated more clearly in natural-language reasoning.\n\nThis makes the product inspectable: the user can understand not only the final fit score but why each requirement was classified the way it was.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_044",
+      "claim": "Simplified user-facing Agent Run progress to Checking recent emails, Processing opportunity X/Y, and Complete instead of displaying a fabricated semantic-work percentage.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Local Streamlit UI / User-facing Agent Run progress",
+      "source_text": "### User-facing Agent Run progress\n\nThe latest simplified progress experience intentionally exposes only three understandable stages:\n\n```text\n1. Checking recent emails — Found N emails\n2. Processing opportunity X / Y\n3. Complete\n```\n\nInternal verification, analysis, and save phases still happen, but the UI does not pretend to know a meaningful percentage for semantic work.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_045",
+      "claim": "Separated software testing, AI behavioral evaluation, and product validation, and designed offline semantic evaluation to isolate model components from Gmail, Web Search, network availability, and persistence.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Evaluation Strategy",
+      "source_text": "## 25. Evaluation Strategy\n\nEvaluation is treated as a separate engineering discipline from normal software testing.\n\n```text\nSoftware testing\n= Does the code/workflow function correctly?\n\nAI behavioral evaluation\n= How well does each semantic component behave?\n\nProduct validation\n= Does the system actually create user value?\n```\n\nOffline semantic evaluation deliberately isolates model components from Gmail, Web Search, network availability, and persistence so model behavior can be measured under controlled inputs.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_046",
+      "claim": "Built a candidate-evidence extraction benchmark across four controlled documents and evaluated coverage/recall, selection/precision, semantic correctness, granularity/atomicity, grounding/source attribution, and duplication/redundancy; identified upstream recall as the largest product risk.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Evaluation Strategy / Candidate Evidence Extraction evaluation",
+      "source_text": "### 25.1 Candidate Evidence Extraction evaluation\n\nThe evidence-extraction benchmark uses four controlled candidate documents:\n\n```text\nSynthetic AI Product resume\nDeep Learning project README\nAdaptive RAG project README\nAI Job Search Agent README\n```\n\nSix primary evaluation dimensions are reviewed:\n\n```text\n1. Coverage / Recall\n2. Selection / Precision\n3. Semantic Correctness\n4. Granularity / Atomicity\n5. Grounding / Source Attribution\n6. Duplication / Redundancy\n```\n\nA key learning was that exact quote fidelity and semantic grounding are not the same thing. In the reviewed run, 56 of 72 generated `source_text` strings were exact substrings (77.78%); the other 16 should not automatically be labeled hallucinations because some were semantically supported but formatted, stitched, or paraphrased differently.\n\nThe largest observed product risk was upstream **recall**: architecture, evaluation, state-management, privacy, and product decisions embedded in long prose were easier to miss than short explicit bullets. An upstream evidence miss can become a downstream false candidate gap.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_047",
+      "claim": "Built and reviewed an eight-JD job-requirement extraction benchmark covering atomicity, strength language, alternatives, noise/negation, deduplication, taxonomy, and long-form prose; final v3 achieved 97.2% semantic recall, 98.1% semantic F1, 100% requirement-level accuracy, 96.0% category accuracy, and 102/102 grounding/source-fidelity passes.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Evaluation Strategy / Job Requirement Extraction evaluation",
+      "source_text": "### 25.2 Job Requirement Extraction evaluation\n\nA curated eight-JD behavioral benchmark was built to cover:\n\n```text\nbaseline extraction\ncompound atomicity\nstrength language\nalternatives / equivalency\nnoise / negation\nrepetition / deduplication\nlicense / certification / domain taxonomy\nlong-form FDE prose\n```\n\nFinal v3 results on that benchmark:\n\n```text\nGold requirements:                 109\nAgent predictions:                 102\nGold concepts covered:             106 / 109\nPrediction validity precision:     99.0%\nSemantic recall:                    97.2%\nSemantic F1:                        98.1%\nRequirement-level accuracy:       100.0%\nCategory accuracy:                  96.0%\nGrounding pass:                    102 / 102\nExact source fidelity:             102 / 102\n```\n\nStructural errors are tracked separately from semantic F1 because a bundled requirement or incorrectly split OR-cluster can receive semantic credit while still being structurally wrong.\n\nMain observed weaknesses:\n\n- compound atomicity\n- recall for requirements hidden in prose/equivalency language\n- logical preservation for substitution and OR conditions\n- some category-boundary errors in long-form qualifications\n- semantic deduplication of repeated requirements",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_048",
+      "claim": "Designed matcher evaluation with fixed Gold JobRequirements plus fixed Gold Candidate Evidence so matcher behavior is isolated from upstream extraction errors, using one human-adjudicated Gold mapping per representative atomic requirement.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Evaluation Strategy / Requirement-Evidence Matching evaluation",
+      "source_text": "### 25.3 Requirement-Evidence Matching evaluation\n\nThe matcher benchmark isolates the matcher from upstream extraction errors:\n\n```text\nfixed Gold JobRequirements\n+\nfixed Gold Candidate Evidence\n-> matcher\n```\n\nThe benchmark design uses representative atomic requirements rather than treating eight source JDs as one synthetic job.\n\nThe initial fixed-input set was built from:\n\n```text\n90 human-reviewed candidate evidence units\n32 curated atomic job requirements\n```\n\nThe unit of judgment is one requirement-level mapping:\n\n```text\nrequirement_id\ngold_support_level\ngold_reason\ngold_evidence_matches[]\n    evidence_id\n    relationship\n    reason\n```\n\nGold labels are human-adjudicated before examining a fresh matcher run to reduce anchoring/leakage.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_049",
+      "claim": "Maintained a deterministic pytest suite; the documented packaging snapshot reported 40 passing tests, and database migration testing preserved existing candidate evidence, opportunities, and historical evidence matches.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Testing",
+      "source_text": "## 26. Testing\n\nRun the normal unit suite with:\n\n```bash\npython -m pytest -q\n```\n\n`pytest.ini` limits normal collection to the `tests/` directory so root-level live/network diagnostic scripts are not accidentally executed as part of the standard unit suite.\n\nAt the packaging snapshot documented by the existing README, the suite reported:\n\n```text\n40 passed\n```\n\nDatabase migration was also tested against a copy of the existing database while preserving candidate evidence, opportunity data, and historical evidence matches.\n\nLive external-service behavior should be validated separately because normal offline test environments may not have network access, Gmail credentials, Qwen credentials, or the required provider SDK packages.",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    },
+    {
+      "evidence_id": "E_JOB_050",
+      "claim": "The current project is a local/single-user tool and does not claim cloud production deployment, production observability, or full production latency/cost monitoring.",
+      "source_document": "README_AI_Job_Search_Agent_COMPLETE.md",
+      "source_section": "Current Limitations",
+      "source_text": "## 30. Current Limitations\n\nV1 intentionally does not solve every adjacent problem:\n\n- exact posting-URL dedupe does not guarantee cross-site semantic dedupe\n- public-page retrieval can fail on heavily protected or JavaScript-only sites\n- the system can return `UNVERIFIED` when no sufficiently complete posting is found\n- hosted Web Search is bounded and therefore not exhaustive\n- candidate evidence quality depends on the completeness of uploaded source documents\n- evidence extraction can miss valid facts embedded in long prose\n- requirement extraction still has atomicity / logical-structure edge cases\n- matcher quality is still being benchmarked with human-adjudicated Gold\n- Requirement Fit weights and Pursuit Priority thresholds are prototype policy choices that should be calibrated against real user decisions\n- preference attributes can remain `UNKNOWN` when they cannot be grounded\n- the tool is local/single-user rather than a multi-tenant cloud service\n- the project does not yet claim production deployment, production observability, or full production latency/cost monitoring\n- V1 does not automatically tailor resumes or apply to jobs\n- full real-world product validation against a no-agent baseline is still future work",
+      "evidence_type": "PROJECT",
+      "grounding_status": "VALIDATED"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Preserve Markdown hard breaks and frozen source/quote formatting.
+*.md whitespace=-blank-at-eol

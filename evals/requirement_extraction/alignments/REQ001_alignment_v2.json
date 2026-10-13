@@ -1,0 +1,187 @@
+{
+  "eval_name": "job_requirement_extraction",
+  "eval_version": "v1",
+  "gold_policy_version": "v2",
+  "case_id": "REQ001",
+  "status": "FINAL_ALIGNMENT_V2",
+  "gold_count": 14,
+  "agent_prediction_count": 13,
+  "semantic_matches": 13,
+  "semantic_missing": 1,
+  "semantic_extra": 0,
+  "metrics": {
+    "semantic_precision": 1.0,
+    "semantic_recall": 0.9285714285714286,
+    "semantic_f1": 0.962962962962963,
+    "requirement_level_accuracy_on_matched": 1.0,
+    "category_accuracy_on_matched": 1.0,
+    "grounding_pass_on_agent_predictions": 1.0,
+    "exact_source_fidelity_on_agent_predictions": 1.0,
+    "atomicity_pass_on_agent_predictions": 1.0,
+    "duplicate_noise_negation_error_count": 0
+  },
+  "alignment": [
+    {
+      "gold_id": "G001",
+      "agent_id": null,
+      "semantic_alignment": "MISSING",
+      "level_result": "N/A",
+      "category_result": "N/A",
+      "atomicity_result": "N/A",
+      "grounding_result": "N/A",
+      "dup_noise_negation_result": "N/A",
+      "notes": "Explicit About the Role responsibility was not extracted."
+    },
+    {
+      "gold_id": "G002",
+      "agent_id": "R001",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G003",
+      "agent_id": "R002",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G004",
+      "agent_id": "R003",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G005",
+      "agent_id": "R004",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G006",
+      "agent_id": "R005",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G007",
+      "agent_id": "R006",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G008",
+      "agent_id": "R007",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G009",
+      "agent_id": "R008",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G010",
+      "agent_id": "R009",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G011",
+      "agent_id": "R010",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G012",
+      "agent_id": "R011",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G013",
+      "agent_id": "R012",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    },
+    {
+      "gold_id": "G014",
+      "agent_id": "R013",
+      "semantic_alignment": "MATCH",
+      "level_result": "CORRECT",
+      "category_result": "CORRECT",
+      "atomicity_result": "PASS",
+      "grounding_result": "PASS",
+      "dup_noise_negation_result": "PASS",
+      "notes": "Matched Gold under Policy v2."
+    }
+  ],
+  "main_findings": [
+    "REQ001 has one semantic recall miss: the explicit About the Role responsibility (G001).",
+    "All 13 Agent predictions correspond to valid Gold requirements.",
+    "Requirement level is correct for all 13 matched items.",
+    "Category is correct for all 13 matched items under Gold Policy v2.",
+    "No atomicity, grounding, duplicate, noise, or negation errors were observed in REQ001.",
+    "The earlier G012/G013 category mismatches were resolved by correcting the human taxonomy policy, not by changing the model output."
+  ]
+}

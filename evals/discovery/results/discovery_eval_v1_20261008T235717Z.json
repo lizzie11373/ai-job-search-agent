@@ -1,0 +1,546 @@
+{
+  "eval_name": "discovery",
+  "eval_version": "v1",
+  "scope": "Discovery layer only: email metadata -> classifier -> email body -> 0..N JobCandidates",
+  "dataset_type": "sanitized real-world Gmail-derived cases",
+  "run_id": "20261008T235717Z",
+  "timestamp_utc": "2026-10-08T23:57:17.362443+00:00",
+  "input_file": "evals/discovery/cases_v1.json",
+  "input_sha256": "6c31ad5e77cdd0b5cd91a52a67d73e6dfb3e4d93e1bb73d6a29e8912b7f6d42a",
+  "summary": {
+    "case_count": 8,
+    "classifier": {
+      "correct": 8,
+      "total": 8,
+      "accuracy": 1.0
+    },
+    "candidate_extraction": {
+      "true_positives": 15,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "matched_candidate_fields": {
+      "matched_candidates": 15,
+      "title_exact_normalized_correct": 14,
+      "title_exact_normalized_accuracy": 0.9333333333333333,
+      "company_exact_normalized_correct": 15,
+      "company_exact_normalized_accuracy": 1.0,
+      "provider_id_cases": 12,
+      "provider_id_preserved": 12,
+      "provider_id_preservation_rate": 1.0
+    },
+    "location_review": {
+      "mode": "HUMAN_REVIEW",
+      "status": "PENDING",
+      "allowed_judgments": [
+        "PASS",
+        "FAIL",
+        "UNCLEAR"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case_id": "LI-01",
+      "eval_bucket": "positive_multi_job_digest",
+      "source": "LINKEDIN",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "classifier_correct": true,
+      "expected_job_count": 6,
+      "predicted_job_count": 6,
+      "matches": [
+        {
+          "expected": {
+            "title": "Intermediate Architectural Designer (Residential/High-rise)",
+            "company": "The Crowd",
+            "location_reference": "New York, United States (On-site)",
+            "source_item_id": "4465068515"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-01",
+            "title": "Intermediate Architectural Designer (Residential/High-rise)",
+            "company": "The Crowd",
+            "location": "New York, United States",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4465068515/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "New York, United States (On-site)",
+            "prediction": "New York, United States",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Designer I",
+            "company": "Perkins Eastman",
+            "location_reference": "Dallas, TX (On-site)",
+            "source_item_id": "4449879475"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-01",
+            "title": "Designer I",
+            "company": "Perkins Eastman",
+            "location": "Dallas, TX",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4449879475/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Dallas, TX (On-site)",
+            "prediction": "Dallas, TX",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Intermediate Architectural Designer",
+            "company": "Workshop/APD",
+            "location_reference": "New York, NY (On-site)",
+            "source_item_id": "4464994455"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-01",
+            "title": "Intermediate Architectural Designer",
+            "company": "Workshop/APD",
+            "location": "New York, NY",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4464994455/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "New York, NY (On-site)",
+            "prediction": "New York, NY",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Architectural Staff - Level II",
+            "company": "Roth Sheppard Architects, LLP",
+            "location_reference": "Denver, CO (Hybrid)",
+            "source_item_id": "4464123697"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-01",
+            "title": "Architectural Staff - Level II",
+            "company": "Roth Sheppard Architects, LLP",
+            "location": "Denver, CO",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4464123697/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Denver, CO (Hybrid)",
+            "prediction": "Denver, CO",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Architect/ Architectural Designer",
+            "company": "WSP in the U.S.",
+            "location_reference": "Atlanta, GA (Hybrid)",
+            "source_item_id": "4454908596"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-01",
+            "title": "Architect/ Architectural Designer",
+            "company": "WSP in the U.S.",
+            "location": "Atlanta, GA",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4454908596/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Atlanta, GA (Hybrid)",
+            "prediction": "Atlanta, GA",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Architectural Designer II",
+            "company": "CRB",
+            "location_reference": "Rockville, MD (Hybrid)",
+            "source_item_id": "4465077634"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-01",
+            "title": "Architectural Designer II",
+            "company": "CRB",
+            "location": "Rockville, MD",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4465077634/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Rockville, MD (Hybrid)",
+            "prediction": "Rockville, MD",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        }
+      ],
+      "misses": [],
+      "extras": []
+    },
+    {
+      "case_id": "LI-02",
+      "eval_bucket": "positive_second_linkedin_digest",
+      "source": "LINKEDIN",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "classifier_correct": true,
+      "expected_job_count": 6,
+      "predicted_job_count": 6,
+      "matches": [
+        {
+          "expected": {
+            "title": "Sr. Designer, Store Design - Architecture(Remote Or Hybrid)",
+            "company": "Target",
+            "location_reference": "Minneapolis, MN",
+            "source_item_id": "4457502611"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-02",
+            "title": "Sr. Designer, Store Design - Architecture",
+            "company": "Target",
+            "location": "Minneapolis, MN",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4457502611/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": false,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Minneapolis, MN",
+            "prediction": "Minneapolis, MN",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Architecture - Design Professional - Transportation",
+            "company": "HOK",
+            "location_reference": "Boston, MA (Hybrid)",
+            "source_item_id": "4418063176"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-02",
+            "title": "Architecture - Design Professional - Transportation",
+            "company": "HOK",
+            "location": "Boston, MA (Hybrid)",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4418063176/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Boston, MA (Hybrid)",
+            "prediction": "Boston, MA (Hybrid)",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Architectural Designer II",
+            "company": "10 Design",
+            "location_reference": "Coral Gables, FL (On-site)",
+            "source_item_id": "4459685646"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-02",
+            "title": "Architectural Designer II",
+            "company": "10 Design",
+            "location": "Coral Gables, FL (On-site)",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4459685646/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Coral Gables, FL (On-site)",
+            "prediction": "Coral Gables, FL (On-site)",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Architecture - Architect - Transportation",
+            "company": "HOK",
+            "location_reference": "Boston, MA (Hybrid)",
+            "source_item_id": "4418058207"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-02",
+            "title": "Architecture - Architect - Transportation",
+            "company": "HOK",
+            "location": "Boston, MA (Hybrid)",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4418058207/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Boston, MA (Hybrid)",
+            "prediction": "Boston, MA (Hybrid)",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Intermediate Designer - Architecture",
+            "company": "Skidmore, Owings & Merrill (SOM)",
+            "location_reference": "Chicago, IL",
+            "source_item_id": "4352991594"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-02",
+            "title": "Intermediate Designer - Architecture",
+            "company": "Skidmore, Owings & Merrill (SOM)",
+            "location": "Chicago, IL",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4352991594/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Chicago, IL",
+            "prediction": "Chicago, IL",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        },
+        {
+          "expected": {
+            "title": "Architect",
+            "company": "10 Design",
+            "location_reference": "Coral Gables, FL (On-site)",
+            "source_item_id": "4459690483"
+          },
+          "prediction": {
+            "source": "LINKEDIN",
+            "source_message_id": "eval-li-02",
+            "title": "Architect",
+            "company": "10 Design",
+            "location": "Coral Gables, FL (On-site)",
+            "source_url": "https://www.linkedin.com/comm/jobs/view/4459690483/",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": true,
+          "location_review": {
+            "reference": "Coral Gables, FL (On-site)",
+            "prediction": "Coral Gables, FL (On-site)",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        }
+      ],
+      "misses": [],
+      "extras": []
+    },
+    {
+      "case_id": "IN-01",
+      "eval_bucket": "positive_single_rich_preview",
+      "source": "INDEED",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "classifier_correct": true,
+      "expected_job_count": 1,
+      "predicted_job_count": 1,
+      "matches": [
+        {
+          "expected": {
+            "title": "Architectural Job Captain",
+            "company": "BDE Architecture",
+            "location_reference": "San Francisco, CA 94103",
+            "source_item_id": null
+          },
+          "prediction": {
+            "source": "INDEED",
+            "source_message_id": "eval-in-01",
+            "title": "Architectural Job Captain",
+            "company": "BDE Architecture",
+            "location": "San Francisco, CA 94103",
+            "source_url": "https://cts.indeed.com/v3/REDACTED_BDE",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": null,
+          "location_review": {
+            "reference": "San Francisco, CA 94103",
+            "prediction": "San Francisco, CA 94103",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        }
+      ],
+      "misses": [],
+      "extras": []
+    },
+    {
+      "case_id": "IN-02",
+      "eval_bucket": "positive_ai_role_rich_preview",
+      "source": "INDEED",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "classifier_correct": true,
+      "expected_job_count": 1,
+      "predicted_job_count": 1,
+      "matches": [
+        {
+          "expected": {
+            "title": "Mechanical Design Engineer - AI Trainer",
+            "company": "DataAnnotation",
+            "location_reference": "Santa Clara, CA",
+            "source_item_id": null
+          },
+          "prediction": {
+            "source": "INDEED",
+            "source_message_id": "eval-in-02",
+            "title": "Mechanical Design Engineer - AI Trainer",
+            "company": "DataAnnotation",
+            "location": "Santa Clara, CA",
+            "source_url": "https://cts.indeed.com/v3/REDACTED_DATAANNOTATION",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": null,
+          "location_review": {
+            "reference": "Santa Clara, CA",
+            "prediction": "Santa Clara, CA",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        }
+      ],
+      "misses": [],
+      "extras": []
+    },
+    {
+      "case_id": "IN-03",
+      "eval_bucket": "positive_academic_rich_preview",
+      "source": "INDEED",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "classifier_correct": true,
+      "expected_job_count": 1,
+      "predicted_job_count": 1,
+      "matches": [
+        {
+          "expected": {
+            "title": "Creedon Design Fellow Early Career Fellow - Dept. of Architecture",
+            "company": "University of California Berkeley",
+            "location_reference": "Berkeley, CA 94720",
+            "source_item_id": null
+          },
+          "prediction": {
+            "source": "INDEED",
+            "source_message_id": "eval-in-03",
+            "title": "Creedon Design Fellow Early Career Fellow - Dept. of Architecture",
+            "company": "University of California Berkeley",
+            "location": "Berkeley, CA 94720",
+            "source_url": "https://cts.indeed.com/v3/REDACTED_BERKELEY",
+            "source_item_id": null
+          },
+          "title_exact_normalized": true,
+          "company_exact_normalized": true,
+          "provider_id_preserved": null,
+          "location_review": {
+            "reference": "Berkeley, CA 94720",
+            "prediction": "Berkeley, CA 94720",
+            "human_judgment": "PENDING",
+            "notes": ""
+          }
+        }
+      ],
+      "misses": [],
+      "extras": []
+    },
+    {
+      "case_id": "NEG-01",
+      "eval_bucket": "negative_career_insights",
+      "source": "LINKEDIN",
+      "expected_job_related": false,
+      "predicted_job_related": false,
+      "classifier_correct": true,
+      "expected_job_count": 0,
+      "predicted_job_count": 0,
+      "matches": [],
+      "misses": [],
+      "extras": []
+    },
+    {
+      "case_id": "NEG-02",
+      "eval_bucket": "negative_profile_search_notification",
+      "source": "LINKEDIN",
+      "expected_job_related": false,
+      "predicted_job_related": false,
+      "classifier_correct": true,
+      "expected_job_count": 0,
+      "predicted_job_count": 0,
+      "matches": [],
+      "misses": [],
+      "extras": []
+    },
+    {
+      "case_id": "NEG-03",
+      "eval_bucket": "negative_job_search_advice",
+      "source": "INDEED",
+      "expected_job_related": false,
+      "predicted_job_related": false,
+      "classifier_correct": true,
+      "expected_job_count": 0,
+      "predicted_job_count": 0,
+      "matches": [],
+      "misses": [],
+      "extras": []
+    }
+  ]
+}

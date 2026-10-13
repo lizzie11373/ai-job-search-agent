@@ -1,0 +1,206 @@
+{
+  "status": "HUMAN_REVIEWED",
+  "document_name": "README_RAG.md",
+  "input_sha256": "4220ed310c8143abb796b08fec64e36c9961fd7f1a374ff803fd88c15c111a74",
+  "gold_draft_count": 21,
+  "agent_prediction_count": 21,
+  "gold_to_agent": [
+    {
+      "gold_id": "G001",
+      "agent_ids": [
+        "E001"
+      ],
+      "label": "MATCH",
+      "reason": "Product purpose is captured directly."
+    },
+    {
+      "gold_id": "G002",
+      "agent_ids": [
+        "E004"
+      ],
+      "label": "MATCH",
+      "reason": "Core ingestion/embedding/ChromaDB capability is captured."
+    },
+    {
+      "gold_id": "G003",
+      "agent_ids": [
+        "E005"
+      ],
+      "label": "MATCH",
+      "reason": "Basic RAG workflow is captured."
+    },
+    {
+      "gold_id": "G004",
+      "agent_ids": [
+        "E006"
+      ],
+      "label": "MATCH",
+      "reason": "Agentic workflow is captured at the intended capability level."
+    },
+    {
+      "gold_id": "G005",
+      "agent_ids": [
+        "E007"
+      ],
+      "label": "MATCH",
+      "reason": "Adaptive routing behavior is captured."
+    },
+    {
+      "gold_id": "G006",
+      "agent_ids": [
+        "E008"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "Intent categories are extracted, but the key design decision—classify user task rather than fixed role—is not fully captured."
+    },
+    {
+      "gold_id": "G007",
+      "agent_ids": [
+        "E009"
+      ],
+      "label": "MATCH",
+      "reason": "Conversation-aware rewriting and reference resolution are captured."
+    },
+    {
+      "gold_id": "G008",
+      "agent_ids": [
+        "E010",
+        "E006"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "Query-count and dedup behavior are partly present, but the source-file + chunk-index dedup key is omitted."
+    },
+    {
+      "gold_id": "G009",
+      "agent_ids": [
+        "E011"
+      ],
+      "label": "MATCH",
+      "reason": "Retrieval metadata retention is captured."
+    },
+    {
+      "gold_id": "G010",
+      "agent_ids": [
+        "E012"
+      ],
+      "label": "MATCH",
+      "reason": "Dedicated global Qwen reranking and top-8 selection are captured."
+    },
+    {
+      "gold_id": "G011",
+      "agent_ids": [
+        "E013"
+      ],
+      "label": "MATCH",
+      "reason": "Recall-preserving full-candidate fallback is captured."
+    },
+    {
+      "gold_id": "G012",
+      "agent_ids": [
+        "E015"
+      ],
+      "label": "MATCH",
+      "reason": "Provider-interface abstraction is captured."
+    },
+    {
+      "gold_id": "G013",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Structured output validation and rule-based fallback were not extracted."
+    },
+    {
+      "gold_id": "G014",
+      "agent_ids": [
+        "E016"
+      ],
+      "label": "MATCH",
+      "reason": "Advanced controls and user-friendly evidence-coverage controls are captured."
+    },
+    {
+      "gold_id": "G015",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Detailed retrieval/rerank transparency exposed in the UI was not extracted."
+    },
+    {
+      "gold_id": "G016",
+      "agent_ids": [
+        "E017"
+      ],
+      "label": "MATCH",
+      "reason": "Nine-question offline runner and three modes are captured."
+    },
+    {
+      "gold_id": "G017",
+      "agent_ids": [
+        "E018"
+      ],
+      "label": "PARTIAL_MATCH_WITH_OVERCLAIM",
+      "reason": "Verification/validation distinction is captured, but the prediction also adds a rubric claim that is not supported by its cited source_text."
+    },
+    {
+      "gold_id": "G018",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Automatic + manual semantic evidence-quality review dimensions were not extracted."
+    },
+    {
+      "gold_id": "G019",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Rerank/fallback evaluation fields and coverage metrics were not extracted."
+    },
+    {
+      "gold_id": "G020",
+      "agent_ids": [
+        "E018"
+      ],
+      "label": "PARTIAL_MATCH_WITH_OVERCLAIM",
+      "reason": "The prediction gestures at structured human-review rubrics, but does not capture the answer-quality dimensions or product-validation boundary and cites insufficient source_text."
+    },
+    {
+      "gold_id": "G021",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Model/run traceability was not extracted."
+    }
+  ],
+  "agent_only": [
+    {
+      "agent_id": "E002",
+      "label": "EXTRA_REDUNDANT",
+      "reason": "Use-case examples are grounded but duplicate the broader product-purpose evidence."
+    },
+    {
+      "agent_id": "E003",
+      "label": "EXTRA_BUNDLED_SUMMARY",
+      "reason": "Large capability bundle is grounded, but it violates the atomic-evidence policy and duplicates detailed units."
+    },
+    {
+      "agent_id": "E014",
+      "label": "EXTRA_LOW_VALUE_CONFIGURATION",
+      "reason": "Model/version configuration is grounded but is less useful than the provider-abstraction implementation for downstream matching."
+    },
+    {
+      "agent_id": "E019",
+      "label": "EXTRA_OUT_OF_SCOPE",
+      "reason": "Repository file structure is document metadata, not candidate capability evidence."
+    },
+    {
+      "agent_id": "E020",
+      "label": "EXTRA_REDUNDANT",
+      "reason": "Generic technology-stack list is grounded but duplicates stronger implementation evidence."
+    },
+    {
+      "agent_id": "E021",
+      "label": "EXTRA_SELF_POSITIONING",
+      "reason": "A broad 'this demonstrates the ability to...' summary is excluded when detailed implementation evidence exists."
+    }
+  ],
+  "diagnostics": {
+    "verbatim_source_count": 8,
+    "verbatim_source_rate": 0.38095238095238093,
+    "note": "Do not collapse MATCH/PARTIAL/OVERCLAIM into a single final precision/recall score until human adjudication freezes the scoring policy."
+  },
+  "publication_review_note": "Author confirmed human review completed; legacy draft status metadata normalized for Portfolio V1. Semantic annotations are unchanged."
+}

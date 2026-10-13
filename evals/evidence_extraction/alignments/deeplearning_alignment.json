@@ -1,0 +1,104 @@
+{
+  "status": "HUMAN_REVIEWED",
+  "document_name": "README._deeplearning.md",
+  "gold_draft_count": 12,
+  "agent_prediction_count": 8,
+  "gold_to_agent": [
+    {
+      "gold_id": "G001",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Classical ML implementation not extracted."
+    },
+    {
+      "gold_id": "G002",
+      "agent_ids": [
+        "E002"
+      ],
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G003",
+      "agent_ids": [
+        "E005"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "Agent kept test accuracy but omitted training accuracy from the gold unit."
+    },
+    {
+      "gold_id": "G004",
+      "agent_ids": [
+        "E003"
+      ],
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G005",
+      "agent_ids": [
+        "E006"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "Agent kept test accuracy but omitted training accuracy from the gold unit."
+    },
+    {
+      "gold_id": "G006",
+      "agent_ids": [
+        "E004"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "CNN implementation is bundled with GAN and DANN and omits CNN implementation detail."
+    },
+    {
+      "gold_id": "G007",
+      "agent_ids": [
+        "E007"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "Agent kept test accuracy but omitted training accuracy from the gold unit."
+    },
+    {
+      "gold_id": "G008",
+      "agent_ids": [
+        "E004"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "GAN implementation is bundled with CNN and DANN and omits training/loss detail."
+    },
+    {
+      "gold_id": "G009",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Qualitative tracking of GAN samples was not extracted."
+    },
+    {
+      "gold_id": "G010",
+      "agent_ids": [
+        "E004"
+      ],
+      "label": "PARTIAL_MATCH",
+      "reason": "DANN implementation is bundled with CNN/GAN and omits gradient-reversal/domain-adaptation detail."
+    },
+    {
+      "gold_id": "G011",
+      "agent_ids": [
+        "E008"
+      ],
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G012",
+      "agent_ids": [],
+      "label": "MISSING",
+      "reason": "Engineering workflow evidence was not extracted."
+    }
+  ],
+  "agent_only": [
+    {
+      "agent_id": "E001",
+      "label": "EXTRA_OUT_OF_SCOPE",
+      "reason": "Repository/document composition statement rather than a candidate capability."
+    }
+  ],
+  "note": "Do not collapse this into one precision/recall number until the human adjudication policy for PARTIAL_MATCH and one-to-many bundled evidence is frozen.",
+  "publication_review_note": "Author confirmed human review completed; legacy draft status metadata normalized for Portfolio V1. Semantic annotations are unchanged."
+}

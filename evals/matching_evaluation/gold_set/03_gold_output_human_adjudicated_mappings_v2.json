@@ -1,0 +1,776 @@
+{
+  "benchmark_component": "requirement_evidence_matching",
+  "output_name": "human_adjudicated_gold_mappings",
+  "version": "v2",
+  "status": "HUMAN_ADJUDICATED_GOLD",
+  "inputs": {
+    "candidate_evidence_count": 120,
+    "representative_requirement_count": 32,
+    "candidate_evidence_composition": {
+      "synthetic_resume": 37,
+      "deep_learning_project": 12,
+      "rag_assistant_project": 21,
+      "job_search_agent_project": 50
+    }
+  },
+  "gold_output_schema": {
+    "support_levels": [
+      "STRONG",
+      "PARTIAL",
+      "WEAK",
+      "NOT_CLEARLY_SUPPORTED"
+    ],
+    "evidence_relationships": [
+      "DIRECT",
+      "ADJACENT"
+    ],
+    "one_mapping_per_requirement": true,
+    "not_clearly_supported_requires_empty_evidence_matches": true
+  },
+  "human_adjudication_summary": {
+    "reviewed_requirement_count": 32,
+    "label_distribution": {
+      "STRONG": 13,
+      "NOT_CLEARLY_SUPPORTED": 7,
+      "WEAK": 5,
+      "PARTIAL": 7
+    },
+    "important_label_changes_from_earlier_draft": [
+      {
+        "requirement_id": "MREQ003",
+        "from": "PARTIAL",
+        "to": "STRONG",
+        "reason": "The rebuilt Job Search Agent evidence directly establishes implementation of a substantial Python application."
+      },
+      {
+        "requirement_id": "MREQ008",
+        "from": "WEAK",
+        "to": "PARTIAL",
+        "reason": "The rebuilt Job Search Agent evidence directly establishes hosted web-search tool use and bounded tool orchestration, but not full LLM tool-calling over internal APIs and business data."
+      },
+      {
+        "requirement_id": "MREQ020",
+        "from": "WEAK",
+        "to": "PARTIAL",
+        "reason": "Git/GitHub are directly listed as candidate tools; collaborative Git usage remains unproven."
+      }
+    ]
+  },
+  "records": [
+    {
+      "requirement_id": "MREQ001",
+      "requirement": "Partner with product and design to translate user problems into AI product requirements.",
+      "source_case_id": "REQ001",
+      "source_gold_id": "G004",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The evidence directly shows cross-functional work with product and design on an AI-assisted workflow and separately shows user research being synthesized into explicit product requirements. Together, those facts satisfy the partnership and translation-to-requirements parts of the requirement.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_007",
+          "relationship": "DIRECT",
+          "reason": "Direct cross-functional work with a product manager and designer on an AI-assisted workflow."
+        },
+        {
+          "evidence_id": "E_RES_008",
+          "relationship": "DIRECT",
+          "reason": "Directly translated user research findings into explicit product requirements."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ002",
+      "requirement": "Have 4+ years of professional software development experience.",
+      "source_case_id": "REQ001",
+      "source_gold_id": "G007",
+      "gold_support_level": "NOT_CLEARLY_SUPPORTED",
+      "gold_reason": "The evidence base does not establish 4+ years of professional software development experience. It contains internships, research work, and substantial project implementation, but no evidence proving the required duration of professional software-development employment.",
+      "gold_evidence_matches": [],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ003",
+      "requirement": "Have strong Python programming skills.",
+      "source_case_id": "REQ001",
+      "source_gold_id": "G008",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The updated evidence now establishes substantial hands-on Python implementation rather than only Python familiarity: the candidate implemented the Job Search Agent as a Python 3.11+ product and also used Python for analysis and data work. Taken together with the implemented product scope, this is sufficient evidence for strong Python programming capability.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_JOB_003",
+          "relationship": "DIRECT",
+          "reason": "Directly states that the local product was implemented in Python 3.11+."
+        },
+        {
+          "evidence_id": "E_RES_011",
+          "relationship": "DIRECT",
+          "reason": "Shows hands-on Python use for test-result analysis."
+        },
+        {
+          "evidence_id": "E_RES_026",
+          "relationship": "DIRECT",
+          "reason": "Shows additional hands-on Python use for data cleaning and descriptive statistics."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ004",
+      "requirement": "Have experience building applications with large language models or other generative AI systems.",
+      "source_case_id": "REQ001",
+      "source_gold_id": "G009",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate directly built multiple LLM-powered applications, including an adaptive RAG system and the AI Job Search Agent using an OpenAI-compatible Qwen endpoint, clearly satisfying experience building applications with LLMs or other generative AI systems.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RAG_001",
+          "relationship": "DIRECT",
+          "reason": "Directly built an adaptive RAG application."
+        },
+        {
+          "evidence_id": "E_JOB_004",
+          "relationship": "DIRECT",
+          "reason": "Directly integrated an LLM provider into the implemented Job Search Agent."
+        },
+        {
+          "evidence_id": "E_RES_031",
+          "relationship": "DIRECT",
+          "reason": "Used an LLM API in an AI classification prototype."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ005",
+      "requirement": "Have experience with vector databases.",
+      "source_case_id": "REQ001",
+      "source_gold_id": "G012",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate directly implemented semantic retrieval with ChromaDB and used ChromaDB in a working RAG workflow, clearly demonstrating practical experience with a vector database.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RAG_002",
+          "relationship": "DIRECT",
+          "reason": "Implemented embeddings and ChromaDB semantic retrieval."
+        },
+        {
+          "evidence_id": "E_RAG_003",
+          "relationship": "DIRECT",
+          "reason": "Used ChromaDB in a working Basic RAG retrieval workflow."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ006",
+      "requirement": "Have experience with prompt evaluation or LLM evaluation frameworks.",
+      "source_case_id": "REQ001",
+      "source_gold_id": "G013",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The evidence directly shows prompt-evaluation knowledge and hands-on construction of offline LLM evaluation frameworks, including curated benchmarks, structured rubrics, and component-isolated evaluation design.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_035",
+          "relationship": "DIRECT",
+          "reason": "Explicitly lists prompt evaluation and offline evaluation skills."
+        },
+        {
+          "evidence_id": "E_RAG_016",
+          "relationship": "DIRECT",
+          "reason": "Built an offline evaluation runner for RAG behavior."
+        },
+        {
+          "evidence_id": "E_JOB_045",
+          "relationship": "DIRECT",
+          "reason": "Designed a layered AI evaluation strategy that isolates semantic components."
+        },
+        {
+          "evidence_id": "E_JOB_048",
+          "relationship": "DIRECT",
+          "reason": "Designed a fixed-input matcher evaluation with human-adjudicated Gold mappings."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ007",
+      "requirement": "Monitor latency and cost in production.",
+      "source_case_id": "REQ002",
+      "source_gold_id": "G004",
+      "gold_support_level": "WEAK",
+      "gold_reason": "The candidate has adjacent evidence of run-time traceability and explicit cost/reliability bounding, but the evidence does not establish monitoring latency and cost in a production environment. The updated Job Search Agent documentation explicitly avoids claiming full production latency/cost monitoring.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RAG_021",
+          "relationship": "ADJACENT",
+          "reason": "Records elapsed time and run traceability, but not production latency/cost monitoring."
+        },
+        {
+          "evidence_id": "E_JOB_013",
+          "relationship": "ADJACENT",
+          "reason": "Imposes explicit search cost/reliability bounds, but does not monitor production latency and cost."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ008",
+      "requirement": "Design tool-calling workflows that connect language models to internal APIs, search systems, and business data.",
+      "source_case_id": "REQ002",
+      "source_gold_id": "G005",
+      "gold_support_level": "PARTIAL",
+      "gold_reason": "The updated evidence directly establishes a real tool-enabled search workflow: the Job Search Agent uses Qwen's hosted web_search tool through a provider-neutral interface and application-controlled orchestration. It also integrates APIs and durable application data, but those API/data integrations are not exposed as LLM-invoked tools. Therefore the search/tool-calling portion is directly supported while the full internal-API/business-data tool-calling scope is not fully established.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_JOB_009",
+          "relationship": "DIRECT",
+          "reason": "Directly implements hosted web-search tool use through a provider-neutral interface."
+        },
+        {
+          "evidence_id": "E_JOB_010",
+          "relationship": "DIRECT",
+          "reason": "Directly describes the bounded application-controlled tool orchestration."
+        },
+        {
+          "evidence_id": "E_JOB_005",
+          "relationship": "ADJACENT",
+          "reason": "Demonstrates hands-on API integration through Gmail, but the Gmail API is application-invoked rather than an LLM tool."
+        },
+        {
+          "evidence_id": "E_JOB_042",
+          "relationship": "ADJACENT",
+          "reason": "Demonstrates durable business/application data integration, but not LLM tool-calling over that data store."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ009",
+      "requirement": "Have at least 2 years building customer-facing AI or machine-learning applications.",
+      "source_case_id": "REQ002",
+      "source_gold_id": "G010",
+      "gold_support_level": "PARTIAL",
+      "gold_reason": "The candidate has direct evidence of building user-oriented AI systems and working on an AI-assisted B2B workflow, but the evidence does not establish at least two years of customer-facing AI or machine-learning application experience.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RAG_001",
+          "relationship": "DIRECT",
+          "reason": "Built a user-oriented AI application."
+        },
+        {
+          "evidence_id": "E_RES_007",
+          "relationship": "DIRECT",
+          "reason": "Worked on an AI-assisted B2B software workflow."
+        },
+        {
+          "evidence_id": "E_JOB_001",
+          "relationship": "DIRECT",
+          "reason": "Built another user-facing AI-assisted job-search product, but without establishing the required two-year duration."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ010",
+      "requirement": "Have working knowledge of TypeScript.",
+      "source_case_id": "REQ002",
+      "source_gold_id": "G012",
+      "gold_support_level": "NOT_CLEARLY_SUPPORTED",
+      "gold_reason": "The evidence base contains no explicit TypeScript experience or demonstrated TypeScript knowledge.",
+      "gold_evidence_matches": [],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ011",
+      "requirement": "Have hands-on capability with REST APIs.",
+      "source_case_id": "REQ002",
+      "source_gold_id": "G013",
+      "gold_support_level": "WEAK",
+      "gold_reason": "The candidate has hands-on API integration and API tooling evidence, including Gmail integration, an OpenAI-compatible SDK, provider abstractions, and Postman. However, the fixed evidence does not explicitly establish hands-on capability specifically with REST APIs, so the support remains adjacent rather than direct.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_JOB_005",
+          "relationship": "ADJACENT",
+          "reason": "Shows hands-on Gmail API integration, but the evidence does not explicitly characterize it as REST."
+        },
+        {
+          "evidence_id": "E_JOB_004",
+          "relationship": "ADJACENT",
+          "reason": "Shows use of an OpenAI-compatible SDK/API integration, but not explicit REST implementation."
+        },
+        {
+          "evidence_id": "E_RES_037",
+          "relationship": "ADJACENT",
+          "reason": "Lists Postman, which is relevant API tooling but does not by itself establish REST capability."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ012",
+      "requirement": "Be able to debug model failures.",
+      "source_case_id": "REQ002",
+      "source_gold_id": "G016",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate directly reviewed model-output failures, documented failure modes, and implemented validation, fallback, and verification behavior for unreliable model outputs, which clearly demonstrates the ability to debug model failures.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_013",
+          "relationship": "DIRECT",
+          "reason": "Documented model failure cases such as missing context, unsupported claims, and malformed output."
+        },
+        {
+          "evidence_id": "E_RES_032",
+          "relationship": "DIRECT",
+          "reason": "Reviewed and categorized LLM classification errors."
+        },
+        {
+          "evidence_id": "E_RAG_013",
+          "relationship": "DIRECT",
+          "reason": "Implemented structured model-output validation and fallback behavior."
+        },
+        {
+          "evidence_id": "E_JOB_036",
+          "relationship": "DIRECT",
+          "reason": "Added a second semantic verification pass to catch missed evidence in negative matcher conclusions."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ013",
+      "requirement": "Translate customer research into prioritized product requirements.",
+      "source_case_id": "REQ003",
+      "source_gold_id": "G003",
+      "gold_support_level": "PARTIAL",
+      "gold_reason": "The evidence directly shows translating user research into product requirements, and the resume separately lists prioritization as a skill, but it does not clearly show the act of prioritizing those research-derived requirements.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_008",
+          "relationship": "DIRECT",
+          "reason": "Directly translated user interview findings into product requirements."
+        },
+        {
+          "evidence_id": "E_RES_021",
+          "relationship": "DIRECT",
+          "reason": "Wrote product requirement notes based on research findings and analytics."
+        },
+        {
+          "evidence_id": "E_RES_034",
+          "relationship": "ADJACENT",
+          "reason": "Lists prioritization as a product skill, but does not establish prioritization of the specific research-derived requirements."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ014",
+      "requirement": "Have 4+ years of product management experience.",
+      "source_case_id": "REQ003",
+      "source_gold_id": "G006",
+      "gold_support_level": "NOT_CLEARLY_SUPPORTED",
+      "gold_reason": "The evidence does not establish 4+ years of product management experience. It shows internships, research, and project work, but not the required duration of product-management employment.",
+      "gold_evidence_matches": [],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ015",
+      "requirement": "Have demonstrated experience shipping at least one software product from discovery through launch.",
+      "source_case_id": "REQ003",
+      "source_gold_id": "G007",
+      "gold_support_level": "WEAK",
+      "gold_reason": "The evidence shows discovery/research work, prototype definition, and a completed local software product, but it does not establish that one software product was taken through the full lifecycle from discovery through launch. The benchmark policy does not stitch unrelated projects together to fabricate that lifecycle.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_029",
+          "relationship": "ADJACENT",
+          "reason": "Shows prototype definition but not shipping through launch."
+        },
+        {
+          "evidence_id": "E_JOB_001",
+          "relationship": "ADJACENT",
+          "reason": "Shows a completed local product but not the discovery-to-launch lifecycle."
+        },
+        {
+          "evidence_id": "E_JOB_043",
+          "relationship": "ADJACENT",
+          "reason": "Shows an implemented review UI but not a launch milestone."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ016",
+      "requirement": "Be comfortable using SQL or another analytics tool to investigate product behavior.",
+      "source_case_id": "REQ003",
+      "source_gold_id": "G009",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate directly used SQL to analyze user onboarding behavior and built product analytics views for activation and retention, clearly satisfying the analytics capability requirement.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_016",
+          "relationship": "DIRECT",
+          "reason": "Used SQL and cohort analysis to investigate onboarding behavior."
+        },
+        {
+          "evidence_id": "E_RES_020",
+          "relationship": "DIRECT",
+          "reason": "Built a dashboard for activation and retention metrics."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ017",
+      "requirement": "Have prior work with evaluation datasets or human review workflows.",
+      "source_case_id": "REQ003",
+      "source_gold_id": "G012",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The evidence directly demonstrates both evaluation-dataset work and human-review workflow design across multiple AI projects.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_010",
+          "relationship": "DIRECT",
+          "reason": "Created a labeled 60-question evaluation set."
+        },
+        {
+          "evidence_id": "E_RES_033",
+          "relationship": "DIRECT",
+          "reason": "Proposed a human-review step for low-confidence model classifications."
+        },
+        {
+          "evidence_id": "E_RAG_016",
+          "relationship": "DIRECT",
+          "reason": "Built a curated offline evaluation runner."
+        },
+        {
+          "evidence_id": "E_JOB_046",
+          "relationship": "DIRECT",
+          "reason": "Built a candidate-evidence extraction benchmark with human semantic review dimensions."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ018",
+      "requirement": "Have a Bachelor's degree in Computer Science, Data Science, Engineering, or a related field, OR equivalent practical experience.",
+      "source_case_id": "REQ004",
+      "source_gold_id": "G004",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate has a Bachelor's degree in Information Science, which is a related technical/data field and directly satisfies the degree-or-equivalent requirement.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_004",
+          "relationship": "DIRECT",
+          "reason": "Directly establishes a B.S. in Information Science with a Statistics minor."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ019",
+      "requirement": "Have experience deploying services on at least one major cloud platform: AWS, GCP, or Azure.",
+      "source_case_id": "REQ004",
+      "source_gold_id": "G006",
+      "gold_support_level": "NOT_CLEARLY_SUPPORTED",
+      "gold_reason": "The evidence base does not establish deployment of services on AWS, GCP, or Azure. The updated Job Search Agent evidence explicitly does not claim cloud production deployment.",
+      "gold_evidence_matches": [],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ020",
+      "requirement": "Have practical capability using Git in a collaborative development environment.",
+      "source_case_id": "REQ004",
+      "source_gold_id": "G008",
+      "gold_support_level": "PARTIAL",
+      "gold_reason": "The evidence directly establishes Git and GitHub as candidate tools and separately shows collaborative work with engineers, but it does not establish that Git was actually used within that collaborative development environment.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_037",
+          "relationship": "DIRECT",
+          "reason": "Directly lists Git and GitHub as candidate tools, supporting practical Git capability."
+        },
+        {
+          "evidence_id": "E_RES_007",
+          "relationship": "ADJACENT",
+          "reason": "Shows collaborative work with product, design, and engineering, but does not establish Git usage in that collaboration."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ021",
+      "requirement": "Have practical capability with Kubernetes.",
+      "source_case_id": "REQ004",
+      "source_gold_id": "G010",
+      "gold_support_level": "NOT_CLEARLY_SUPPORTED",
+      "gold_reason": "The evidence base contains no explicit Kubernetes experience or practical Kubernetes capability.",
+      "gold_evidence_matches": [],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ022",
+      "requirement": "Have familiarity with LLM evaluation, retrieval systems, or vector databases.",
+      "source_case_id": "REQ004",
+      "source_gold_id": "G011",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate has extensive direct evidence across retrieval systems, vector databases, and LLM evaluation, so the disjunctive familiarity requirement is clearly satisfied.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RAG_002",
+          "relationship": "DIRECT",
+          "reason": "Direct retrieval and vector-database implementation."
+        },
+        {
+          "evidence_id": "E_RAG_016",
+          "relationship": "DIRECT",
+          "reason": "Direct LLM/RAG evaluation work."
+        },
+        {
+          "evidence_id": "E_JOB_045",
+          "relationship": "DIRECT",
+          "reason": "Direct AI evaluation architecture work."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ023",
+      "requirement": "Build AI-assisted workflow features from prototype through production.",
+      "source_case_id": "REQ005",
+      "source_gold_id": "G001",
+      "gold_support_level": "PARTIAL",
+      "gold_reason": "The candidate directly built AI-assisted workflow products and prototypes, including the Job Search Agent, but the evidence does not establish taking such a feature through a production deployment. The updated Job Search Agent evidence explicitly avoids claiming production deployment.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_007",
+          "relationship": "DIRECT",
+          "reason": "Direct work on an AI-assisted workflow prototype."
+        },
+        {
+          "evidence_id": "E_JOB_001",
+          "relationship": "DIRECT",
+          "reason": "Directly built an AI-assisted workflow product."
+        },
+        {
+          "evidence_id": "E_JOB_040",
+          "relationship": "DIRECT",
+          "reason": "Implemented durable orchestration for the workflow, but not production deployment."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ024",
+      "requirement": "Interview internal users and incorporate feedback into product iterations.",
+      "source_case_id": "REQ005",
+      "source_gold_id": "G002",
+      "gold_support_level": "PARTIAL",
+      "gold_reason": "The candidate directly conducted user interviews and usability sessions and translated findings into requirements, but the evidence does not clearly establish that the users were internal users or that their feedback was incorporated through iterative product cycles.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_008",
+          "relationship": "DIRECT",
+          "reason": "Conducted user interviews and synthesized findings into requirements."
+        },
+        {
+          "evidence_id": "E_RES_024",
+          "relationship": "DIRECT",
+          "reason": "Helped run moderated usability sessions and organized qualitative notes."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ025",
+      "requirement": "Investigate production issues across application code and model behavior.",
+      "source_case_id": "REQ005",
+      "source_gold_id": "G004",
+      "gold_support_level": "PARTIAL",
+      "gold_reason": "The candidate directly investigated model-output failure modes and built application-level validation, retry, and fault-isolation behavior. However, the fixed evidence does not establish that these investigations occurred in a production environment, so the production qualifier remains unmet.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_013",
+          "relationship": "DIRECT",
+          "reason": "Directly documents model failure cases."
+        },
+        {
+          "evidence_id": "E_RAG_013",
+          "relationship": "DIRECT",
+          "reason": "Implements application-level validation and fallback around model behavior."
+        },
+        {
+          "evidence_id": "E_JOB_041",
+          "relationship": "DIRECT",
+          "reason": "Implements application fault isolation and retry semantics, but outside a claimed production environment."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ026",
+      "requirement": "Define success metrics and evaluation plans for new AI capabilities.",
+      "source_case_id": "REQ006",
+      "source_gold_id": "G004",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate directly defined AI quality criteria and acceptance criteria, built evaluation sets and runners, and designed explicit evaluation plans for multiple AI components, clearly satisfying the requirement.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_009",
+          "relationship": "DIRECT",
+          "reason": "Defined AI feature acceptance criteria including relevance, factual consistency, latency, and editability."
+        },
+        {
+          "evidence_id": "E_RES_010",
+          "relationship": "DIRECT",
+          "reason": "Created a labeled evaluation set."
+        },
+        {
+          "evidence_id": "E_RAG_016",
+          "relationship": "DIRECT",
+          "reason": "Built an offline evaluation runner."
+        },
+        {
+          "evidence_id": "E_JOB_045",
+          "relationship": "DIRECT",
+          "reason": "Designed a layered evaluation strategy."
+        },
+        {
+          "evidence_id": "E_JOB_048",
+          "relationship": "DIRECT",
+          "reason": "Designed a fixed-input matching evaluation plan."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ027",
+      "requirement": "Have strong cross-functional communication skills.",
+      "source_case_id": "REQ006",
+      "source_gold_id": "G007",
+      "gold_support_level": "STRONG",
+      "gold_reason": "The candidate directly demonstrates cross-functional collaboration and communication through work with product, design, engineering, and presentation of recommendations to project leadership.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_007",
+          "relationship": "DIRECT",
+          "reason": "Worked cross-functionally with product, design, and engineering."
+        },
+        {
+          "evidence_id": "E_RES_014",
+          "relationship": "DIRECT",
+          "reason": "Presented findings and recommendations to project leadership."
+        },
+        {
+          "evidence_id": "E_RES_036",
+          "relationship": "DIRECT",
+          "reason": "Explicitly lists stakeholder communication and cross-functional collaboration."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ028",
+      "requirement": "Hold an active, unrestricted Registered Nurse (RN) license in at least one U.S. state.",
+      "source_case_id": "REQ007",
+      "source_gold_id": "G005",
+      "gold_support_level": "NOT_CLEARLY_SUPPORTED",
+      "gold_reason": "The evidence base contains no evidence of an active, unrestricted U.S. Registered Nurse license.",
+      "gold_evidence_matches": [],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ029",
+      "requirement": "Have familiarity with AI-assisted clinical decision-support tools.",
+      "source_case_id": "REQ007",
+      "source_gold_id": "G013",
+      "gold_support_level": "NOT_CLEARLY_SUPPORTED",
+      "gold_reason": "The evidence base contains no evidence of familiarity with clinical workflows or AI-assisted clinical decision-support tools.",
+      "gold_evidence_matches": [],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ030",
+      "requirement": "Be comfortable leading technical discovery sessions.",
+      "source_case_id": "REQ008",
+      "source_gold_id": "G014",
+      "gold_support_level": "WEAK",
+      "gold_reason": "The candidate has adjacent evidence of user interviews, moderated sessions, cross-functional collaboration, and presenting recommendations, but there is no clear evidence of leading technical discovery sessions.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RES_008",
+          "relationship": "ADJACENT",
+          "reason": "Shows interview/discovery activity but not technical discovery leadership."
+        },
+        {
+          "evidence_id": "E_RES_024",
+          "relationship": "ADJACENT",
+          "reason": "Shows moderated usability sessions, not technical discovery sessions."
+        },
+        {
+          "evidence_id": "E_RES_014",
+          "relationship": "ADJACENT",
+          "reason": "Shows presentation and communication, but not leading technical discovery."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ031",
+      "requirement": "Have experience deploying LLM applications.",
+      "source_case_id": "REQ008",
+      "source_gold_id": "G017",
+      "gold_support_level": "WEAK",
+      "gold_reason": "The candidate clearly built LLM/RAG applications and a working local LLM-enabled product, but the evidence does not establish deployment of those LLM applications in the sense required by the job. The updated Job Search Agent evidence explicitly does not claim cloud production deployment.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RAG_001",
+          "relationship": "ADJACENT",
+          "reason": "Directly establishes building an LLM/RAG application, but not deployment."
+        },
+        {
+          "evidence_id": "E_JOB_001",
+          "relationship": "ADJACENT",
+          "reason": "Directly establishes a working local AI product, but not deployment."
+        },
+        {
+          "evidence_id": "E_JOB_004",
+          "relationship": "ADJACENT",
+          "reason": "Establishes LLM provider integration, but not deployment."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    },
+    {
+      "requirement_id": "MREQ032",
+      "requirement": "Have practical capability with retrieval-augmented generation, evaluation frameworks, or tool-calling agents.",
+      "source_case_id": "REQ008",
+      "source_gold_id": "G018",
+      "gold_support_level": "STRONG",
+      "gold_reason": "Because the requirement is disjunctive, practical capability in any one of RAG, evaluation frameworks, or tool-calling agents is sufficient. The candidate has direct, extensive evidence of RAG implementation, evaluation-framework work, and now also hosted web-search tool use.",
+      "gold_evidence_matches": [
+        {
+          "evidence_id": "E_RAG_003",
+          "relationship": "DIRECT",
+          "reason": "Implemented a working RAG workflow."
+        },
+        {
+          "evidence_id": "E_RAG_004",
+          "relationship": "DIRECT",
+          "reason": "Implemented an agentic RAG workflow."
+        },
+        {
+          "evidence_id": "E_RAG_016",
+          "relationship": "DIRECT",
+          "reason": "Built an evaluation runner/framework."
+        },
+        {
+          "evidence_id": "E_JOB_009",
+          "relationship": "DIRECT",
+          "reason": "Implemented hosted web-search tool use through a provider-neutral interface."
+        }
+      ],
+      "adjudication_status": "HUMAN_ADJUDICATED"
+    }
+  ]
+}

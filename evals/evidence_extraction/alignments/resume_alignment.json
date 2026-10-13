@@ -1,0 +1,238 @@
+{
+  "status": "HUMAN_REVIEWED",
+  "document_name": "synthetic_new_grad_ai_product_resume.md",
+  "gold_draft_count": 37,
+  "agent_prediction_count": 36,
+  "alignment_policy": {
+    "MATCH": "Agent prediction captures the same substantive candidate fact as the gold unit.",
+    "MISSING": "Gold unit has no substantive Agent prediction.",
+    "EXTRA_OUT_OF_SCOPE": "Agent prediction is grounded but is not a target candidate-evidence unit under the current benchmark policy.",
+    "EXTRA_REDUNDANT": "Agent prediction is grounded but substantially duplicates stronger detailed evidence elsewhere in the same document."
+  },
+  "gold_to_agent": [
+    {
+      "gold_id": "G001",
+      "agent_id": "E005",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G002",
+      "agent_id": null,
+      "label": "MISSING",
+      "reason": "Coursework was not extracted."
+    },
+    {
+      "gold_id": "G003",
+      "agent_id": "E006",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G004",
+      "agent_id": "E007",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G005",
+      "agent_id": "E008",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G006",
+      "agent_id": "E009",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G007",
+      "agent_id": "E010",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G008",
+      "agent_id": "E011",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G009",
+      "agent_id": "E012",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G010",
+      "agent_id": "E013",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G011",
+      "agent_id": "E014",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G012",
+      "agent_id": "E015",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G013",
+      "agent_id": "E016",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G014",
+      "agent_id": "E017",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G015",
+      "agent_id": "E018",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G016",
+      "agent_id": "E019",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G017",
+      "agent_id": "E020",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G018",
+      "agent_id": "E021",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G019",
+      "agent_id": "E022",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G020",
+      "agent_id": "E023",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G021",
+      "agent_id": "E024",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G022",
+      "agent_id": "E025",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G023",
+      "agent_id": "E026",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G024",
+      "agent_id": "E027",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G025",
+      "agent_id": "E028",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G026",
+      "agent_id": "E029",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G027",
+      "agent_id": "E030",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G028",
+      "agent_id": "E031",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G029",
+      "agent_id": "E032",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G030",
+      "agent_id": "E033",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G031",
+      "agent_id": "E034",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G032",
+      "agent_id": "E035",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G033",
+      "agent_id": "E036",
+      "label": "MATCH"
+    },
+    {
+      "gold_id": "G034",
+      "agent_id": null,
+      "label": "MISSING",
+      "reason": "Product skills list was not extracted."
+    },
+    {
+      "gold_id": "G035",
+      "agent_id": null,
+      "label": "MISSING",
+      "reason": "AI / Data skills list was not extracted."
+    },
+    {
+      "gold_id": "G036",
+      "agent_id": null,
+      "label": "MISSING",
+      "reason": "Design / Collaboration skills list was not extracted."
+    },
+    {
+      "gold_id": "G037",
+      "agent_id": null,
+      "label": "MISSING",
+      "reason": "Tools list was not extracted."
+    }
+  ],
+  "agent_only": [
+    {
+      "agent_id": "E001",
+      "label": "EXTRA_OUT_OF_SCOPE",
+      "reason": "Identity/location header; excluded from this component scope."
+    },
+    {
+      "agent_id": "E002",
+      "label": "EXTRA_OUT_OF_SCOPE",
+      "reason": "Synthetic-evaluation document metadata; not candidate background evidence."
+    },
+    {
+      "agent_id": "E003",
+      "label": "EXTRA_REDUNDANT",
+      "reason": "High-level summary claim duplicates more specific experience evidence."
+    },
+    {
+      "agent_id": "E004",
+      "label": "EXTRA_REDUNDANT",
+      "reason": "High-level summary claim duplicates more specific experience/skills evidence."
+    }
+  ],
+  "provisional_metrics": {
+    "semantic_match_count": 32,
+    "missing_gold_count": 5,
+    "extra_prediction_count": 4,
+    "precision": 0.8889,
+    "recall": 0.8649,
+    "f1": 0.8767,
+    "verbatim_source_predictions": 36,
+    "verbatim_source_rate": 1.0,
+    "note": "Human review completed, as confirmed by the author during Portfolio V1 packaging; historical metric values are unchanged."
+  },
+  "publication_review_note": "Author confirmed human review completed; legacy draft status metadata normalized for Portfolio V1. Semantic annotations are unchanged."
+}

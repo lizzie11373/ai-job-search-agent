@@ -1,0 +1,143 @@
+{
+  "eval_name": "job_requirement_extraction",
+  "eval_version": "v1",
+  "status": "INPUTS_FROZEN_GOLD_AND_ALIGNMENTS_AVAILABLE",
+  "design_goal": "A compact but deliberately representative offline set for evaluating semantic job-requirement extraction quality across common and failure-prone JD structures.",
+  "production_schema": {
+    "categories": [
+      "RESPONSIBILITY",
+      "EXPERIENCE",
+      "SKILL",
+      "DOMAIN_KNOWLEDGE",
+      "EDUCATION",
+      "LICENSE",
+      "CERTIFICATION",
+      "OTHER"
+    ],
+    "requirement_levels": [
+      "CORE",
+      "REQUIRED",
+      "PREFERRED"
+    ],
+    "fields": [
+      "requirement",
+      "category",
+      "requirement_level",
+      "jd_source_text",
+      "jd_section"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "REQ001",
+      "filename": "REQ001_clean_ai_product_engineer.md",
+      "sha256": "11ec07554238d549d6fad3851a4c9e9ab1ecb869fa0484d8ea856f9676968741",
+      "role_shape": "clean baseline / AI Product Engineer",
+      "primary_dimensions": [
+        "CORE vs REQUIRED vs PREFERRED",
+        "RESPONSIBILITY",
+        "EXPERIENCE",
+        "SKILL",
+        "EDUCATION",
+        "straightforward source grounding"
+      ]
+    },
+    {
+      "case_id": "REQ002",
+      "filename": "REQ002_compound_atomicity.md",
+      "sha256": "e874ea37a2b57ce3cd08f53a5e7ab2ba68f7835857b10e7965a53f2bc0106e7f",
+      "role_shape": "AI Application Engineer",
+      "primary_dimensions": [
+        "compound bullets",
+        "atomic splitting",
+        "nested experience thresholds",
+        "multiple skills in one sentence",
+        "preferred wording"
+      ]
+    },
+    {
+      "case_id": "REQ003",
+      "filename": "REQ003_strength_language.md",
+      "sha256": "4f62e85eed770497f686a9a425ab5f8e1114ced9f9153e5556ed5b225e8873d3",
+      "role_shape": "AI Product Manager",
+      "primary_dimensions": [
+        "strength-language interpretation",
+        "must vs should vs preferred vs helpful vs plus",
+        "negative statement",
+        "product responsibilities"
+      ]
+    },
+    {
+      "case_id": "REQ004",
+      "filename": "REQ004_alternatives_equivalency.md",
+      "sha256": "e7bc5953a10546a1f7f5e9e9941e75d7173b904c50900f162fe4f58ea7f1822a",
+      "role_shape": "Applied AI Engineer",
+      "primary_dimensions": [
+        "OR alternatives",
+        "equivalent practical experience",
+        "degree substitution",
+        "one-of cloud providers",
+        "do not convert OR to AND"
+      ]
+    },
+    {
+      "case_id": "REQ005",
+      "filename": "REQ005_noise_and_negation.md",
+      "sha256": "2b4d5c64a6b6b8dd1cf152531f21003e18918a65c4b8e5e38dc51f04b72b4337",
+      "role_shape": "Product Engineer",
+      "primary_dimensions": [
+        "noise filtering",
+        "culture/benefits exclusion",
+        "negation",
+        "do-not-require statements",
+        "prose + bullets"
+      ]
+    },
+    {
+      "case_id": "REQ006",
+      "filename": "REQ006_repetition_dedup.md",
+      "sha256": "60fc7c74d962123b0c5ada2242f28e91dc808acd3fc7f92935f4bf2ff5ad0652",
+      "role_shape": "Technical Product Manager",
+      "primary_dimensions": [
+        "duplicate requirements across sections",
+        "deduplication",
+        "same concept with different wording",
+        "required vs preferred repetition"
+      ]
+    },
+    {
+      "case_id": "REQ007",
+      "filename": "REQ007_license_certification_domain.md",
+      "sha256": "2732247cf0f25d0402d719bd86553ecb9092ec6d4449700da9dc785a0501a25b",
+      "role_shape": "Clinical AI Implementation Specialist",
+      "primary_dimensions": [
+        "LICENSE",
+        "CERTIFICATION",
+        "DOMAIN_KNOWLEDGE",
+        "EDUCATION",
+        "travel requirement / OTHER",
+        "required vs preferred credentials"
+      ]
+    },
+    {
+      "case_id": "REQ008",
+      "filename": "REQ008_long_prose_fde.md",
+      "sha256": "88b8b1b290ef94b5b1426b93a1952be74b4b13c2ff334b44421510609b62101e",
+      "role_shape": "Forward Deployed AI Engineer",
+      "primary_dimensions": [
+        "requirements embedded in long prose",
+        "customer-facing responsibilities",
+        "technical + product ambiguity",
+        "travel",
+        "preferred clusters",
+        "avoid extracting culture statements"
+      ]
+    }
+  ],
+  "gold_policy": {
+    "gold_creation": "Create reference annotations only after inputs are frozen, before inspecting Agent predictions.",
+    "human_adjudication": "Reference annotations remain draft until reviewed and frozen.",
+    "do_not_optimize_to_agent": "Do not change Gold merely to improve a model score."
+  },
+  "annotation_note": "REQ001 uses Gold/alignment v2; REQ002–REQ008 use v3. Original case hashes are unchanged. See README for scope and metric limitations."
+}

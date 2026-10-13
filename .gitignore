@@ -1,0 +1,63 @@
+# Local Python environments and generated caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local environment configuration; a sanitized example may be published
+.env
+.env.*
+!.env.example
+
+# Private runtime state: resumes, candidate sources, Gmail OAuth, databases
+/data/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+google_credentials.json
+gmail_token.json
+credentials.json
+token.json
+client_secret*.json
+*.pem
+*.key
+
+# Private/raw evaluation inputs and real-email pilot artifacts
+/evals/private/
+/eval_real_discovery_pilot.py
+/real_email_discovery_predictions_pilot.json
+
+# Generated eval outputs; canonical sanitized runs will be curated separately
+evals/**/results/*
+
+# Interview preparation remains local
+/Project_3_AI_PM_Master_Interview_Review_Guide_ZH_EN.md
+evals/**/*Review_Guide*.md
+/evals/requirement_extraction/evaluation set_notes.md
+
+# Local audit snapshots and historical scratch archives
+/portfolio_cleanup/
+/local_archive/
+/.local_archive/
+
+# Generated logs and operating-system files
+*.log
+.DS_Store
+._*
+Thumbs.db
+
+# Reviewed canonical regression artifacts only
+!evals/discovery/results/discovery_eval_v1_20261008T235717Z.json
+!evals/matching_evaluation/results/matcher_predictions_v2.json
+!evals/matching_evaluation/results/matcher_predictions_v2_promptfix1.json
+!evals/evidence_extraction/results/evidence_extraction_baseline.json
+!evals/requirement_extraction/results/requirement_extraction_baseline.json

@@ -1,0 +1,54 @@
+{
+  "eval_name": "job_requirement_extraction",
+  "eval_version": "v1",
+  "cases": [
+    {
+      "case_id": "REQ001",
+      "filename": "REQ001_clean_ai_product_engineer.md",
+      "role_shape": "clean baseline / AI Product Engineer",
+      "jd_text": "# Senior AI Product Engineer — Northstar Labs\n\n## About the Role\nYou will build AI-powered product experiences used by operations teams to research, summarize, and act on complex information.\n\n## Responsibilities\n- Build and improve production applications powered by large language models.\n- Design retrieval-augmented generation workflows for grounded question answering.\n- Partner with product and design to translate user problems into AI product requirements.\n- Develop offline evaluations for answer quality, grounding, and task completion.\n- Instrument AI features with latency, failure-rate, and usage metrics.\n\n## Minimum Qualifications\n- 4+ years of professional software development experience.\n- Strong Python programming skills.\n- Experience building applications with large language models or other generative AI systems.\n- Experience designing or consuming production APIs.\n- Bachelor's degree in Computer Science, Engineering, or a related technical field, or equivalent practical experience.\n\n## Preferred Qualifications\n- Experience with vector databases.\n- Experience with prompt evaluation or LLM evaluation frameworks.\n- Experience building internal tools for knowledge workers.\n"
+    },
+    {
+      "case_id": "REQ002",
+      "filename": "REQ002_compound_atomicity.md",
+      "role_shape": "AI Application Engineer",
+      "jd_text": "# AI Application Engineer — Cedar Systems\n\n## What You Will Do\n- Build Python backend services and TypeScript user interfaces for AI-assisted workflows.\n- Own the evaluation pipeline for LLM outputs and monitor latency and cost in production.\n- Design tool-calling workflows that connect language models to internal APIs, search systems, and business data.\n- Work with product managers and designers to prototype features, run user tests, and convert findings into implementation changes.\n\n## What We Need\n- 5+ years of software engineering experience, including at least 2 years building customer-facing AI or machine-learning applications.\n- Strong proficiency in Python and working knowledge of TypeScript.\n- Hands-on experience with REST APIs, structured JSON outputs, and asynchronous processing.\n- Ability to debug model, retrieval, and application-layer failures.\n\n## Nice to Have\n- Experience with agent orchestration frameworks is a plus.\n- Familiarity with vector search and reranking is preferred.\n"
+    },
+    {
+      "case_id": "REQ003",
+      "filename": "REQ003_strength_language.md",
+      "role_shape": "AI Product Manager",
+      "jd_text": "# AI Product Manager — Harbor AI\n\n## The Opportunity\nYou will own a product area focused on AI-assisted decision support for enterprise users.\n\n## What You'll Do\n- Define product strategy and roadmaps for generative-AI features.\n- Translate customer research into prioritized product requirements.\n- Partner with engineering to define evaluation criteria before launch.\n- Review qualitative and quantitative product signals after release and decide what to improve.\n\n## Qualifications\n- You must have 4+ years of product management experience.\n- Demonstrated experience shipping at least one software product from discovery through launch.\n- Strong ability to communicate tradeoffs with engineering, design, and business stakeholders.\n- You should be comfortable using SQL or another analytics tool to investigate product behavior.\n\n## Additional Experience\n- Experience with LLM-powered products is preferred.\n- Experience with enterprise SaaS would be helpful.\n- Prior work with evaluation datasets or human review workflows is a plus.\n- An MBA is not required.\n"
+    },
+    {
+      "case_id": "REQ004",
+      "filename": "REQ004_alternatives_equivalency.md",
+      "role_shape": "Applied AI Engineer",
+      "jd_text": "# Applied AI Engineer — Summit Compute\n\n## Responsibilities\n- Build and operate services that use large language models for document analysis.\n- Create evaluation datasets and regression tests for AI behavior.\n- Collaborate with platform engineers to deploy and observe model-backed services.\n\n## Required Qualifications\n- Bachelor's degree in Computer Science, Data Science, Engineering, or a related field, OR equivalent practical experience.\n- 3+ years of professional programming experience in Python or Go.\n- Experience deploying services on at least one major cloud platform: AWS, GCP, or Azure.\n- Experience with SQL and relational databases.\n- Experience using Git in a collaborative development environment.\n\n## Experience Equivalency\nA relevant master's degree may substitute for up to one year of the professional programming experience requirement.\n\n## Preferred Qualifications\n- Experience with Kubernetes is preferred.\n- Familiarity with LLM evaluation, retrieval systems, or vector databases is a plus.\n"
+    },
+    {
+      "case_id": "REQ005",
+      "filename": "REQ005_noise_and_negation.md",
+      "role_shape": "Product Engineer",
+      "jd_text": "# Product Engineer, AI Workflow Tools — Juniper Works\n\n## About Juniper Works\nWe believe software should make complicated work feel simple. Our team values curiosity, kindness, thoughtful debate, and learning in public.\n\nYou will join a small cross-functional group building tools for operations teams. The team works closely together and frequently shares prototypes with internal users.\n\n## Your Work\n- Build AI-assisted workflow features from prototype through production.\n- Interview internal users and incorporate feedback into product iterations.\n- Create lightweight quality checks for AI-generated outputs.\n- Investigate production issues across application code and model behavior.\n\n## Qualifications\n- 3+ years of software product development experience.\n- Proficiency in Python.\n- Experience working directly with users or product partners.\n- No prior healthcare experience is required.\n- You do not need prior experience with a specific LLM framework.\n\n## What We Offer\n- Flexible paid time off.\n- Home-office reimbursement.\n- Annual learning budget.\n- Medical, dental, and vision coverage.\n"
+    },
+    {
+      "case_id": "REQ006",
+      "filename": "REQ006_repetition_dedup.md",
+      "role_shape": "Technical Product Manager",
+      "jd_text": "# Technical Product Manager, AI Platform — Meridian Cloud\n\n## Role Summary\nThis role requires strong cross-functional communication, comfort working with data, and experience defining AI product requirements.\n\n## Responsibilities\n- Define requirements for AI platform capabilities with engineering and design.\n- Use product analytics and customer feedback to prioritize roadmap decisions.\n- Communicate product tradeoffs with engineering, design, sales, and customer-success teams.\n- Define success metrics and evaluation plans for new AI capabilities.\n\n## Minimum Qualifications\n- 5+ years of product management experience.\n- Experience defining product requirements for technical products.\n- Strong cross-functional communication skills.\n- Experience using SQL or product analytics tools.\n- Experience defining metrics for product launches.\n\n## Preferred Qualifications\n- Experience with generative AI products is preferred.\n- Experience with model evaluation or experimentation is preferred.\n- Strong cross-functional communication is a plus.\n- Experience using analytics to prioritize product decisions is preferred.\n"
+    },
+    {
+      "case_id": "REQ007",
+      "filename": "REQ007_license_certification_domain.md",
+      "role_shape": "Clinical AI Implementation Specialist",
+      "jd_text": "# Clinical AI Implementation Specialist — Bridge Health Systems\n\n## Role Responsibilities\n- Lead implementation of AI-assisted clinical workflow tools at hospital sites.\n- Train clinical users and gather feedback on workflow usability.\n- Partner with engineering and clinical operations to investigate safety or workflow issues.\n- Document implementation risks and communicate escalation needs.\n\n## Required Qualifications\n- Active, unrestricted Registered Nurse (RN) license in at least one U.S. state.\n- 3+ years of direct clinical experience in an acute-care hospital environment.\n- Experience working with electronic health record workflows.\n- Ability to travel up to 30% to customer hospital sites.\n- Bachelor's degree in Nursing or a related clinical field.\n\n## Preferred Qualifications\n- Epic certification is preferred.\n- PMP certification is a plus.\n- Experience implementing clinical software is preferred.\n- Familiarity with AI-assisted clinical decision-support tools is preferred.\n"
+    },
+    {
+      "case_id": "REQ008",
+      "filename": "REQ008_long_prose_fde.md",
+      "role_shape": "Forward Deployed AI Engineer",
+      "jd_text": "# Forward Deployed AI Engineer — Atlas Decision Systems\n\n## About the Role\nCustomers bring us ambiguous operational problems rather than fully specified software requirements. You will work directly with customer teams to understand the problem, identify what data and systems are available, and turn that context into working AI-enabled solutions. A typical engagement may involve prototyping quickly, validating the approach with real users, then hardening the workflow with the platform engineering team.\n\nSuccess in this role depends on being able to move between customer conversations and hands-on technical work. You will be expected to explain technical tradeoffs clearly, write production-quality code when needed, and determine when an LLM-based approach is appropriate versus when a simpler deterministic solution is better.\n\n## Background We Are Looking For\nWe require at least 3 years of professional software engineering or applied machine-learning experience. You must be able to program effectively in Python and work with SQL-based data systems. Experience integrating third-party or internal APIs is required.\n\nBecause this role is customer-facing, you must be comfortable leading technical discovery sessions and presenting technical recommendations to mixed technical and non-technical audiences. The role requires travel to customer sites up to 25%.\n\nExperience deploying LLM applications is preferred. Experience with retrieval-augmented generation, evaluation frameworks, or tool-calling agents would be a plus. Prior consulting experience is helpful but not required.\n\n## Working Style\nWe value people who are curious, pragmatic, and willing to challenge assumptions. We do not expect candidates to know every model framework or vendor-specific SDK.\n"
+    }
+  ]
+}
