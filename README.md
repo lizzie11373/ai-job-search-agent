@@ -34,6 +34,32 @@ The problem was not just discovering opportunities; it was making **repeatable, 
 4. **Inspect the reasoning:** open a job to see each requirement, its support level, the explanation, and the original candidate evidence.
 5. **Decide:** mark it **Pass**, **Save for later**, or **Pursue**. The analysis remains available for reference.
 
+## Product walkthrough — running local application
+
+These are screenshots of the **working Streamlit application**, captured during a real local session on November 9, 2026—not Figma mockups. The app connects candidate background materials to validated job postings and saves the resulting analysis for human review.
+
+**Short demo video:** planned; not yet published. The walkthrough will show **Background & Evidence → Run Agent → Opportunities → Requirement Analysis → Pass / Save for later / Pursue**. The source code and local setup instructions are available below.
+
+### 1. Review opportunities and decide what to pursue
+
+The Opportunities view persists analyzed jobs in **Needs Review** and **Reviewed** queues. Each row shows the role and company, a requirement-fit signal, and a pursuit-priority tier; reviewed items retain their human decision. The numerical fit is a **weighted heuristic derived from supported requirements**, not the probability of getting an interview.
+
+[![Opportunities list with fit, priority, and review status](docs/screenshots/01-opportunities-review-queue.png)](docs/screenshots/01-opportunities-review-queue.png)
+
+### 2. Inspect *why* a requirement is supported—or only partially supported
+
+Inside a job's **Requirement Analysis**, a user can expand a requirement to inspect the support level, a written match reason, and supporting claims alongside their source documents and original text. This inspectability matters because candidate evidence may be incomplete and model judgments can be wrong.
+
+[![Expanded requirement with match reason, supporting evidence, and source text](docs/screenshots/02-explainable-requirement-analysis.png)](docs/screenshots/02-explainable-requirement-analysis.png)
+
+### 3. Ground analysis in the user's own background
+
+**Background & Evidence** manages one active Markdown resume and optional supporting project documents. These become validated evidence units for future matching. Keeping the background separate from each job posting makes the workflow reusable across roles.
+
+[![Background and Evidence view with resume and supporting materials](docs/screenshots/03-background-and-evidence.png)](docs/screenshots/03-background-and-evidence.png)
+
+> **Demo scope and privacy:** Screenshots show a local test session. They do not establish model accuracy, broad user adoption, or cloud deployment. The application uses a real Gmail connection for job discovery, but Gmail tokens, secrets, messages, and the local candidate database are not published. Any future video should use sanitized or synthetic data.
+
 ## Product decisions and tradeoffs
 
 Building a working workflow required more than connecting an LLM to Gmail. These decisions shaped the MVP:
@@ -50,16 +76,6 @@ Building a working workflow required more than connecting an LLM to Gmail. These
 ### An iteration driven by evidence
 
 In a small live diagnostic, the initial direct-fetch approach produced **0/4 analysis-ready JDs** from four LinkedIn/Indeed provider links. Rather than asking the model to infer missing content, I redesigned JD resolution: LinkedIn/Indeed leads go to **bounded Web Search**, while other sources receive one direct-fetch attempt before search fallback. This is evidence for a specific design change, **not** a general success-rate benchmark. See the [architecture decision and historical protocol](docs/jd-resolution-decision.md).
-
-## Demo and product walkthrough
-
-This is a **working local application**, not a static design mock-up. A short screen-recorded walkthrough and sanitized screenshots will be added to this repository; they are **not yet published**.
-
-The planned demonstration follows the actual workflow:
-
-**Background & Evidence → Run Agent → Opportunity Queue → Job Detail / Requirement Analysis → Pass / Save for later / Pursue**
-
-For public screenshots or videos, use synthetic candidate data and sanitized job examples; never expose real Gmail messages, personal resumes, OAuth tokens, or API keys.
 
 ## What I measured—and what I learned
 
