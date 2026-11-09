@@ -18,7 +18,7 @@ job-level deduplication, fit scoring, prioritization, persistence, or resume gen
 
 ## Current v1 baseline
 
-The current v1 set contains **8 sanitized real-world Gmail-derived cases**:
+The current v1 set contains **9 cases: 8 sanitized real-world Gmail-derived cases and 1 synthetic regression fixture**:
 
 - 5 positive job-alert emails
   - 2 LinkedIn multi-job digests
@@ -27,19 +27,21 @@ The current v1 set contains **8 sanitized real-world Gmail-derived cases**:
   - career insights
   - profile/search notification
   - job-search webinar/advice
+- 1 job-related missing-company regression (`REG-01`): classify as relevant, but extract zero candidates because no employer is explicitly supported
 
 The positive cases contain **15 labeled concrete jobs** in total.
 
-This is intentionally a small baseline. We are stopping expansion here for now
-and moving to the next system layer instead of growing Discovery eval indefinitely.
+This is intentionally a small regression set. `REG-01` was added to capture a real failure where an empty company stopped the Agent Run; it is a synthetic fixture, not a ninth real Gmail sample.
 
 ## Files
 
-- `cases_v1.json` — sanitized real-world eval cases plus human-labeled ground truth
+- `cases_v1.json` — nine current cases with expected classification and jobs
+- `canonical_run.json` — paths and SHA-256 hashes binding the current cases to the curated saved result
+- `results/discovery_eval_v1_9_cases.json` — byte-for-byte copy of the latest saved nine-case output
 - `run_eval.py` — reusable evaluation runner
 - `README.md` — evaluation contract and methodology
 
-Generated outputs are written to `results/`. They are run artifacts, not source-of-truth data.
+The runner writes generated output to ignored `results/latest_predictions.json`. The curated canonical copy is published separately so a later run cannot overwrite it. Exceptions are reported as case execution failures and excluded from candidate metrics; they are never treated as successful empty predictions. Case pass requires correct classification and candidate identity/count; title, company, provider ID, and manual location review are reported separately.
 
 ## Automatically scored metrics
 
@@ -143,8 +145,10 @@ not large enough to claim production-level accuracy. Always inspect individual f
 before reacting to aggregate scores.
 
 
-## Recorded canonical run
+## Current canonical nine-case run
 
-`results/discovery_eval_v1_20261008T235717Z.json` records the 2026-10-08 run with matching frozen input SHA-256: classifier 8/8, candidate precision/recall 15/15, title 14/15, company 15/15, provider-ID 12/12. Location groundedness remains recorded as PENDING; no completed per-case judgments are inferred from aggregate scores.
+`results/discovery_eval_v1_9_cases.json` preserves the user-saved `latest_predictions.json` without changing predictions or scores. It records **9/9 case passes**, **9/9 correct classifications**, **0 execution errors**, candidate precision/recall **15/15** (0 false positives, 0 false negatives), title **15/15**, company **15/15**, and provider-ID preservation **12/12**. `REG-01` returned zero jobs as expected. Location groundedness still requires manual review; passing automated metrics does not establish it.
 
-The duplicated `latest_evaluation.json` was removed during cleanup; a new live run may regenerate ignored latest/timestamped files. The committed dated result is historical evidence, not production accuracy.
+The original output does not contain an input hash or run timestamp. `canonical_run.json` records hashes when curating the saved output against the current input; it does not claim run-time provenance or invent a run timestamp. The offline checker independently recomputes all summary metrics from per-case predictions and current expected outputs. No new model run is required for that check.
+
+Only the current nine-case Discovery result is selected for publication. The superseded eight-case result is kept locally under ignored results and is not included in the current version.

@@ -1,8 +1,10 @@
-from job_agent.llm.client import call_llm_json
-from collections.abc import Iterable
+import logging
 
-from job_agent.models.email import EmailLink
+from job_agent.llm.client import call_llm_json
 from job_agent.models.job_candidate import JobCandidate
+
+
+logger = logging.getLogger(__name__)
 
 
 def extract_job_candidates_from_email(
@@ -10,7 +12,7 @@ def extract_job_candidates_from_email(
     source: str,
     message_id: str,
     email_body: str,
-    email_links: Iterable[EmailLink] | None = None,
+    email_links: list[str] | tuple[str, ...] | None = None,
 ) -> list[JobCandidate]:
     """
     Extract zero or more distinct jobs from one job-related email.
@@ -27,19 +29,46 @@ def extract_job_candidates_from_email(
 
     Discovery URLs may point to a provider such as LinkedIn or Indeed.
     They are provenance only and are NOT canonical job identity.
+
+    Fault-isolation policy:
+
+    - A structurally invalid top-level LLM response remains a technical
+      failure and raises.
+    - A malformed individual extracted item is skipped so one bad candidate
+      does not stop processing the rest of the email or the Agent Run.
+    - A valid JobCandidate still requires both an explicitly supported
+      title and company.
+
+    Title-fidelity policy:
+
+    - Discovery should preserve the job identity as presented in the alert.
+    - Use the complete title associated with the concrete job listing/card.
+    - Do not shorten, summarize, normalize, canonicalize, or rewrite titles.
+    - If descriptive text later contains a shorter title-like phrase, it
+      must not overwrite the complete listing/card title.
+
+    Email-link policy:
+
+    - email_links are optional links extracted from the same source email.
+    - They may be used as provenance for source_url/source_item_id when a
+      link can be associated with a concrete job from the email body.
+    - They must not be used to invent a missing title or company.
     """
 
     if not email_body.strip():
         raise ValueError("Email body cannot be empty.")
 
-    links = list(email_links or [])
-    if links:
-        link_context = "\n".join(
-            f"- {link.text or '[no link text]'} | {link.url}"
-            for link in links
-        )
-    else:
-        link_context = "[No extracted HTML links]"
+    normalized_links = [
+        str(link).strip()
+        for link in (email_links or [])
+        if str(link).strip()
+    ]
+
+    links_section = (
+        "\n".join(f"- {link}" for link in normalized_links)
+        if normalized_links
+        else "(none)"
+    )
 
     messages = [
         {
@@ -50,10 +79,26 @@ def extract_job_candidates_from_email(
                 "present in the provided email body. "
                 "One email may contain zero, one, or many jobs. "
                 "Create one output item per distinct job. "
-                "Use only information explicitly present in the email. "
+                "Use only information explicitly present in the email body "
+                "and the extracted links from that same email. "
                 "Do not infer missing facts, do not use outside knowledge, "
                 "and do not merge different jobs just because they have "
                 "similar titles. "
+                "For each concrete job, preserve the complete job title "
+                "exactly as it appears in the job listing or job card in "
+                "the alert. "
+                "Do not shorten, summarize, normalize, canonicalize, or "
+                "rewrite the title. "
+                "If the same job contains multiple title-like phrases, "
+                "prefer the complete listing/card title associated with "
+                "the job link over shorter title references that appear "
+                "later in descriptive text. "
+                "If either the job title or company cannot be explicitly "
+                "identified from the email, omit that job entirely. "
+                "Extracted links from the same email may be used as "
+                "discovery provenance for source_url or source_item_id when "
+                "they can be associated with a concrete job, but links "
+                "must not be used to invent a missing title or company. "
                 "The extracted URL is discovery provenance only; it may be "
                 "a provider URL and must not be treated as an authoritative "
                 "official job page. "
@@ -65,10 +110,8 @@ def extract_job_candidates_from_email(
             "content": (
                 "Extract all concrete job opportunities from this email.\n\n"
                 f"EMAIL BODY:\n{email_body}\n\n"
-                f"EXTRACTED HTML LINKS:\n{link_context}\n\n"
-                "Use the extracted links as additional email evidence. Match a "
-                "job to a URL only when the surrounding link text/body supports "
-                "that association.\n\n"
+                "EXTRACTED LINKS FROM THE SAME EMAIL:\n"
+                f"{links_section}\n\n"
                 "Return JSON using exactly this structure:\n"
                 "{\n"
                 '  "jobs": [\n'
@@ -83,9 +126,25 @@ def extract_job_candidates_from_email(
                 "}\n\n"
                 "Important rules:\n"
                 "- Return one item per distinct concrete job.\n"
-                "- title and company must be explicitly supported.\n"
+                "- title and company must both be explicitly supported.\n"
+                "- Copy the complete title from the job listing/card exactly "
+                "as presented in the alert.\n"
+                "- Do not shorten, summarize, normalize, canonicalize, or "
+                "rewrite the title.\n"
+                "- If multiple title-like phrases refer to the same job, "
+                "use the complete title associated with the listing/card "
+                "and job link, not a shorter title mentioned later in "
+                "descriptive text.\n"
+                "- If either title or company is missing or unclear, do not "
+                "return that job item.\n"
+                "- Use extracted email links only when they can be associated "
+                "with a concrete job from the email body.\n"
+                "- Do not use a URL or domain name by itself to invent a "
+                "missing title or company.\n"
+                "- If a job link is uncertain, leave source_url empty.\n"
                 "- Do not invent location, URLs, or IDs.\n"
-                "- Ignore navigation links, unsubscribe links, ads, and general content.\n"
+                "- Ignore navigation links, unsubscribe links, ads, and "
+                "general content.\n"
             ),
         },
     ]
@@ -97,11 +156,16 @@ def extract_job_candidates_from_email(
     if not isinstance(raw_jobs, list):
         raise ValueError("LLM response field 'jobs' must be a list.")
 
-    job_candidates = []
+    job_candidates: list[JobCandidate] = []
 
-    for item in raw_jobs:
+    for index, item in enumerate(raw_jobs):
         if not isinstance(item, dict):
-            raise ValueError("Each extracted job must be a JSON object.")
+            logger.warning(
+                "Skipping malformed extracted job candidate at index %s: "
+                "item is not a JSON object.",
+                index,
+            )
+            continue
 
         title = str(item.get("title", "")).strip()
         company = str(item.get("company", "")).strip()
@@ -110,10 +174,20 @@ def extract_job_candidates_from_email(
         source_item_id = str(item.get("source_item_id", "")).strip()
 
         if not title:
-            raise ValueError("Extracted job title cannot be empty.")
+            logger.warning(
+                "Skipping malformed extracted job candidate at index %s: "
+                "title is empty.",
+                index,
+            )
+            continue
 
         if not company:
-            raise ValueError("Extracted job company cannot be empty.")
+            logger.warning(
+                "Skipping malformed extracted job candidate at index %s: "
+                "company is empty.",
+                index,
+            )
+            continue
 
         job_candidates.append(
             JobCandidate(

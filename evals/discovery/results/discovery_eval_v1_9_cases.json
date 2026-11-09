@@ -1,0 +1,275 @@
+{
+  "eval_version": "v1",
+  "case_count": 9,
+  "summary": {
+    "case_passes": 9,
+    "case_total": 9,
+    "case_pass_rate": 1.0,
+    "case_execution_errors": 0,
+    "candidate_evaluable_cases": 9,
+    "classifier_correct": 9,
+    "classifier_total": 9,
+    "classifier_accuracy": 1.0,
+    "candidate_tp": 15,
+    "candidate_fp": 0,
+    "candidate_fn": 0,
+    "candidate_precision": 1.0,
+    "candidate_recall": 1.0,
+    "candidate_f1": 1.0,
+    "title_correct": 15,
+    "company_correct": 15,
+    "matched_candidates": 15,
+    "provider_id_correct": 12,
+    "provider_id_total": 12
+  },
+  "cases": [
+    {
+      "case_id": "LI-01",
+      "eval_bucket": "positive_multi_job_digest",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "expected_job_count": 6,
+      "predicted_job_count": 6,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": [
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-01",
+          "title": "Intermediate Architectural Designer (Residential/High-rise)",
+          "company": "The Crowd",
+          "location": "New York, United States",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4465068515/",
+          "source_item_id": "4465068515"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-01",
+          "title": "Designer I",
+          "company": "Perkins Eastman",
+          "location": "Dallas, TX",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4449879475/",
+          "source_item_id": "4449879475"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-01",
+          "title": "Intermediate Architectural Designer",
+          "company": "Workshop/APD",
+          "location": "New York, NY",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4464994455/",
+          "source_item_id": "4464994455"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-01",
+          "title": "Architectural Staff - Level II",
+          "company": "Roth Sheppard Architects, LLP",
+          "location": "Denver, CO",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4464123697/",
+          "source_item_id": "4464123697"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-01",
+          "title": "Architect/ Architectural Designer",
+          "company": "WSP in the U.S.",
+          "location": "Atlanta, GA",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4454908596/",
+          "source_item_id": "4454908596"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-01",
+          "title": "Architectural Designer II",
+          "company": "CRB",
+          "location": "Rockville, MD",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4465077634/",
+          "source_item_id": "4465077634"
+        }
+      ]
+    },
+    {
+      "case_id": "LI-02",
+      "eval_bucket": "positive_second_linkedin_digest",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "expected_job_count": 6,
+      "predicted_job_count": 6,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": [
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-02",
+          "title": "Sr. Designer, Store Design - Architecture(Remote Or Hybrid)",
+          "company": "Target",
+          "location": "Minneapolis, MN",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4457502611/",
+          "source_item_id": "4457502611"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-02",
+          "title": "Architecture - Design Professional - Transportation",
+          "company": "HOK",
+          "location": "Boston, MA (Hybrid)",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4418063176/",
+          "source_item_id": "4418063176"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-02",
+          "title": "Architectural Designer II",
+          "company": "10 Design",
+          "location": "Coral Gables, FL (On-site)",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4459685646/",
+          "source_item_id": "4459685646"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-02",
+          "title": "Architecture - Architect - Transportation",
+          "company": "HOK",
+          "location": "Boston, MA (Hybrid)",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4418058207/",
+          "source_item_id": "4418058207"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-02",
+          "title": "Intermediate Designer - Architecture",
+          "company": "Skidmore, Owings & Merrill (SOM)",
+          "location": "Chicago, IL",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4352991594/",
+          "source_item_id": "4352991594"
+        },
+        {
+          "source": "LINKEDIN",
+          "source_message_id": "eval-li-02",
+          "title": "Architect",
+          "company": "10 Design",
+          "location": "Coral Gables, FL (On-site)",
+          "source_url": "https://www.linkedin.com/comm/jobs/view/4459690483/",
+          "source_item_id": "4459690483"
+        }
+      ]
+    },
+    {
+      "case_id": "IN-01",
+      "eval_bucket": "positive_single_rich_preview",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "expected_job_count": 1,
+      "predicted_job_count": 1,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": [
+        {
+          "source": "INDEED",
+          "source_message_id": "eval-in-01",
+          "title": "Architectural Job Captain",
+          "company": "BDE Architecture",
+          "location": "San Francisco, CA 94103",
+          "source_url": "https://cts.indeed.com/v3/REDACTED_BDE",
+          "source_item_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "IN-02",
+      "eval_bucket": "positive_ai_role_rich_preview",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "expected_job_count": 1,
+      "predicted_job_count": 1,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": [
+        {
+          "source": "INDEED",
+          "source_message_id": "eval-in-02",
+          "title": "Mechanical Design Engineer - AI Trainer",
+          "company": "DataAnnotation",
+          "location": "Santa Clara, CA",
+          "source_url": "https://cts.indeed.com/v3/REDACTED_DATAANNOTATION",
+          "source_item_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "IN-03",
+      "eval_bucket": "positive_academic_rich_preview",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "expected_job_count": 1,
+      "predicted_job_count": 1,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": [
+        {
+          "source": "INDEED",
+          "source_message_id": "eval-in-03",
+          "title": "Creedon Design Fellow Early Career Fellow - Dept. of Architecture",
+          "company": "University of California Berkeley",
+          "location": "Berkeley, CA 94720",
+          "source_url": "https://cts.indeed.com/v3/REDACTED_BERKELEY",
+          "source_item_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "NEG-01",
+      "eval_bucket": "negative_career_insights",
+      "expected_job_related": false,
+      "predicted_job_related": false,
+      "expected_job_count": 0,
+      "predicted_job_count": 0,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": []
+    },
+    {
+      "case_id": "NEG-02",
+      "eval_bucket": "negative_profile_search_notification",
+      "expected_job_related": false,
+      "predicted_job_related": false,
+      "expected_job_count": 0,
+      "predicted_job_count": 0,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": []
+    },
+    {
+      "case_id": "NEG-03",
+      "eval_bucket": "negative_job_search_advice",
+      "expected_job_related": false,
+      "predicted_job_related": false,
+      "expected_job_count": 0,
+      "predicted_job_count": 0,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": []
+    },
+    {
+      "case_id": "REG-01",
+      "eval_bucket": "regression_missing_company_from_real_failure",
+      "expected_job_related": true,
+      "predicted_job_related": true,
+      "expected_job_count": 0,
+      "predicted_job_count": 0,
+      "candidate_metrics_included": true,
+      "case_pass": true,
+      "error": null,
+      "jobs": []
+    }
+  ]
+}

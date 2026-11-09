@@ -1,3 +1,5 @@
+import logging
+
 from job_agent.models.candidate import (
     CandidateEvidenceBase,
 )
@@ -11,6 +13,9 @@ from job_agent.models.evaluation import (
 from job_agent.llm.client import (
     call_llm_json,
 )
+
+
+logger = logging.getLogger(__name__)
 
 
 ALLOWED_SUPPORT_LEVELS = {
@@ -295,6 +300,18 @@ ADJACENT
 The evidence is relevant and related, but does not directly
 or strongly demonstrate the requested requirement.
 
+CRITICAL FIELD-SEPARATION RULE:
+
+relationship and support_level are DIFFERENT fields with
+different allowed values.
+
+Never use any support-level value as an evidence relationship.
+In particular, STRONG, PARTIAL, WEAK, and
+NOT_CLEARLY_SUPPORTED are NOT valid relationship values.
+
+Every evidence_matches[].relationship must be exactly one of:
+DIRECT, TRANSFERABLE, ADJACENT.
+
 
 ============================================================
 IMPORTANT MATCHING RULES
@@ -390,17 +407,19 @@ COMPLETE VALIDATED CANDIDATE EVIDENCE BASE:
     # 5. LLM SEMANTIC MATCHING
     # =========================================================
 
+    base_messages = [
+        {
+            "role": "system",
+            "content": system_prompt,
+        },
+        {
+            "role": "user",
+            "content": user_prompt,
+        },
+    ]
+
     result = call_llm_json(
-        messages=[
-            {
-                "role": "system",
-                "content": system_prompt,
-            },
-            {
-                "role": "user",
-                "content": user_prompt,
-            },
-        ]
+        messages=base_messages
     )
 
     raw_mappings = result.get(
@@ -435,306 +454,251 @@ COMPLETE VALIDATED CANDIDATE EVIDENCE BASE:
 
     # =========================================================
     # 7. PARSE + DETERMINISTIC OUTPUT VALIDATION
+    #    WITH REQUIREMENT-LEVEL FAULT ISOLATION
+    # =========================================================
+    #
+    # Reliability policy:
+    #
+    # A malformed mapping for ONE requirement must not stop the
+    # rest of the opportunity or the overall Agent Run.
+    #
+    # We therefore:
+    #
+    # - keep the strict deterministic contract
+    # - never silently reinterpret invalid enum values
+    # - never invent missing evidence
+    # - conservatively fall back the affected requirement to:
+    #
+    #       NOT_CLEARLY_SUPPORTED + []
+    #
+    # - continue processing later requirements
+    #
+    # Top-level failures such as an unusable LLM response,
+    # network/API errors, or mappings not being a list still
+    # remain technical failures and are allowed to raise.
     # =========================================================
 
     mappings = []
-
     seen_requirement_ids = set()
 
-    for item in raw_mappings:
+    def conservative_fallback(
+        requirement_id: str,
+        error: object,
+    ) -> RequirementEvidenceMapping:
+        logger.warning(
+            "Falling back requirement %s to "
+            "NOT_CLEARLY_SUPPORTED after invalid matcher output: %s",
+            requirement_id,
+            error,
+        )
 
-        if not isinstance(
-            item,
-            dict,
-        ):
-            raise ValueError(
-                "Each mapping must be "
-                "a JSON object."
+        return RequirementEvidenceMapping(
+            requirement_id=requirement_id,
+            evidence_matches=[],
+            support_level="NOT_CLEARLY_SUPPORTED",
+            reason=(
+                "Evidence matching for this requirement could not "
+                "be completed reliably, so it was conservatively "
+                "treated as not clearly supported."
+            ),
+        )
+
+    for item_index, item in enumerate(raw_mappings):
+
+        if not isinstance(item, dict):
+            logger.warning(
+                "Skipping malformed matcher item at index %s: "
+                "expected a JSON object.",
+                item_index,
             )
+            continue
 
         requirement_id = str(
-            item.get(
-                "requirement_id",
-                "",
-            )
+            item.get("requirement_id", "")
         ).strip()
-
-        support_level = str(
-            item.get(
-                "support_level",
-                "",
-            )
-        ).strip().upper()
-
-        reason = str(
-            item.get(
-                "reason",
-                "",
-            )
-        ).strip()
-
-        raw_evidence_matches = item.get(
-            "evidence_matches",
-            []
-        )
-
-        # -----------------------------------------------------
-        # REQUIREMENT ID VALIDATION
-        # -----------------------------------------------------
 
         if not requirement_id:
-            raise ValueError(
-                "Mapping requirement_id "
-                "cannot be empty."
+            logger.warning(
+                "Skipping matcher item at index %s: "
+                "requirement_id is empty.",
+                item_index,
             )
+            continue
 
-        if (
-            requirement_id
-            not in expected_requirement_ids
-        ):
-            raise ValueError(
-                "LLM returned unknown "
-                "requirement_id: "
-                f"{requirement_id}"
+        if requirement_id not in expected_requirement_ids:
+            logger.warning(
+                "Skipping matcher item with unknown "
+                "requirement_id %s.",
+                requirement_id,
             )
+            continue
 
-        if (
-            requirement_id
-            in seen_requirement_ids
-        ):
-            raise ValueError(
-                "LLM returned duplicate mapping "
-                "for requirement_id: "
-                f"{requirement_id}"
+        if requirement_id in seen_requirement_ids:
+            logger.warning(
+                "Skipping duplicate matcher item for "
+                "requirement_id %s.",
+                requirement_id,
             )
+            continue
 
-        seen_requirement_ids.add(
-            requirement_id
-        )
-
-        # -----------------------------------------------------
-        # SUPPORT LEVEL VALIDATION
-        # -----------------------------------------------------
-
-        if (
-            support_level
-            not in ALLOWED_SUPPORT_LEVELS
-        ):
-            raise ValueError(
-                "Unknown support level: "
-                f"{support_level}"
-            )
-
-        if not reason:
-            raise ValueError(
-                "Mapping reason cannot be empty "
-                f"for {requirement_id}."
-            )
-
-        # -----------------------------------------------------
-        # EVIDENCE MATCH LIST VALIDATION
-        # -----------------------------------------------------
-
-        if not isinstance(
-            raw_evidence_matches,
-            list,
-        ):
-            raise ValueError(
-                "evidence_matches must be "
-                "a list."
-            )
-
-        evidence_matches = []
-
-        seen_evidence_ids = set()
-
-        for raw_match in raw_evidence_matches:
-
-            if not isinstance(
-                raw_match,
-                dict,
-            ):
-                raise ValueError(
-                    "Each evidence match must "
-                    "be a JSON object."
-                )
-
-            evidence_id = str(
-                raw_match.get(
-                    "evidence_id",
-                    "",
-                )
-            ).strip()
-
-            relationship = str(
-                raw_match.get(
-                    "relationship",
-                    "",
-                )
+        try:
+            support_level = str(
+                item.get("support_level", "")
             ).strip().upper()
 
-            match_reason = str(
-                raw_match.get(
-                    "reason",
-                    "",
-                )
+            reason = str(
+                item.get("reason", "")
             ).strip()
 
-            # ---------------------------------------------
-            # EVIDENCE ID VALIDATION
-            # ---------------------------------------------
-
-            if not evidence_id:
-                raise ValueError(
-                    "Evidence match evidence_id "
-                    "cannot be empty."
-                )
-
-            if (
-                evidence_id
-                not in valid_evidence_ids
-            ):
-                raise ValueError(
-                    "LLM returned unknown "
-                    "evidence_id: "
-                    f"{evidence_id}"
-                )
-
-            if (
-                evidence_id
-                in seen_evidence_ids
-            ):
-                raise ValueError(
-                    "Duplicate evidence match "
-                    f"{evidence_id} "
-                    f"for requirement "
-                    f"{requirement_id}."
-                )
-
-            seen_evidence_ids.add(
-                evidence_id
+            raw_evidence_matches = item.get(
+                "evidence_matches",
+                [],
             )
 
-            # ---------------------------------------------
-            # RELATIONSHIP VALIDATION
-            # ---------------------------------------------
-
-            if (
-                relationship
-                not in ALLOWED_RELATIONSHIPS
-            ):
+            if support_level not in ALLOWED_SUPPORT_LEVELS:
                 raise ValueError(
-                    "Unknown evidence relationship: "
-                    f"{relationship}"
+                    "Unknown support level: "
+                    f"{support_level}"
                 )
 
-            if not match_reason:
+            if not reason:
                 raise ValueError(
-                    "Evidence match reason "
-                    "cannot be empty."
-                )
-
-            evidence_matches.append(
-                EvidenceMatch(
-                    evidence_id=(
-                        evidence_id
-                    ),
-                    relationship=(
-                        relationship
-                    ),
-                    reason=(
-                        match_reason
-                    ),
-                )
-            )
-
-        # =====================================================
-        # 8. SUPPORT / EVIDENCE CONSISTENCY CHECK
-        # =====================================================
-
-        if (
-            support_level
-            == "NOT_CLEARLY_SUPPORTED"
-        ):
-
-            if evidence_matches:
-                raise ValueError(
-                    "NOT_CLEARLY_SUPPORTED "
-                    "must have an empty "
-                    "evidence_matches list "
+                    "Mapping reason cannot be empty "
                     f"for {requirement_id}."
                 )
 
-        else:
-
-            if not evidence_matches:
+            if not isinstance(raw_evidence_matches, list):
                 raise ValueError(
-                    f"{support_level} "
-                    "must contain at least one "
-                    "evidence match "
-                    f"for {requirement_id}."
+                    "evidence_matches must be "
+                    f"a list for {requirement_id}."
                 )
 
-        # =====================================================
-        # 9. CREATE DOMAIN OBJECT
-        # =====================================================
+            evidence_matches = []
+            seen_evidence_ids = set()
+
+            for raw_match in raw_evidence_matches:
+
+                if not isinstance(raw_match, dict):
+                    raise ValueError(
+                        "Each evidence match must "
+                        "be a JSON object."
+                    )
+
+                evidence_id = str(
+                    raw_match.get("evidence_id", "")
+                ).strip()
+
+                relationship = str(
+                    raw_match.get("relationship", "")
+                ).strip().upper()
+
+                match_reason = str(
+                    raw_match.get("reason", "")
+                ).strip()
+
+                if not evidence_id:
+                    raise ValueError(
+                        "Evidence match evidence_id "
+                        "cannot be empty."
+                    )
+
+                if evidence_id not in valid_evidence_ids:
+                    raise ValueError(
+                        "LLM returned unknown "
+                        "evidence_id: "
+                        f"{evidence_id}"
+                    )
+
+                if evidence_id in seen_evidence_ids:
+                    raise ValueError(
+                        "Duplicate evidence match "
+                        f"{evidence_id} "
+                        f"for requirement "
+                        f"{requirement_id}."
+                    )
+
+                seen_evidence_ids.add(evidence_id)
+
+                if relationship not in ALLOWED_RELATIONSHIPS:
+                    raise ValueError(
+                        "Unknown evidence relationship: "
+                        f"{relationship}"
+                    )
+
+                if not match_reason:
+                    raise ValueError(
+                        "Evidence match reason "
+                        "cannot be empty."
+                    )
+
+                evidence_matches.append(
+                    EvidenceMatch(
+                        evidence_id=evidence_id,
+                        relationship=relationship,
+                        reason=match_reason,
+                    )
+                )
+
+            if support_level == "NOT_CLEARLY_SUPPORTED":
+                if evidence_matches:
+                    raise ValueError(
+                        "NOT_CLEARLY_SUPPORTED "
+                        "must have an empty "
+                        "evidence_matches list "
+                        f"for {requirement_id}."
+                    )
+            else:
+                if not evidence_matches:
+                    raise ValueError(
+                        f"{support_level} "
+                        "must contain at least one "
+                        "evidence match "
+                        f"for {requirement_id}."
+                    )
+
+            mapping = RequirementEvidenceMapping(
+                requirement_id=requirement_id,
+                evidence_matches=evidence_matches,
+                support_level=support_level,
+                reason=reason,
+            )
+
+        except (ValueError, TypeError) as exc:
+            mapping = conservative_fallback(
+                requirement_id,
+                exc,
+            )
+
+        mappings.append(mapping)
+        seen_requirement_ids.add(requirement_id)
+
+    # =========================================================
+    # 9. REQUIREMENT COMPLETENESS FALLBACK
+    # =========================================================
+    #
+    # Missing or unusable requirement mappings are preserved
+    # conservatively instead of aborting the opportunity.
+    # =========================================================
+
+    for requirement in validated_requirements:
+
+        if requirement.requirement_id in seen_requirement_ids:
+            continue
 
         mappings.append(
-            RequirementEvidenceMapping(
-                requirement_id=(
-                    requirement_id
-                ),
-                evidence_matches=(
-                    evidence_matches
-                ),
-                support_level=(
-                    support_level
-                ),
-                reason=(
-                    reason
-                ),
+            conservative_fallback(
+                requirement.requirement_id,
+                "Matcher did not return a usable mapping "
+                "for this requirement.",
             )
         )
 
-    # =========================================================
-    # 10. REQUIREMENT COMPLETENESS GATE
-    # =========================================================
-    #
-    # This is critical.
-    #
-    # The LLM is not allowed to silently omit a difficult
-    # requirement.
-    #
-    # Every validated JobRequirement must have exactly one
-    # RequirementEvidenceMapping.
-    # =========================================================
-
-    missing_requirement_ids = (
-        expected_requirement_ids
-        - seen_requirement_ids
-    )
-
-    extra_requirement_ids = (
-        seen_requirement_ids
-        - expected_requirement_ids
-    )
-
-    if missing_requirement_ids:
-        raise ValueError(
-            "Matcher failed to return "
-            "mappings for requirements: "
-            f"{sorted(missing_requirement_ids)}"
-        )
-
-    if extra_requirement_ids:
-        raise ValueError(
-            "Matcher returned unexpected "
-            "requirement mappings: "
-            f"{sorted(extra_requirement_ids)}"
+        seen_requirement_ids.add(
+            requirement.requirement_id
         )
 
     # =========================================================
-    # 11. PRESERVE REQUIREMENT ORDER
+    # 10. PRESERVE REQUIREMENT ORDER
     # =========================================================
     #
     # LLM output order is not trusted.

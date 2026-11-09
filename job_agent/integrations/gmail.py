@@ -16,7 +16,9 @@ GMAIL_SCOPES = ("https://www.googleapis.com/auth/gmail.readonly",)
 DEFAULT_PRIVATE_DIR = Path("data/private")
 DEFAULT_CREDENTIALS_PATH = DEFAULT_PRIVATE_DIR / "google_credentials.json"
 DEFAULT_TOKEN_PATH = DEFAULT_PRIVATE_DIR / "gmail_token.json"
-DEFAULT_LOOKBACK_HOURS = 1
+#DEFAULT_LOOKBACK_HOURS = 1
+#DEFAULT_LOOKBACK_DAYS = 1  # Backward-compatible explicit day override.
+DEFAULT_LOOKBACK_HOURS = 24
 DEFAULT_LOOKBACK_DAYS = 1  # Backward-compatible explicit day override.
 DEFAULT_MAX_MESSAGES = 200
 

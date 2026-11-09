@@ -1,13 +1,14 @@
 {
   "version": "v1",
   "scope": "Discovery layer only: email metadata -> classifier -> email body -> 0..N JobCandidates",
-  "dataset_type": "sanitized real-world Gmail-derived cases",
-  "case_count": 8,
+  "dataset_type": "sanitized real-world Gmail-derived cases plus one synthetic regression fixture derived from a real production failure",
+  "case_count": 9,
   "notes": [
     "This is a small expanded baseline, not a production-scale benchmark.",
     "Positive cases preserve real job-alert structure but redact personal data and ephemeral tracking tokens.",
     "Negative cases are job-adjacent emails that contain career/employer language but no concrete job opening.",
-    "Location is reviewed manually for semantic groundedness and is not exact-string scored."
+    "Location is reviewed manually for semantic groundedness and is not exact-string scored.",
+    "Case REG-01 is a synthetic regression fixture abstracted from a real production failure where the extractor emitted a JobCandidate with an empty company and stopped the Agent Run."
   ],
   "cases": [
     {
@@ -199,6 +200,18 @@
       "snippet": "Register for our free September webinars",
       "expected_job_related": false,
       "body": "September is a great time to sharpen the skills and strategies that help\nyou stand out.\n\nThe Human Advantage: Sharpen and Showcase the Skills AI Can't Replace\n\nIndeed Bootcamp: Job Discovery\n\nAsk a Career Strategist: Smart Strategies for Your Early Career Job Hunt\n\nRegistration is free. These are job-search webinars and career advice,\nnot concrete job openings.\n",
+      "expected_jobs": []
+    },
+    {
+      "case_id": "REG-01",
+      "eval_bucket": "regression_missing_company_from_real_failure",
+      "source": "EMAIL",
+      "message_id": "eval-reg-01",
+      "sender": "Architecture Job Alerts <alerts@examplejobs.com>",
+      "subject": "New Architectural Designer opportunity matching your alert",
+      "snippet": "A new Architectural Designer role in San Francisco matches your saved search.",
+      "expected_job_related": true,
+      "body": "New job matching your alert\n\nArchitectural Designer\nSan Francisco, CA\nFull-time\n\nThe role supports design development, Revit documentation, consultant coordination, and construction-document production.\n\n[View job](https://jobs.example.com/architectural-designer-123)\n\nThis sanitized regression fixture intentionally contains no explicit employer or company name.",
       "expected_jobs": []
     }
   ]

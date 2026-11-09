@@ -1,0 +1,7 @@
+{
+  "input_file": "cases_v1.json",
+  "input_sha256": "7da2c01386a5fafb26e7b6b71d39955373d35000a98499792f04b2168f6df7e0",
+  "result_file": "results/discovery_eval_v1_9_cases.json",
+  "result_sha256": "ff12c4a6b77f536ffafad5fffdf5132e83def357a4a8e5d724099daa3ddeeb0c",
+  "provenance_note": "Hashes recorded during curation of the existing user-saved latest_predictions.json against the current nine-case input. Original output has no input hash or run timestamp; no new model run was performed."
+}

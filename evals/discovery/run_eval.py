@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -45,7 +43,11 @@ def candidate_to_dict(candidate) -> dict:
     }
 
 
-def find_match(expected: dict, predictions: list[dict], used: set[int]) -> int | None:
+def find_match(
+    expected: dict,
+    predictions: list[dict],
+    used: set[int],
+) -> int | None:
     expected_id = norm(expected.get("source_item_id"))
 
     # Prefer stable provider ID.
@@ -56,7 +58,8 @@ def find_match(expected: dict, predictions: list[dict], used: set[int]) -> int |
             if norm(pred.get("source_item_id")) == expected_id:
                 return i
 
-        # Fallback if the ID was preserved in the URL but not copied into source_item_id.
+        # Fallback if the ID was preserved in the URL but not copied into
+        # source_item_id.
         for i, pred in enumerate(predictions):
             if i in used:
                 continue
@@ -82,35 +85,30 @@ def percentage(numerator: int, denominator: int) -> str:
     return f"{numerator / denominator:.1%}"
 
 
-def ratio_or_none(numerator: int, denominator: int) -> float | None:
-    if denominator == 0:
-        return None
-    return numerator / denominator
-
-
-def file_sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
 def main() -> None:
     data = json.loads(CASES_PATH.read_text(encoding="utf-8"))
     cases = data["cases"]
 
-    run_timestamp = datetime.now(timezone.utc)
-    run_id = run_timestamp.strftime("%Y%m%dT%H%M%SZ")
-
     classifier_correct = 0
     classifier_total = 0
 
+    # Candidate metrics include only cases where candidate extraction
+    # completed normally. A runtime/extraction exception is tracked
+    # separately as a case execution failure so it cannot be mistaken
+    # for a correct "0 candidates" prediction.
     tp = fp = fn = 0
     matched = 0
     title_correct = 0
     company_correct = 0
     provider_id_correct = 0
     provider_id_total = 0
+    candidate_evaluable_cases = 0
 
-    prediction_cases: list[dict] = []
-    evaluation_cases: list[dict] = []
+    case_total = len(cases)
+    case_passes = 0
+    case_execution_errors = 0
+
+    output_cases = []
 
     for case in cases:
         print("\n" + "=" * 78)
@@ -118,196 +116,278 @@ def main() -> None:
         print("=" * 78)
         print(case["subject"])
 
-        predicted_related = is_job_related_email(
-            sender=case["sender"],
-            subject=case["subject"],
-            snippet=case["snippet"],
-        )
-
         expected_related = case["expected_job_related"]
-        classifier_ok = predicted_related == expected_related
-
-        classifier_total += 1
-        classifier_correct += int(classifier_ok)
-
-        print(
-            f"\nClassifier: predicted={predicted_related} "
-            f"expected={expected_related}"
-        )
-
-        predicted_jobs: list[dict] = []
-
-        if predicted_related:
-            candidates = extract_job_candidates_from_email(
-                source=case["source"],
-                message_id=case["message_id"],
-                email_body=case["body"],
-            )
-            predicted_jobs = [candidate_to_dict(c) for c in candidates]
-
         expected_jobs = case.get("expected_jobs", [])
+
+        predicted_related: bool | None = None
+        predicted_jobs: list[dict] = []
+        case_error: str | None = None
+
+        # ------------------------------------------------------------
+        # 1. EMAIL METADATA CLASSIFICATION
+        # ------------------------------------------------------------
+        try:
+            predicted_related = is_job_related_email(
+                sender=case["sender"],
+                subject=case["subject"],
+                snippet=case["snippet"],
+            )
+        except Exception as error:
+            case_error = f"{type(error).__name__}: {error}"
+            print(f"\nClassifier ERROR: {case_error}")
+        else:
+            classifier_total += 1
+            classifier_correct += int(
+                predicted_related == expected_related
+            )
+
+            print(
+                f"\nClassifier: predicted={predicted_related} "
+                f"expected={expected_related}"
+            )
+
+        # ------------------------------------------------------------
+        # 2. JOB CANDIDATE EXTRACTION
+        # ------------------------------------------------------------
+        extraction_completed = False
+
+        if case_error is None:
+            if predicted_related:
+                try:
+                    candidates = extract_job_candidates_from_email(
+                        source=case["source"],
+                        message_id=case["message_id"],
+                        email_body=case["body"],
+                    )
+                    predicted_jobs = [
+                        candidate_to_dict(candidate)
+                        for candidate in candidates
+                    ]
+                    extraction_completed = True
+                except Exception as error:
+                    case_error = f"{type(error).__name__}: {error}"
+                    print(f"\nCandidate extraction ERROR: {case_error}")
+            else:
+                # If the classifier routes the email away from extraction,
+                # candidate output is deterministically empty for this run.
+                extraction_completed = True
+
         print(
             f"Candidates: predicted={len(predicted_jobs)} "
             f"expected={len(expected_jobs)}"
         )
 
+        # ------------------------------------------------------------
+        # 3. CANDIDATE-LEVEL SCORING
+        # ------------------------------------------------------------
+        # Do NOT score a case whose extraction raised. Treating an exception
+        # as predicted_jobs=[] could falsely make an expected-empty case look
+        # correct. The execution error is instead surfaced at case level.
         used: set[int] = set()
-        case_matches: list[dict] = []
-        case_misses: list[dict] = []
+        case_tp = 0
+        case_fp = 0
+        case_fn = 0
 
-        for expected in expected_jobs:
-            idx = find_match(expected, predicted_jobs, used)
+        if extraction_completed and case_error is None:
+            candidate_evaluable_cases += 1
 
-            if idx is None:
-                fn += 1
-                case_misses.append(expected)
+            for expected in expected_jobs:
+                idx = find_match(expected, predicted_jobs, used)
+
+                if idx is None:
+                    fn += 1
+                    case_fn += 1
+                    print(
+                        f"\n  MISS: {expected['company']} | "
+                        f"{expected['title']}"
+                    )
+                    continue
+
+                used.add(idx)
+                pred = predicted_jobs[idx]
+                tp += 1
+                case_tp += 1
+                matched += 1
+
+                title_ok = (
+                    norm(pred["title"])
+                    == norm(expected["title"])
+                )
+                company_ok = (
+                    norm(pred["company"])
+                    == norm(expected["company"])
+                )
+
+                title_correct += int(title_ok)
+                company_correct += int(company_ok)
+
+                expected_id = expected.get("source_item_id")
+                provider_id_preserved = None
+
+                if expected_id:
+                    provider_id_total += 1
+                    provider_id_preserved = (
+                        norm(pred.get("source_item_id"))
+                        == norm(expected_id)
+                        or expected_id
+                        in (pred.get("source_url") or "")
+                    )
+                    provider_id_correct += int(
+                        provider_id_preserved
+                    )
+
                 print(
-                    f"\n  MISS: {expected['company']} | "
-                    f"{expected['title']}"
+                    f"\n  MATCH: "
+                    f"{pred['company']} | {pred['title']}"
                 )
-                continue
-
-            used.add(idx)
-            pred = predicted_jobs[idx]
-            tp += 1
-            matched += 1
-
-            title_ok = norm(pred["title"]) == norm(expected["title"])
-            company_ok = norm(pred["company"]) == norm(expected["company"])
-
-            title_correct += int(title_ok)
-            company_correct += int(company_ok)
-
-            expected_id = expected.get("source_item_id")
-            provider_id_preserved = None
-
-            if expected_id:
-                provider_id_total += 1
-                provider_id_preserved = (
-                    norm(pred.get("source_item_id")) == norm(expected_id)
-                    or expected_id in (pred.get("source_url") or "")
+                print(f"    title_exact: {title_ok}")
+                print(f"    company_exact: {company_ok}")
+                print(
+                    "    provider_id_preserved: "
+                    f"{provider_id_preserved}"
                 )
-                provider_id_correct += int(provider_id_preserved)
+                print(
+                    f"    source_url: "
+                    f"{pred.get('source_url')}"
+                )
+                print(
+                    f"    source_item_id: "
+                    f"{pred.get('source_item_id')}"
+                )
 
-            location_review = {
-                "reference": expected.get("location_reference"),
-                "prediction": pred.get("location"),
-                "human_judgment": "PENDING",
-                "notes": "",
-            }
+                # Location is intentionally manual.
+                print("    --- LOCATION MANUAL REVIEW ---")
+                print(
+                    "    email_reference: "
+                    f"{expected.get('location_reference')}"
+                )
+                print(
+                    "    model_output:    "
+                    f"{pred.get('location')}"
+                )
+                print(
+                    "    human_judgment:  "
+                    "PASS / FAIL / UNCLEAR"
+                )
 
-            case_matches.append(
-                {
-                    "expected": expected,
-                    "prediction": pred,
-                    "title_exact_normalized": title_ok,
-                    "company_exact_normalized": company_ok,
-                    "provider_id_preserved": provider_id_preserved,
-                    "location_review": location_review,
-                }
-            )
+            extras = [
+                pred
+                for i, pred in enumerate(predicted_jobs)
+                if i not in used
+            ]
+            fp += len(extras)
+            case_fp += len(extras)
 
-            print(f"\n  MATCH: {pred['company']} | {pred['title']}")
-            print(f"    title_exact: {title_ok}")
-            print(f"    company_exact: {company_ok}")
-            print(f"    provider_id_preserved: {provider_id_preserved}")
-            print(f"    source_url: {pred.get('source_url')}")
-            print(f"    source_item_id: {pred.get('source_item_id')}")
+            if extras:
+                print(
+                    f"\n  EXTRA candidates: "
+                    f"{len(extras)}"
+                )
+                for pred in extras:
+                    print(
+                        f"    - "
+                        f"{pred['company']} | {pred['title']}"
+                    )
 
-            # Location is intentionally manual.
-            print("    --- LOCATION MANUAL REVIEW ---")
-            print(
-                f"    email_reference: "
-                f"{expected.get('location_reference')}"
-            )
-            print(f"    model_output:    {pred.get('location')}")
-            print("    human_judgment:  PASS / FAIL / UNCLEAR")
+        # ------------------------------------------------------------
+        # 4. CASE-LEVEL PASS / FAIL
+        # ------------------------------------------------------------
+        classifier_ok = (
+            predicted_related == expected_related
+            if predicted_related is not None
+            else False
+        )
 
-        extras = [
-            pred
-            for i, pred in enumerate(predicted_jobs)
-            if i not in used
-        ]
-        fp += len(extras)
+        candidate_output_ok = (
+            extraction_completed
+            and case_error is None
+            and case_fn == 0
+            and case_fp == 0
+            and case_tp == len(expected_jobs)
+        )
 
-        if extras:
-            print(f"\n  EXTRA candidates: {len(extras)}")
-            for pred in extras:
-                print(f"    - {pred['company']} | {pred['title']}")
+        case_pass = (
+            case_error is None
+            and classifier_ok
+            and candidate_output_ok
+        )
 
-        prediction_cases.append(
+        if case_error is not None:
+            case_execution_errors += 1
+
+        if case_pass:
+            case_passes += 1
+            print("\nCase result: PASS")
+        else:
+            print("\nCase result: FAIL")
+            if case_error is not None:
+                print(f"Reason: execution error -> {case_error}")
+            elif not classifier_ok:
+                print(
+                    "Reason: classifier mismatch "
+                    f"(predicted={predicted_related}, "
+                    f"expected={expected_related})"
+                )
+            else:
+                print(
+                    "Reason: candidate output mismatch "
+                    f"(tp={case_tp}, fp={case_fp}, fn={case_fn})"
+                )
+
+        output_cases.append(
             {
                 "case_id": case["case_id"],
+                "eval_bucket": case.get("eval_bucket"),
+                "expected_job_related": expected_related,
                 "predicted_job_related": predicted_related,
+                "expected_job_count": len(expected_jobs),
+                "predicted_job_count": len(predicted_jobs),
+                "candidate_metrics_included": (
+                    extraction_completed
+                    and case_error is None
+                ),
+                "case_pass": case_pass,
+                "error": case_error,
                 "jobs": predicted_jobs,
             }
         )
 
-        evaluation_cases.append(
-            {
-                "case_id": case["case_id"],
-                "eval_bucket": case.get("eval_bucket"),
-                "source": case["source"],
-                "expected_job_related": expected_related,
-                "predicted_job_related": predicted_related,
-                "classifier_correct": classifier_ok,
-                "expected_job_count": len(expected_jobs),
-                "predicted_job_count": len(predicted_jobs),
-                "matches": case_matches,
-                "misses": case_misses,
-                "extras": extras,
-            }
-        )
-
-    precision = tp / (tp + fp) if (tp + fp) else 0.0
-    recall = tp / (tp + fn) if (tp + fn) else 0.0
+    # ------------------------------------------------------------
+    # 5. AGGREGATE METRICS
+    # ------------------------------------------------------------
+    precision = (
+        tp / (tp + fp)
+        if (tp + fp)
+        else 0.0
+    )
+    recall = (
+        tp / (tp + fn)
+        if (tp + fn)
+        else 0.0
+    )
     f1 = (
         2 * precision * recall / (precision + recall)
         if precision + recall
         else 0.0
     )
 
-    summary = {
-        "case_count": len(cases),
-        "classifier": {
-            "correct": classifier_correct,
-            "total": classifier_total,
-            "accuracy": ratio_or_none(classifier_correct, classifier_total),
-        },
-        "candidate_extraction": {
-            "true_positives": tp,
-            "false_positives": fp,
-            "false_negatives": fn,
-            "precision": precision,
-            "recall": recall,
-            "f1": f1,
-        },
-        "matched_candidate_fields": {
-            "matched_candidates": matched,
-            "title_exact_normalized_correct": title_correct,
-            "title_exact_normalized_accuracy": ratio_or_none(
-                title_correct, matched
-            ),
-            "company_exact_normalized_correct": company_correct,
-            "company_exact_normalized_accuracy": ratio_or_none(
-                company_correct, matched
-            ),
-            "provider_id_cases": provider_id_total,
-            "provider_id_preserved": provider_id_correct,
-            "provider_id_preservation_rate": ratio_or_none(
-                provider_id_correct, provider_id_total
-            ),
-        },
-        "location_review": {
-            "mode": "HUMAN_REVIEW",
-            "status": "PENDING",
-            "allowed_judgments": ["PASS", "FAIL", "UNCLEAR"],
-        },
-    }
-
     print("\n" + "=" * 78)
     print("DISCOVERY EVAL SUMMARY")
     print("=" * 78)
+
+    print(
+        f"Case pass rate: "
+        f"{percentage(case_passes, case_total)} "
+        f"({case_passes}/{case_total})"
+    )
+    print(
+        f"Case execution errors: "
+        f"{case_execution_errors}"
+    )
+    print(
+        f"Candidate-evaluable cases: "
+        f"{candidate_evaluable_cases}/{case_total}"
+    )
 
     print(
         f"Classifier accuracy: "
@@ -328,72 +408,84 @@ def main() -> None:
         f"Provider job-ID preservation: "
         f"{percentage(provider_id_correct, provider_id_total)}"
     )
-    print("Location: MANUAL REVIEW (no exact-string metric)")
-
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-
-    # 1) Preserve the original lightweight prediction artifact for compatibility.
-    predictions_payload = {
-        "eval_version": data.get("version"),
-        "run_id": run_id,
-        "timestamp_utc": run_timestamp.isoformat(),
-        "cases_sha256": file_sha256(CASES_PATH),
-        "cases": prediction_cases,
-    }
-    predictions_path = RESULTS_DIR / "latest_predictions.json"
-    predictions_path.write_text(
-        json.dumps(predictions_payload, indent=2, ensure_ascii=False),
-        encoding="utf-8",
+    print(
+        "Location: MANUAL REVIEW "
+        "(no exact-string metric)"
     )
 
-    # 2) Save a complete scored evaluation artifact.
-    evaluation_payload = {
-        "eval_name": "discovery",
-        "eval_version": data.get("version"),
-        "scope": data.get("scope"),
-        "dataset_type": data.get("dataset_type"),
-        "run_id": run_id,
-        "timestamp_utc": run_timestamp.isoformat(),
-        "input_file": str(CASES_PATH.relative_to(REPO_ROOT)),
-        "input_sha256": file_sha256(CASES_PATH),
-        "summary": summary,
-        "cases": evaluation_cases,
-    }
-
-    latest_evaluation_path = RESULTS_DIR / "latest_evaluation.json"
-    latest_evaluation_path.write_text(
-        json.dumps(evaluation_payload, indent=2, ensure_ascii=False),
-        encoding="utf-8",
+    # ------------------------------------------------------------
+    # 6. WRITE RESULTS
+    # ------------------------------------------------------------
+    RESULTS_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
     )
 
-    # 3) Keep an immutable timestamped run so future runs can be compared.
-    archived_evaluation_path = (
-        RESULTS_DIR / f"discovery_eval_{data.get('version', 'unknown')}_{run_id}.json"
+    output_path = (
+        RESULTS_DIR / "latest_predictions.json"
     )
-    archived_evaluation_path.write_text(
-        json.dumps(evaluation_payload, indent=2, ensure_ascii=False),
+
+    output_path.write_text(
+        json.dumps(
+            {
+                "eval_version": data.get("version"),
+                "case_count": case_total,
+                "summary": {
+                    "case_passes": case_passes,
+                    "case_total": case_total,
+                    "case_pass_rate": (
+                        case_passes / case_total
+                        if case_total
+                        else 0.0
+                    ),
+                    "case_execution_errors": (
+                        case_execution_errors
+                    ),
+                    "candidate_evaluable_cases": (
+                        candidate_evaluable_cases
+                    ),
+                    "classifier_correct": (
+                        classifier_correct
+                    ),
+                    "classifier_total": classifier_total,
+                    "classifier_accuracy": (
+                        classifier_correct
+                        / classifier_total
+                        if classifier_total
+                        else 0.0
+                    ),
+                    "candidate_tp": tp,
+                    "candidate_fp": fp,
+                    "candidate_fn": fn,
+                    "candidate_precision": precision,
+                    "candidate_recall": recall,
+                    "candidate_f1": f1,
+                    "title_correct": title_correct,
+                    "company_correct": company_correct,
+                    "matched_candidates": matched,
+                    "provider_id_correct": (
+                        provider_id_correct
+                    ),
+                    "provider_id_total": (
+                        provider_id_total
+                    ),
+                },
+                "cases": output_cases,
+            },
+            indent=2,
+            ensure_ascii=False,
+        ),
         encoding="utf-8",
     )
 
     print(
         f"\nPredictions written to: "
-        f"{predictions_path.relative_to(REPO_ROOT)}"
+        f"{output_path.relative_to(REPO_ROOT)}"
     )
     print(
-        f"Scored evaluation written to: "
-        f"{latest_evaluation_path.relative_to(REPO_ROOT)}"
-    )
-    print(
-        f"Archived run written to: "
-        f"{archived_evaluation_path.relative_to(REPO_ROOT)}"
-    )
-    print(
-        "\nNext step: review each matched candidate's location_review field "
-        "and replace PENDING with PASS / FAIL / UNCLEAR before closing the eval."
-    )
-    print(
-        "Reminder: aggregate scores are only useful after checking "
-        "individual failures and manual-review fields."
+        "\nReminder: aggregate scores are only useful "
+        "after checking individual failures, execution "
+        "errors, and manual-review fields."
     )
 
 

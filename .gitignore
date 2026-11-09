@@ -56,7 +56,7 @@ evals/**/*Review_Guide*.md
 Thumbs.db
 
 # Reviewed canonical regression artifacts only
-!evals/discovery/results/discovery_eval_v1_20261008T235717Z.json
+!evals/discovery/results/discovery_eval_v1_9_cases.json
 !evals/matching_evaluation/results/matcher_predictions_v2.json
 !evals/matching_evaluation/results/matcher_predictions_v2_promptfix1.json
 !evals/evidence_extraction/results/evidence_extraction_baseline.json

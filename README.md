@@ -1,25 +1,99 @@
 # AI Job Search Agent
 
-A local, human-reviewed job-search assistant that turns job-alert emails into an evidence-grounded opportunity queue.
+**A working, end-to-end AI job-search assistant that transforms noisy job-alert emails into an explainable, evidence-grounded opportunity review queue.**
 
-**Portfolio V1:** implemented in Python and Streamlit, with Gmail ingestion, bounded JD resolution, structured candidate/job analysis, deterministic scoring, and durable SQLite state. This repository documents the implementation and small component benchmarks; it does not claim a production deployment or production-level model accuracy.
+Built as a **local, single-user application** with Python, Streamlit, Gmail API, Qwen, and SQLite. The product is functional from Gmail ingestion through human review; it is not a hosted SaaS product, and its AI components have not been validated at production scale.
 
-## Problem and product value
+> **Portfolio V1 · AI product building · Human-in-the-loop decision support**
+>
+> The application helps a job seeker answer two different questions: **“How well does my evidence match this role?”** and **“Is this role worth pursuing?”** It presents the supporting evidence rather than asking users to trust an opaque AI-generated recommendation.
 
-Job-alert emails provide leads, but reviewing them still requires opening links, finding a usable job description, interpreting requirements, comparing them with a candidate's actual background, and deciding what deserves attention. Repeating this workflow is slow and makes the reasoning difficult to revisit.
+## Why I built it
 
-The product reduces that review work by producing a persistent queue with requirement-level evidence and visible gaps. The user makes the final decision: **Pass, Save for later, or Pursue**. V1 does not tailor resumes, submit applications, or contact recruiters automatically.
+I am transitioning from architectural design into AI and software after pursuing graduate study in computer science. During my own job search, I noticed that getting more job alerts did not solve the hardest part of the process. I still had to find a complete job description, interpret its requirements, compare them with my actual background and projects, and decide where to invest limited application time.
+
+The problem was not just discovering opportunities; it was making **repeatable, evidence-based decisions** about them. I built this tool to automate the repetitive analysis while retaining the user's control over the final decision.
+
+## The product at a glance
+
+| | |
+|---|---|
+| **Primary user** | Job seekers, especially people changing careers or evaluating unfamiliar technical roles; initially designed for my own use |
+| **Inputs** | Gmail job alerts, one active Markdown resume, optional supporting Markdown documents, and five optional job preferences |
+| **Automated work** | Email triage; job-lead extraction; public JD search and verification; evidence and requirement extraction; matching; fit and priority calculation; durable saving |
+| **User-facing output** | An opportunity queue, explicit requirements, strong matches, gaps, source-backed explanations, and a review history |
+| **Human decision** | **Pass / Save for later / Pursue** |
+| **Product boundary** | No automatic application submission, recruiter outreach, or resume customization in V1 |
+| **Current status** | End-to-end runnable local application, with small offline component benchmarks and local regression tests—not production deployment or demonstrated large-scale user adoption |
+
+### What the user experiences
+
+1. **Onboard:** connect Gmail, add a Markdown resume, optionally add project documents, and set preferences.
+2. **Run Agent:** the application processes recent alerts, finds usable job postings, and produces grounded analyses.
+3. **Review opportunities:** compare prioritized jobs in a persistent **Needs Review** queue.
+4. **Inspect the reasoning:** open a job to see each requirement, its support level, the explanation, and the original candidate evidence.
+5. **Decide:** mark it **Pass**, **Save for later**, or **Pursue**. The analysis remains available for reference.
+
+## Product decisions and tradeoffs
+
+Building a working workflow required more than connecting an LLM to Gmail. These decisions shaped the MVP:
+
+| Product decision | Why it matters | Tradeoff / lesson |
+|---|---|---|
+| **Human-in-the-loop, not auto-apply** | A match score should support a person's career decision, not silently make it | Narrower automation scope, but more trust and user control |
+| **Verify the full JD before scoring** | Job-alert summaries and protected job-board pages frequently omit requirements | Bounded web search can improve usable inputs, but introduces latency, cost, and external-site failure modes |
+| **Make every judgment inspectable** | AI can overlook real experience or make a plausible but unsupported claim | Structured evidence, source citations, and a second check of negative conclusions add work but reveal errors |
+| **Separate capability fit from preferences** | “Can I do this role?” is not the same as “Do I want this role?” | Deterministic weighted fit and a bounded preference adjustment are explainable; their thresholds still need calibration |
+| **Use application-controlled orchestration** | Unbounded agent loops make cost, latency, and failure behavior hard to predict | Explicit stages, bounded searches, retries, and durable state give up some autonomy for reliability |
+| **Save partial success** | A failed candidate should not erase previously analyzed jobs | More state-management complexity, but a more dependable user experience |
+
+### An iteration driven by evidence
+
+In a small live diagnostic, the initial direct-fetch approach produced **0/4 analysis-ready JDs** from four LinkedIn/Indeed provider links. Rather than asking the model to infer missing content, I redesigned JD resolution: LinkedIn/Indeed leads go to **bounded Web Search**, while other sources receive one direct-fetch attempt before search fallback. This is evidence for a specific design change, **not** a general success-rate benchmark. See the [architecture decision and historical protocol](docs/jd-resolution-decision.md).
+
+## Demo and product walkthrough
+
+This is a **working local application**, not a static design mock-up. A short screen-recorded walkthrough and sanitized screenshots will be added to this repository; they are **not yet published**.
+
+The planned demonstration follows the actual workflow:
+
+**Background & Evidence → Run Agent → Opportunity Queue → Job Detail / Requirement Analysis → Pass / Save for later / Pursue**
+
+For public screenshots or videos, use synthetic candidate data and sanitized job examples; never expose real Gmail messages, personal resumes, OAuth tokens, or API keys.
+
+## What I measured—and what I learned
+
+I evaluated individual AI stages with curated, reviewed examples rather than claiming a single system-wide “AI accuracy” number.
+
+| Component | Recorded evidence | What the result does / does not mean |
+|---|---|---|
+| **Discovery** | 9 cases (8 sanitized Gmail-derived + 1 synthetic regression); 9/9 case passes and email classification; 15/15 job-candidate precision/recall; title 15/15; company 15/15; provider ID 12/12; 0 execution errors | Latest saved nine-case run; location groundedness still requires manual review |
+| **Candidate evidence extraction** | Four source documents; 56/72 verbatim evidence quotes in the recorded baseline | Exact quote fidelity and semantic grounding are different; long-prose capability recall remains a risk |
+| **JD requirement extraction** | 8 curated JDs; 106/109 Gold concepts covered; 99.0% prediction validity precision; **97.2% semantic recall**; **98.1% semantic F1** | Good concept coverage on this set does not prove every requirement was split and categorized correctly |
+| **Requirement–evidence matching** | 120 fixed evidence units, 32 requirements, 32 reviewed Gold mappings; baseline and PromptFix1 both at **20/32 exact support accuracy (62.5%)** | Matching remains a significant limitation; recomputed macro F1 was 0.539 and 0.441 respectively, so no aggregate improvement is established |
+
+A targeted verifier change corrected one observed negative-conclusion regression (MREQ029), but first-pass matcher outputs also varied between runs. It would be misleading to claim a measured aggregate improvement from that change.
+
+**Most important learning:** downstream fit quality depends on upstream evidence recall, requirement atomicity, and support-level calibration. Deterministic arithmetic does not make an incorrect semantic judgment correct. I preserved the limitations and evaluation artifacts rather than hiding them.
+
+Detailed evidence: [Evaluation index](evals/README.md) · [Discovery](evals/discovery/README.md) · [Evidence extraction](evals/evidence_extraction/README.md) · [Requirement extraction](evals/requirement_extraction/README.md) · [Matching](evals/matching_evaluation/README.md).
+
+---
+
+# Technical implementation
+
+The sections below document the real implementation, boundaries, setup, and evaluation details.
 
 ## End-to-end workflow
 
 ```mermaid
 flowchart TD
     G[Gmail metadata] --> C[Classify relevance]
-    C --> B[Fetch relevant email body]
+    C --> B[Fetch relevant email bodies]
     B --> J[Extract 0..N job leads]
     J --> R[Resolve and verify public JD]
     R --> D[Exact posting-URL dedupe]
-    D --> Q[Extract and validate requirements]
+    D --> Q[Extract and validate job requirements]
     E[Resume and supporting Markdown] --> V[Extract and validate candidate evidence]
     V --> M[Match requirements to evidence]
     Q --> M
@@ -29,11 +103,11 @@ flowchart TD
     P --> H[Human review in Streamlit]
 ```
 
-Not-related messages and normally unverified leads stop before job analysis. Technical failures remain distinct from negative business outcomes and can be retried.
+Unrelated email messages and normally unverified job leads stop before job analysis. Technical failures remain distinct from negative business outcomes and can be retried.
 
-## Architecture and application orchestration
+## Architecture and orchestration
 
-The application decides when to classify, extract, search, fetch, verify, score, and persist. Semantic components return domain objects; ordinary Python code manages the workflow. This is a bounded application-orchestrated agent, rather than an open-ended Search/Reason/Act loop.
+The application controls when to classify, extract, search, fetch, verify, score, and persist. Semantic components return structured domain objects; Python controls the bounded workflow. This is an **application-orchestrated agent**, not an open-ended autonomous ReAct loop.
 
 | Responsibility | Implementation |
 |---|---|
@@ -46,112 +120,121 @@ The application decides when to classify, extract, search, fetch, verify, score,
 | Fit and pursuit policy | `job_agent/scoring/` |
 | SQLite transactions and repositories | `job_agent/storage/` |
 
-Provider-neutral boundaries include `EmailSource`, `search_web()`, and a shared OpenAI-compatible generation client. The current live provider is Qwen / Alibaba Model Studio; the OpenAI Python SDK supplies the compatible client. The project uses direct application code without LangChain or LangGraph.
+Provider-neutral boundaries include `EmailSource`, `search_web()`, and an OpenAI-compatible generation client. The configured provider is **Qwen / Alibaba Model Studio**, accessed through the OpenAI Python SDK where compatible. The application does not depend on LangChain or LangGraph.
 
-### LLMs versus deterministic code
+### LLM judgment versus deterministic code
 
-LLMs interpret email relevance, extract job candidates, verify fetched JDs, extract and ground candidate evidence and requirements, judge requirement support, verify negative conclusions, and extract grounded job attributes.
+**LLMs** handle email relevance, candidate extraction, semantic JD verification, grounded candidate and job-requirement extraction, support-level judgment, negative-conclusion verification, and grounded job-attribute extraction.
 
-Python handles domain contracts, URL validation, bounded retrieval, IDs, account-scoped processed-email state, exact posting-URL dedupe, score arithmetic, preference policy, database constraints, and workflow control. Numerical fit is not generated by a model.
+**Python** handles domain contracts, URL cleanup and validation, bounded fetch attempts, IDs, account-scoped processed-email state, deduplication, numeric scoring, preference policy, database constraints, and retries. The final numeric Requirement Fit is **not** generated by an LLM.
 
-## Discovery: metadata first, then 0..N candidates
+## Gmail discovery: metadata first
 
-Gmail uses installed-app OAuth with read-only scope. The source lists recent messages and retrieves sender, subject, and snippet before classification. Only related messages require the full body and extracted HTML links. Extraction can return zero, one, or multiple `JobCandidate` leads per email.
+The app uses Google's installed-app OAuth flow and a **read-only Gmail scope**. It lists recent messages and fetches sender, subject, and snippet before relevance classification. Full email content and extracted HTML links are fetched only for related messages. One email may produce zero, one, or multiple `JobCandidate` leads.
 
-A lead is not a verified job posting. That distinction prevents an incomplete email preview from becoming the basis of candidate/job analysis.
+A candidate lead is **not yet a verified job posting**. Processed-email deduplication is scoped by `account_key + message_id`. V1 maintains one active Gmail account; a new account's credentials replace the previous connection only after authorization and identity verification. Existing opportunities and candidate evidence are retained when the Gmail account changes.
 
-Processed messages are scoped by `account_key + message_id`. V1 maintains one active Gmail account; a replacement token is installed only after the new account has authorized and its identity is verified. Candidate evidence and opportunity history remain intact when the inbox changes.
+## JD resolution: bounded acquisition and verification
 
-## JD Resolution and the architecture decision
-
-Current routing is source-aware:
+Source-aware routing:
 
 ```text
 LinkedIn / Indeed -> skip provider URL -> bounded Web Search
-Other source      -> try source URL once -> bounded Web Search if needed
+Other sources    -> try source URL once -> bounded Web Search if needed
 ```
 
-The search stage issues one application-level search operation using company, full title, and optional location. The current Qwen adapter requests its hosted Responses API `web_search` tool. Returned candidates retain provider ranking after conservative URL cleanup and dedupe.
+The application builds one search query from company, full job title, and optional location, and invokes the provider-neutral search interface. The current Qwen adapter requests the Responses API hosted `web_search` tool. The code retains search ranking after conservative URL filtering and deduplication.
 
-The application considers at most 30 results, attempts at most 15 page fetches, and processes batches of five. Structural validation removes unusable pages; semantic verification checks lead consistency and sufficient JD completeness. Processing stops on the first adequate match. The search prompt prefers employer/ATS postings, but downstream acceptance is semantic consistency and completeness, not a strict official-domain requirement.
+Safety/cost bounds are explicit: **up to 30 ranked search results, 15 page-fetch attempts, processed in batches of five**. Structural checks reject unusable pages. Semantic verification checks consistency with the lead and sufficient JD completeness; processing stops at the first adequate match. Employer/ATS pages are preferred, but sufficiently complete and consistent third-party listings are not automatically rejected.
 
-The design changed after a live sanity check of four LinkedIn/Indeed provider links produced **0/4 analysis-ready results** through the then-current direct-fetch path. This was a test of an acquisition assumption, not an overall system success-rate benchmark. The result motivated the bounded-search redesign. [Architecture decision and historical protocol](docs/jd-resolution-decision.md).
+`VERIFIED`, `UNVERIFIED`, and `TECHNICAL_FAILURE` are separate outcomes. A bad individual page can be skipped; search or verification service failure remains retryable. See [JD resolution decision](docs/jd-resolution-decision.md).
 
-`VERIFIED`, `UNVERIFIED`, and technical failure remain separate outcomes. An inaccessible individual result can be skipped; a failed search or semantic verification operation remains a retryable technical failure.
+## Candidate evidence extraction and management
 
-## Candidate Evidence Extraction
+The user uploads one active Markdown resume and optional supporting Markdown documents. The extractor turns explicit statements into structured units with claim, evidence type, source document, section, and original source text. Deterministic provenance and semantic grounding validation gate entries into the active evidence corpus.
 
-The user uploads a Markdown resume and optional supporting project documents. The evidence extractor produces structured units containing a claim, source document, source section, quoted source text, and evidence type. Validation checks provenance and semantic grounding before evidence enters the active candidate corpus.
+One managed resume is active at a time. A replacement is extracted and validated **before** switching the active resume; if it fails, the old active resume remains in place. Supporting documents accumulate. Durable evidence IDs preserve historical opportunity explanations even after an older resume becomes inactive.
 
-One managed resume is active at a time; supporting materials accumulate. A replacement resume becomes active only after its file and validated evidence are committed successfully. Old evidence remains available to hydrate historical analyses.
+Quote fidelity and semantic support are separate validations. Long, descriptive documents can hide relevant capabilities from extraction; this is a known risk, not a solved problem.
 
-Exact quote fidelity and semantic grounding are separate checks. A paraphrased claim can be semantically supported while its quote fails an exact substring check. The evidence benchmark also exposed missed capability evidence in long architecture prose, which can later appear as a false candidate gap.
+## Structured job-requirement extraction
 
-## Requirement Extraction
+Verified JDs are transformed into atomic `JobRequirement` records with a requirement, category, strength, original JD source text, and section. Categories include responsibility, experience, skill, domain knowledge, education, license, certification, and other. Strength levels are `CORE`, `REQUIRED`, and `PREFERRED`.
 
-A verified JD is converted into requirements with category, strength, source text, and section. Categories cover responsibility, experience, skill, domain knowledge, education, license, certification, and other; strengths are `CORE`, `REQUIRED`, and `PREFERRED`.
+The extractor aims to preserve compound requirements, OR/equivalency language, qualifiers, and source provenance while excluding benefits and irrelevant noise. Structural validation and semantic grounding checks occur before matching. A split or bundled requirement can distort scoring even when the underlying concepts were retrieved.
 
-The extractor aims to preserve atomicity, OR/equivalency logic, strength language, and grounding while excluding benefits and other noise. A separate validator checks extracted requirements before matching. Structural errors are tracked separately from semantic coverage: a bundled or incorrectly split requirement can cover the right concepts while distorting later scoring.
+## Requirement–evidence matching
 
-## Requirement–Evidence Matching
+Each validated requirement is compared against the **complete active candidate evidence set**. V1 deliberately avoids an embedding Top-K prefilter on this small corpus, because it could discard complementary evidence before semantic matching.
 
-The matcher sees each validated requirement and the complete active evidence corpus. V1 uses no embedding Top-K prefilter, avoiding gaps introduced by dropping complementary evidence in this small corpus.
+| Support level | Meaning |
+|---|---|
+| `STRONG` | The relevant requirement is directly and sufficiently supported |
+| `PARTIAL` | Some direct support exists, but an important part is incomplete |
+| `WEAK` | Only adjacent or limited support exists |
+| `NOT_CLEARLY_SUPPORTED` | Available evidence does not clearly establish the requirement |
 
-Support levels are `STRONG`, `PARTIAL`, `WEAK`, and `NOT_CLEARLY_SUPPORTED`; linked evidence is marked direct or adjacent, with explanations. Multiple evidence units can jointly establish support. A second pass verifies high-risk negative conclusions, followed by reconciliation into one finalized mapping per requirement.
+The matcher can combine multiple compatible atomic evidence units while avoiding fabricated end-to-end experience across unrelated projects. It records direct/adjacent relationships and explanations, then validates that every requirement has exactly one mapping with known source IDs. A second semantic pass checks negative or insufficient-support conclusions for overlooked counter-evidence and reconciles the final mapping.
 
-`NOT_CLEARLY_SUPPORTED` means insufficient evidence in this corpus, not proof that the person lacks the capability. The UI makes the requirement, support reasoning, evidence claim, document, and original source text inspectable.
+`NOT_CLEARLY_SUPPORTED` **does not mean the person lacks the ability**; it means this document corpus did not clearly demonstrate it. The Streamlit UI exposes requirements, support reasoning, evidence claims, source document names, and original source text.
 
-## Deterministic scoring and preference layer
+## Deterministic fit and pursuit priority
 
-Requirement Fit is a weighted mean of finalized support values, multiplied by 100 and rounded to one decimal:
+After semantic matching is finalized, code computes a weighted score:
 
-| Support | Value | Requirement strength | Weight |
+```text
+Requirement Fit =
+    100 * SUM(requirement_support_value * requirement_strength_weight)
+        / SUM(requirement_strength_weight)
+```
+
+| Support level | Value | Requirement strength | Weight |
 |---|---:|---|---:|
-| STRONG | 1.00 | CORE | 1.30 |
-| PARTIAL | 0.65 | REQUIRED | 1.10 |
-| WEAK | 0.30 | PREFERRED | 0.70 |
-| NOT_CLEARLY_SUPPORTED | 0.00 | | |
+| `STRONG` | 1.00 | `CORE` | 1.30 |
+| `PARTIAL` | 0.65 | `REQUIRED` | 1.10 |
+| `WEAK` | 0.30 | `PREFERRED` | 0.70 |
+| `NOT_CLEARLY_SUPPORTED` | 0.00 | | |
 
-It is a prototype policy signal, not an interview or offer probability. Base pursuit tiers use thresholds of 85, 70, and 55. Location, work mode, industry, company size, and employment type are evaluated separately as match, mismatch, or unknown. Mismatches can downgrade pursuit priority by at most one tier; they do not alter Requirement Fit. Compensation is excluded from V1 preferences.
+The score is rounded to one decimal. It is a **prototype policy signal**, not a probability of interview, offer, or job success.
 
-Strong-match and main-gap summaries are deterministic projections of finalized mappings, rather than another model judgment.
+Base priority tiers use thresholds **85 / 70 / 55**. Optional preferences—location, work mode, industry, company size, and employment type—are evaluated as match, mismatch, or unknown **separately** from Requirement Fit. Mismatches can lower Pursuit Priority by **at most one tier**, never directly reduce the fit score. Compensation is not part of V1's persisted preference policy.
 
-## Persistence, deduplication, and fault isolation
+Strong Matches and Main Gaps are deterministic summaries of the finalized requirement mappings, not new model judgments.
 
-Verified posting URLs are exact durable dedupe keys. V1 does not claim cross-site semantic identity resolution. Completed opportunities, requirements, and mappings are persisted atomically, as historical snapshots; a user decision updates the decision field rather than rewriting the original analysis.
+## Persistence, deduplication, and failure recovery
 
-Successful opportunities are saved as they complete. One candidate failure does not erase completed work, and a partly failed multi-candidate email remains retryable. The email is marked processed only after its candidate workflow has completed without technical failures; persisted posting dedupe prevents repeated analysis of already completed opportunities.
+Verified posting URLs are exact deduplication keys; V1 does not claim cross-platform semantic deduplication of the same job. Completed opportunity analysis, requirements, and evidence mappings are stored atomically in **SQLite** as historical snapshots. A later human decision updates the decision state without rewriting the original analysis.
 
-SQLite migrations preserve local history and evidence references. The public repository contains no prepopulated database or personal candidate documents. [Persistence and migration design](docs/persistence-design.md).
+Completed opportunities persist as each candidate finishes. One failed candidate does not delete prior successes. A partially failed multi-candidate email stays retryable, and the parent email is marked processed only after all candidate workflows finish without technical failure. URL deduplication avoids repeated analysis of already saved postings.
 
-## Evaluation and representative results
+Schema migrations protect historical evidence and opportunity references. No live personal resume, OAuth secrets, or prepopulated SQLite database is included in this public repository. See [Persistence design](docs/persistence-design.md).
 
-Component benchmarks isolate semantic stages from upstream errors. They are small curated behavioral/regression sets, not production accuracy estimates. Human-reviewed Gold and alignments are preserved; historical names/status markers were normalized for publication after the author confirmed review completion.
+## Evaluation methodology and limitations
 
-| Component | Evidence | Interpretation |
-|---|---|---|
-| Discovery | 8 sanitized Gmail-derived cases; 8/8 classification; 15/15 candidate precision/recall; title 14/15; company 15/15; provider-ID 12/12 | Current small regression baseline. Location review remains recorded as pending. |
-| Evidence extraction | Four source documents; recorded baseline has 56/72 verbatim quotes | Quote fidelity is distinct from semantic correctness; long-prose recall is a visible limitation. |
-| Requirement extraction | Eight curated JDs; reviewed alignments report 106/109 Gold concepts covered, 99.0% prediction validity precision, 97.2% recall, 98.1% semantic F1 | Semantic concept coverage does not imply structurally correct atomic requirements. |
-| Matching v2 | Fixed 120 evidence units, 32 requirements, 32 reviewed Gold mappings | Baseline and PromptFix1 both score 20/32 exact support accuracy (62.5%). Recomputed macro F1: 0.539 and 0.441 respectively. No aggregate improvement is established. |
+Offline component benchmarks isolate stages from Gmail, network retrieval, storage, and upstream semantic failures. Curated Gold datasets and adjudicated alignments support reproducible regression checks. These results are **small sample measurements**, not production-level accuracy or evidence of broad user impact.
 
-The targeted verifier change corrected the observed MREQ029 clinical-domain regression, but first-pass matcher labels also varied between runs. These results do not establish positive aggregate verifier lift or a causal improvement from that change.
+In particular:
 
-The matching V1 evaluation cycle is closed. Frozen inputs and Gold remain available for regression; changing annotation policy or inputs should create a new benchmark version. The expanded Job Agent evidence Gold references an exact historical README snapshot that is absent from this local export; a pre-cleanup README snapshot is included for context, with the mismatch documented rather than silently treated as the same source.
+- The discovery evaluation is a sanitized regression set, not a statistically representative Gmail sample.
+- Evidence extraction has documented verbatim-quote and long-form capability-recall gaps.
+- Requirement extraction's semantic F1 measures covered concepts and does not guarantee correct atomization, strength, or logical grouping.
+- The fixed matching evaluation produced **20/32 exact labels**, with no measured aggregate gain from PromptFix1. The targeted verifier correction does not demonstrate overall causal lift.
+- The matching V1 evaluation cycle is closed. New annotation policies or input sets should generate a new benchmark version rather than silently changing the existing baseline.
+- The expanded Job Agent evidence Gold references an exact historical README snapshot absent from the local export. A pre-cleanup snapshot is provided for context, and the mismatch is documented rather than presented as identical provenance.
 
-[Evaluation index and provenance](evals/README.md) · [Discovery](evals/discovery/README.md) · [Evidence extraction](evals/evidence_extraction/README.md) · [Requirement extraction](evals/requirement_extraction/README.md) · [Matching](evals/matching_evaluation/README.md).
+See [Evaluation index](evals/README.md) and the component-specific evaluation READMEs linked above.
 
-## Limitations and production next steps
+## Current limitations and next steps
 
-Implemented V1 is a local single-user prototype. Public-page retrieval can fail on protected or JavaScript-only sites, search is bounded, and exact URL dedupe misses cross-site duplicates. Extraction can miss facts or lose atomic/logical structure; matching can inflate strong support by losing material qualifiers. Scoring weights and tiers have not been calibrated to actual user decisions.
+This is a **local, working single-user V1**, not a cloud deployment. Public JD acquisition can fail on protected or JavaScript-heavy sites. Search is bounded. Exact URL dedupe may miss duplicates across sites. AI extraction may miss or combine information; matching can be overly confident when qualifiers are lost. Scoring weights and thresholds have not been calibrated against actual users' decisions.
 
-It has no cloud deployment, multi-tenant isolation, production observability, exhaustive cost/latency monitoring, autonomous applying, or resume tailoring. Component results do not establish end-to-end user value or production quality.
+The current application does **not** include multi-tenant isolation, production observability, comprehensive latency/cost monitoring, autonomous applying, or resume tailoring. Component tests do not establish end-to-end product value.
 
-Production next steps would be held-out and repeated-run evaluation, end-to-end error-propagation testing, user value measurement against a manual-review baseline, calibration of ranking policy, better source attribution, and operational/privacy controls if deployment beyond local use is justified. These are future proposals, not implemented capabilities.
+Potential next steps: held-out and repeated-run semantic evaluation, end-to-end error-propagation tests, direct user research, time-to-decision comparison against manual review, preference/priority calibration, improved source attribution, and operational/privacy controls if a future hosted version is justified. These are **proposed improvements**, not claimed features.
 
 ## Local setup
 
-Run from the repository root with Python 3.11 or newer:
+Requires **Python 3.11+**. From the repository root:
 
 ```bash
 python3 -m venv .venv
@@ -160,51 +243,65 @@ python -m pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Fill in `DASHSCOPE_API_KEY`, `DASHSCOPE_BASE_URL`, `GENERATION_MODEL`, and `SEARCH_MODEL` in `.env`; keep `WEB_SEARCH_PROVIDER=qwen`. Choose an endpoint and models supported by your own Alibaba Model Studio account/region, including Responses API web search for the search model. The example intentionally supplies no credentials or assumed universally available model.
+Configure `DASHSCOPE_API_KEY`, `DASHSCOPE_BASE_URL`, `GENERATION_MODEL`, and `SEARCH_MODEL` in `.env`, and keep `WEB_SEARCH_PROVIDER=qwen`. Choose endpoint and model names supported by your Alibaba Model Studio account and region; the search model must support the relevant Responses API web-search capability. The example file intentionally contains no real credentials or assumptions about universal availability.
 
-For Gmail, enable the Gmail API in your Google Cloud project, configure an installed/desktop OAuth client and consent access for your account, and save its downloaded client JSON as `data/private/google_credentials.json`. The UI requests `https://www.googleapis.com/auth/gmail.readonly` and stores authorization locally as `data/private/gmail_token.json`. Complete authorization through the UI before running the agent.
+For Gmail, enable the Gmail API in a Google Cloud project, configure an installed/desktop OAuth client and consent access, and save the downloaded client JSON as:
 
-Credentials and tokens stay local, but model operations send relevant email content, candidate document text, and job text to the configured provider. Review that boundary before using real personal data.
+```text
+data/private/google_credentials.json
+```
+
+Complete Google authorization through the Streamlit interface. The app requests `https://www.googleapis.com/auth/gmail.readonly` and keeps the resulting local token under:
+
+```text
+data/private/gmail_token.json
+```
+
+These secrets stay local and should never be committed. **Privacy boundary:** Relevant email contents, candidate text, and job text are sent to the configured external model provider when processing requires it. Review this before connecting a real account.
+
+Start the product:
 
 ```bash
 python -m streamlit run app.py
 ```
 
-The default Gmail window is the previous hour, capped at 200 messages. Optional overrides are `JOB_AGENT_GMAIL_LOOKBACK_HOURS` or `JOB_AGENT_GMAIL_LOOKBACK_DAYS` (choose one), `JOB_AGENT_GMAIL_MAX_MESSAGES`, and credential/token path variables shown in `.env.example`.
+The default Gmail search window is the **previous hour, capped at 200 messages**. You can configure `JOB_AGENT_GMAIL_LOOKBACK_HOURS` or `JOB_AGENT_GMAIL_LOOKBACK_DAYS` (select one), `JOB_AGENT_GMAIL_MAX_MESSAGES`, and credential/token paths using `.env.example`.
 
-The app initializes local SQLite state. Upload a Markdown resume, optional supporting Markdown, and preferences through onboarding. Historical state and uploads remain under ignored `data/`.
+The app initializes a local SQLite database. Use onboarding to connect Gmail, upload your Markdown resume and optional project materials, and set preferences. Local state and uploads remain inside ignored `data/` paths.
 
-Optional CLI helpers, run from the root:
+Optional backend helpers (the Streamlit UI is the supported product entry point):
 
 ```bash
 python scripts/run_candidate_upload.py /path/to/document.md
 python scripts/run_candidate_profile_ingestion.py /path/to/document.md
 ```
 
-The first saves a source through the upload boundary; the second also invokes extraction/validation and writes local candidate state. They are optional backend helpers; the UI is the supported product workflow.
+The first uses the upload boundary; the second also triggers extraction/validation and writes candidate state.
 
-## Verification and evaluation runs
+## Local verification and evaluation
+
+You can run the existing offline checks **manually**. GitHub Actions / automated CI is not configured or required for this portfolio release.
 
 ```bash
 python -m pytest -q
 python evals/verify_artifacts.py
 ```
 
-The formal suite uses synthetic fixtures and temporary databases. Artifact verification is offline and checks frozen hashes, input counts, IDs, and recorded matching metrics; it makes no model calls. Live evaluation commands are documented in each component README and require provider credentials, network access, and billable API calls. New runs write ignored output files and do not overwrite committed canonical evidence by default.
+The test suite uses synthetic fixtures and temporary databases. Artifact verification checks committed frozen hashes, input counts, IDs, and recorded matching metrics without making LLM calls. Running live evaluation requires network access, provider credentials, and possibly billable requests; new evaluation runs write ignored outputs rather than overwriting canonical artifacts by default. Component-specific instructions live under `evals/`.
 
-## Demo and repository map
-
-No screenshots or recorded demo are included in this V1 export. Run the local UI to inspect onboarding, the opportunity queue, and requirement-to-evidence detail. No fabricated product screenshots are presented.
+## Repository map
 
 ```text
-app.py                       Local Streamlit product
-job_agent/                   Application/domain/provider implementation
-tests/                       Offline regression tests
-scripts/                     Optional candidate-source CLI helpers
-docs/                        Architecture decisions and durability design
-evals/                       Four component benchmarks and safe canonical runs
-.env.example                 Local configuration template
-requirements.txt pytest.ini  Setup and test collection
+app.py                         Local Streamlit product
+job_agent/                     Domain workflows, LLM integrations, scoring, storage, and UI
+scripts/                       Optional local CLI helpers
+tests/                         Offline regression tests
+evals/                         Four component benchmarks and review artifacts
+docs/                          Architecture decisions and persistence design
+Portfolio_Repo_Cleanup_Report.md  Historical public-release audit / cleanup notes
+.env.example                   Local configuration template
+requirements.txt               Python dependencies
+pytest.ini                     Local test collection settings
 ```
 
-This portfolio demonstrates a concrete product boundary, testable AI components, a revised acquisition architecture based on live evidence, inspectable semantic judgments, and deterministic state/policy around model behavior.
+This repository demonstrates an end-to-end AI-assisted decision workflow, human-centered product boundaries, design iteration grounded in diagnostic results, structured evidence and explainable scoring, and explicit recognition of current system limitations.
